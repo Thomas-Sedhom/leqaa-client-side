@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Profile</title>
+   <meta content="" name="description">
+   <meta content="" name="keywords">
+
+   <!-- Favicons -->
+   <link href="assets/img/favicon.png" rel="icon">
+   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+   <!-- Google Fonts -->
+   <link href="https://fonts.gstatic.com" rel="preconnect">
+   <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet">
+
+   <!-- Vendor CSS Files -->
+   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+   <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+   <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+   <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+   <!-- Template Main CSS File -->
+   <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+   <header id="header" class="header fixed-top d-flex align-items-center">
+      <div class="d-flex align-items-center justify-content-between">
+         <a href="index.html" class="logo d-flex align-items-center">
+            <img src="assets/img/logo.png" alt="">
+            <span class="d-none d-lg-block">NiceAdmin</span>
+         </a>
+         <i class="bi bi-list toggle-sidebar-btn"></i>
+      </div>
+   </header>
+   <aside id="sidebar" class="sidebar">
+      <ul class="sidebar-nav" id="sidebar-nav">
+         <li class="nav-item">
+            <a class="nav-link collapsed" href="index.html">
+               <i class="bi bi-person"></i>
+               <span>Profile</span>
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link collapsed" href="contacts.html">
+               <i class="bi bi-envelope"></i>
+               <span>Contacts</span>
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link collapsed" href="newAdmin.html">
+               <i class="bi bi-box-arrow-in-right"></i>
+               <span>New admin</span>
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link collapsed" href="connections.html">
+               <i class="bi bi-card-list"></i>
+               <span>Connections</span>
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link collapsed" href="pendingConnections.html">
+               <i class="bi bi-question-circle"></i>
+               <span>Pending Connections</span>
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link collapsed" href="approveUser.html">
+               <i class="bi bi-dash-circle"></i>
+               <span>ApproveUsers</span>
+            </a>
+         </li>
+      </ul>
+   </aside>
+   <main id="main" class="main userProfile">
+
+      <div class="pagetitle">
+         <h1>Profile</h1>
+         <nav>
+            <ol class="breadcrumb">
+               <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+               <li class="breadcrumb-item"><a href="./pendingConnections.html">pending Connections</a></li>
+               <li class="breadcrumb-item active">Profile</li>
+            </ol>
+         </nav>
+      </div><!-- End Page Title -->
+
+      <section class="section profile userProfile">
+         <div class="row">
+            <div class="col-xl-4">
+
+               <div class="card">
+                  <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+                     <img id="faceImageProfile" src="" alt="Profile" class="rounded-circle">
+                     <h2 id="name"></h2>
+                  </div>
+               </div>
+            </div>
+            <div class="col-xl-8">
+               <div class="card">
+                  <div class="card-body pt-3">
+                     <ul class="nav nav-tabs nav-tabs-bordered">
+                        <li class="nav-item">
+                           <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">نظرة
+                              عامة</button>
+                        </li>
+                     </ul>
+                     <div class="tab-content pt-2">
+                        <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                           <h5 class="card-title">تفاصبل الحساب</h5>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label ">الاسم الاول</div>
+                              <div class="col-lg-9 col-md-8" id="firstName"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label ">الاسم الاوسط</div>
+                              <div class="col-lg-9 col-md-8" id="midName"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label ">الاسم الاخير</div>
+                              <div class="col-lg-9 col-md-8" id="lastName"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">العمر</div>
+                              <div class="col-lg-9 col-md-8" id="age"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">النوع</div>
+                              <div class="col-lg-9 col-md-8" id="gender"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">تاريخ الميلاد</div>
+                              <div class="col-lg-9 col-md-8" id="DOB"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">الجنسية</div>
+                              <div class="col-lg-9 col-md-8" id="nationality"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">المحافظة</div>
+                              <div class="col-lg-9 col-md-8" id="governorate"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">المدينة</div>
+                              <div class="col-lg-9 col-md-8" id="city"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">المنطقة</div>
+                              <div class="col-lg-9 col-md-8" id="region"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">العنوان</div>
+                              <div class="col-lg-9 col-md-8" id="address"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">الهاتف</div>
+                              <div class="col-lg-9 col-md-8" id="phone"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">النادي</div>
+                              <div class="col-lg-9 col-md-8" id="club"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">المؤهل</div>
+                              <div class="col-lg-9 col-md-8" id="qualification"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">المدرسة</div>
+                              <div class="col-lg-9 col-md-8" id="school"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">نوع المدرسة</div>
+                              <div class="col-lg-9 col-md-8" id="schoolType"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">الكلية</div>
+                              <div class="col-lg-9 col-md-8" id="college"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">الجامعة</div>
+                              <div class="col-lg-9 col-md-8" id="university"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">التخصص</div>
+                              <div class="col-lg-9 col-md-8" id="specialization"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">اللغات</div>
+                              <div class="col-lg-9 col-md-8" id="languagesContainer">
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">الدين</div>
+                              <div class="col-lg-9 col-md-8" id="religion"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">الطول</div>
+                              <div class="col-lg-9 col-md-8" id="height"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">الوزن</div>
+                              <div class="col-lg-9 col-md-8" id="weight"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">لون البشرة</div>
+                              <div class="col-lg-9 col-md-8" id="skinColor"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">امراض مزمنة</div>
+                              <div class="col-lg-9 col-md-8" id="permanentDiseases"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">تفاصيل الامراض</div>
+                              <div class="col-lg-9 col-md-8" id="permanentDiseasesDetails"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">اعاقة</div>
+                              <div class="col-lg-9 col-md-8" id="disability"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">تفاصيل الاعاقة</div>
+                              <div class="col-lg-9 col-md-8" id="disabilityDetails"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">سيارة</div>
+                              <div class="col-lg-9 col-md-8" id="car"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">موديل السيارة</div>
+                              <div class="col-lg-9 col-md-8" id="carModel"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">توع السيارة</div>
+                              <div class="col-lg-9 col-md-8" id="carType"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">شقة</div>
+                              <div class="col-lg-9 col-md-8" id="apartment"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">مساحة الشقة</div>
+                              <div class="col-lg-9 col-md-8" id="space"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">عنوان الشقة</div>
+                              <div class="col-lg-9 col-md-8" id="site"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">صاحب شركة</div>
+                              <div class="col-lg-9 col-md-8" id="businessOwner"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">نوع الشركة</div>
+                              <div class="col-lg-9 col-md-8" id="businessType"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">عمل</div>
+                              <div class="col-lg-9 col-md-8" id="job"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">نوع العمل</div>
+                              <div class="col-lg-9 col-md-8" id="jobTitle"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">الشركة</div>
+                              <div class="col-lg-9 col-md-8" id="jobCompany"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">متزوج مسبقا</div>
+                              <div class="col-lg-9 col-md-8" id="marriedBefore"> </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">متزوج الان</div>
+                              <div class="col-lg-9 col-md-8" id="marriedNow"> </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">اطفال</div>
+                              <div class="col-lg-9 col-md-8" id="children"> </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">عدد الاطفال</div>
+                              <div class="col-lg-9 col-md-8" id="numberOfChildren"> </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">اعمار الاطفال</div>
+                              <div class="col-lg-9 col-md-8" id="agesOfChildren"> </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">اسم ولي الامر</div>
+                              <div class="col-lg-9 col-md-8" id="nameOfTheApplicantGuardian"> </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">علافته بالمتقدم</div>
+                              <div class="col-lg-9 col-md-8" id="relationWithApplicant"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">هاتف ولي الامر</div>
+                              <div class="col-lg-9 col-md-8" id="phoneOfGuardian"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">هوايات</div>
+                              <div class="col-lg-9 col-md-8" id="hobbies"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">عادات</div>
+                              <div class="col-lg-9 col-md-8" id="habbits"></div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label">معلومات اخري</div>
+                              <div class="col-lg-9 col-md-8" id="otherInfo"> </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label"> العيش في الخارج</div>
+                              <div class="col-lg-9 col-md-8" id="livingAbroad"> </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label"> صورة كاملة</div>
+                              <div class="col-lg-9 col-md-8">
+                                 <img id="fullImage" src="" class="img-fluid" alt="">
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label"> صورة البطاقة</div>
+                              <div class="col-lg-9 col-md-8">
+                                 <img id="idImage" src="" class="img-fluid" alt="">
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-3 col-md-4 label"> صورة العميل مع البطاقة</div>
+                              <div class="col-lg-9 col-md-8">
+                                 <img id="manWithIdImage" src="" class="img-fluid" alt="">
+                              </div>
+                           </div>
+                        </div>
+                     </div><!-- End Bordered Tabs -->
+
+                  </div>
+               </div>
+
+            </div>
+         </div>
+      </section>
+
+   </main><!-- End #main -->
+
+   <!-- ======= Footer ======= -->
+   <footer id="footer" class="footer">
+      <div class="copyright">
+         &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+         <!-- All the links in the footer should remain intact. -->
+         <!-- You can delete the links only if you purchased the pro version. -->
+         <!-- Licensing information: https://bootstrapmade.com/license/ -->
+         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+   </footer><!-- End Footer -->
+
+   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+         class="bi bi-arrow-up-short"></i></a>
+
+   <!-- Vendor JS Files -->
+   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+   <script src="assets/vendor/chart.js/chart.umd.js"></script>
+   <script src="assets/vendor/echarts/echarts.min.js"></script>
+   <script src="assets/vendor/quill/quill.js"></script>
+   <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+   <script src="assets/vendor/php-email-form/validate.js"></script>
+
+   <!-- Template Main JS File -->
+   <script src="assets/js/main.js"></script>
+   <script src="assets/js/userProfile.js"></script>
+</body>
+
+</html>

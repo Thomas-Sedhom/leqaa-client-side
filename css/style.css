@@ -1,0 +1,663 @@
+/* links */
+@import url("./bootstrap.min.css");
+/*****************************************************************************************************************/
+/* general */
+*{
+    box-sizing: border-box
+}
+h1{
+    margin: 0;
+}
+body{
+    padding: 0;
+    margin: 0;
+    direction: rtl
+}
+.row{
+    margin: 0;
+    padding: 0
+}
+/*****************************************************************************************************************/
+/* signup page */
+.signup{
+    margin: 0;
+    padding: 50px 0;
+    height: 100vh;
+    width: 80%;
+    margin: auto;
+}
+.signup .row{
+    height: 100%;
+    display: flex;
+}
+.signup .form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+.signup .form h2{
+    font-size: 30px;
+    padding-bottom: 30px;
+}
+.signup .form form{
+    display: flex;
+    /* width: fit-content; */
+    flex-direction: column;
+}
+.signup .form form label{
+    padding-right: 13px;
+}
+.signup .form form input{
+    border: 1px solid black;
+    margin: 5px;
+    width: 300px;
+    height: 58px;
+    padding: 0 0px 0 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    transition: all ease-in-out 0.2s;
+    direction: ltr;
+    border: 1px solid blueviolet;
+}
+.signup .form form input:focus{
+    box-shadow: 1px 2px 3px 0px blueviolet;
+    outline: none;
+}
+.signup .form form button{
+    width: fit-content;
+    margin: auto;
+    border: none;
+    background: blueviolet;
+    color: white;
+    padding: 11px 25px;
+    border-radius: 15px;
+    font-size: 19px;
+    transition: all ease-in-out 0.3s;
+}
+.signup .form form button:hover{
+    background-color: #743991;
+}
+.signup .form form .check{
+    margin: auto;
+    padding-top: 20px;
+}
+.signup .image{
+    height: 100%;
+    display: flex;
+}
+.signup .image img{
+    height: 100%;
+    width: 100%;
+    margin: auto
+}
+.signup .err{
+    font-size: 16px;
+    color: red;
+    padding-top: 20px;
+}
+.signup .check a{
+    text-decoration: none;
+}
+@media screen and (max-width:981px) {
+    .signup {
+        margin: 0;
+        padding: 5px 0; 
+        height: 107vh;
+        width: 80%;
+        margin: auto;
+        width: 90%;
+    }
+    .signup .form {
+        align-items: center;
+        padding-top: 0px !important;
+        margin-top: 15px !important;
+    }
+    .signup .row {
+        flex-wrap: wrap-reverse;
+        align-items: flex-end;
+    }
+    .signup .image {
+        width: 532px;
+        margin: auto;
+        height: 45%;
+    }
+    .signup .form h2{
+        font-size: 30px;
+        padding-bottom: 10px;
+    }
+}
+/*****************************************************************************************************************/
+/* login page*/
+.login{
+    margin: 0;
+    padding: 50px 0;
+    height: 100vh;
+    width: 80%;
+    margin: auto;
+}
+.login .row{
+    height: 100%;
+    display: flex;
+}
+.login .form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+.login .form h2{
+    font-size: 30px;
+    padding-bottom: 30px;
+}
+.login .form form{
+    display: flex;
+    /* width: fit-content; */
+    flex-direction: column;
+}
+.login .form form label{
+    padding-right: 13px;
+}
+.login .form form input{
+    border: 1px solid black;
+    margin: 5px;
+    width: 300px;
+    height: 58px;
+    padding: 0 0px 0 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    transition: all ease-in-out 0.2s;
+    direction: ltr;
+    border: 1px solid blueviolet;
+}
+.login .form form input:focus{
+    box-shadow: 1px 2px 3px 0px blueviolet;
+    outline: none;
+}
+.login .form form button{
+    width: fit-content;
+    margin: auto;
+    border: none;
+    background: blueviolet;
+    color: white;
+    padding: 11px 25px;
+    border-radius: 15px;
+    font-size: 19px;
+    transition: all ease-in-out 0.3s;
+}
+.login .form form button:hover{
+    background-color: #743991;
+}
+.login .form form .login{
+    margin: auto;
+    padding-top: 20px;
+}
+.login .image{
+    height: 100%;
+    display: flex;
+}
+.login .image img{
+    height: 100%;
+    width: 100%;
+    margin: auto
+}
+.login .err{
+    font-size: 16px;
+    color: red;
+    padding-top: 20px;
+}
+.login .login a{
+    text-decoration: none;
+}
+@media screen and (max-width:981px) {
+    .login {
+        margin: 0;
+        padding: 5px 0; 
+        height: 107vh;
+        width: 80%;
+        margin: auto;
+        width: 90%;
+    }
+    .login .form {
+        align-items: center;
+        padding-top: 0px !important;
+        margin-top: 15px !important;
+    }
+    .login .row {
+        flex-wrap: wrap-reverse;
+        align-items: flex-end;
+    }
+    .login .image {
+        width: 532px;
+        margin: auto;
+        height: 45%;
+    }
+    .login .form h2{
+        font-size: 30px;
+        padding-bottom: 10px;
+    }
+}
+/*****************************************************************************************************************/
+/* verification page */
+.verfContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    direction: ltr;
+}
+.otp-card #verificationMessage{
+    color: red;
+    font-size: 16px;
+    padding-top: 20px;
+}
+.otp-card{
+    text-align: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 10px 40px -20px black;
+}
+.otp-card-inputs{
+    margin: 30px 0;
+    display: grid;
+    gap: 30px;
+    justify-content: center;
+    grid-template-columns: repeat(5, auto);
+}
+.otp-card-inputs input{
+    width: 60px;
+    height: 70px;
+    font-size: 35px;
+    text-align: center;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+.otp-card-inputs input:focus{
+    outline: 2px solid blueviolet;
+    border-color: transparent;
+}
+.otp-card button{
+    background-color: blueviolet;
+    border: none;
+    padding: 15px 50px;
+    font-size: 18px;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+.otp-card button:hover{
+    opacity: 0.9;
+}
+.otp-card button[disabled]{
+    opacity: 0.6;
+    cursor: default;
+}
+
+@media screen and (max-width:535px) {
+    .otp-card{
+        text-align: center;
+        background-color: white;
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 10px 40px -20px black;
+    }
+    .otp-card-inputs input{
+        width: 40px;
+        height: 45px;
+        font-size: 35px;
+        text-align: center;
+        border-radius: 20px;
+        border: 1px solid black;
+    }
+    .otp-card-inputs{
+        margin: 30px 0;
+        display: grid;
+        gap: 20px;
+        justify-content: center;
+        grid-template-columns: repeat(5, auto);
+    }
+}
+/*****************************************************************************************************************/
+/* completeRegistration page */
+.completeRegistration{
+    margin: 0;
+    padding: 50px 0;
+    height: 100vh;
+    width: 95%;
+    margin: auto;
+}
+.completeRegistration .row{
+    height: 100%;
+    display: flex;
+}
+.completeRegistration .form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.completeRegistration .form h2{
+    font-size: 30px;
+    padding-bottom: 30px;
+}
+.completeRegistration .form form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+.completeRegistration .form form div{
+    flex-direction: column;
+    width: 270px;
+}
+.completeRegistration .form form label{
+    padding-right: 16px;
+    display: block;
+}
+.completeRegistration .form form input, .completeRegistration textarea, .completeRegistration  select{
+    border: 1px solid black;
+    margin: 5px;
+    width: 250px;
+    height: 58px;
+    padding: 0 20px 0 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    transition: box-shadow ease-in-out 0.2s;
+    direction: rtl;
+    border: 1px solid blueviolet;
+}
+.completeRegistration .form form .bool input{
+    border: 1px solid black;
+    margin: 13px 5px 0px 0px;
+    width: 70px;
+    height: 36px;
+}
+.completeRegistration .form form .bool{
+    display: flex;
+    padding: 5px 0 20px 0;
+}
+.completeRegistration .form form .bool .permanent-diseases, 
+.completeRegistration .form form .bool .disability-diseases,
+.completeRegistration .form form .bool .car,
+.completeRegistration .form form .bool .apartment,
+.completeRegistration .form form .bool .job,
+.completeRegistration .form form .bool .businessOwner,
+.completeRegistration .form form .bool .marriedBefore,
+.completeRegistration .form form .bool .marriedNow,
+.completeRegistration .form form .bool .children,
+.completeRegistration .form form .bool .livingAbroad
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right:5px ;
+}
+.completeRegistration .form form .bool label{
+    display: contents;
+    padding: 0;
+}
+.completeRegistration .form form .bool .Title{
+    display: flex;
+    margin-right: 19px;
+    justify-content: end;
+    text-align: center;
+    width: fit-content;
+}
+.completeRegistration .form form .bool textarea{
+    margin: 5px 0 0 0;
+}
+.completeRegistration .form form .bool #permanentDiseasesDetailsSection, 
+.completeRegistration .form form .bool #disabilityDetailsSection
+
+{
+    padding-top: 10px;
+    align-items: center;
+}
+.completeRegistration .form form .bool #carDetailsSection,
+.completeRegistration .form form .bool #apartmentDetailsSection,
+.completeRegistration .form form .bool #jobSection,
+.completeRegistration .form form .bool #childrenSection
+{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 11px;
+    flex-direction: row;
+}
+.completeRegistration .form form .bool #carDetailsSection div,
+.completeRegistration .form form .bool #apartmentDetailsSection div,
+.completeRegistration .form form .bool #jobSection div,
+.completeRegistration .form form .bool #childrenSection div
+{
+    width: 49%;
+}
+.completeRegistration .form form .bool #carDetailsSection div textarea,
+.completeRegistration .form form .bool #apartmentDetailsSection div textarea,
+.completeRegistration .form form .bool #jobSection div textarea,
+.completeRegistration .form form .bool #childrenSection div textarea
+{
+    width: 100%;
+}
+.completeRegistration .form form .bool input:focus{
+    box-shadow: 1px 2px 3px 0px rgba(137, 43, 226, 0);
+    outline: none;
+}
+.completeRegistration textarea{
+    padding-top: 15px;
+}
+.completeRegistration textarea:focus{
+    box-shadow: 1px 2px 3px 0px blueviolet;
+    outline: none;
+}
+.completeRegistration .form form input:focus{
+    box-shadow: 1px 2px 3px 0px blueviolet;
+    outline: none;
+}
+.completeRegistration .form form button{
+    width: fit-content;
+    margin: auto;
+    border: none;
+    background: blueviolet;
+    color: white;
+    padding: 11px 25px;
+    border-radius: 15px;
+    font-size: 19px;
+    transition: all ease-in-out 0.3s;
+}
+.completeRegistration .form form .languages{
+    width: 100%;
+    height: fit-content;
+    padding-bottom: 44px;
+    min-width: fit-content;
+    display: flex;
+}
+.completeRegistration .form form .languages #addLanguageButton{
+    width: fit-content;
+    margin-right: 24px;
+}
+.completeRegistration .form form .languages .removeLanguageButton{
+    margin-bottom: 15px;
+}
+.language-section{
+    margin: 0 !important;
+}
+#languagesSection{
+    width: 99%;
+    flex-direction: row;
+    margin: auto;
+    justify-content: start;
+}
+.completeRegistration .form form button:hover{
+    background-color: #743991;
+}
+.completeRegistration .form form .check{
+    margin: auto;
+    padding-top: 20px;
+}
+.completeRegistration .image{
+    height: 82%;
+    display: inline;
+    position: fixed;
+    /* top: 0; */
+    left: 10px;
+    /* top: 0; */
+}
+.completeRegistration .image img{
+    height: 100%;
+    width: 100%;
+    margin: auto
+}
+.completeRegistration .preview{
+    display: flex;
+    justify-content: start;
+}
+.completeRegistration .preview img{
+    width: 85%;
+    height: 204px;
+    border-radius: 7px;
+    margin-bottom: 10px;
+}
+.completeRegistration input[type="file"] {
+    display: none;
+}
+
+.completeRegistration .custom-file-upload {
+    cursor: pointer;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: inline-block;
+    background-color: #eee;
+    color: #333;
+    margin: 7px 0px 7px 15px;
+    padding: 15px;
+    border-radius: 7px;
+    transition: all ease-in-out 0.3s;
+}
+
+.completeRegistration .custom-file-upload:hover{
+    background-color: #743991;
+    color: white;
+}
+
+.completeRegistration .submit {
+    display: block;
+    margin: auto;
+    width: 100% !important;
+    display: flex;
+    margin-top: 18px !important;
+}
+
+.completeRegistration .err{
+    font-size: 16px;
+    color: red;
+    padding-top: 20px;
+}
+.completeRegistration .check a{
+    text-decoration: none;
+}
+@media screen and (max-width:1170px) {
+    .completeRegistration .form form div{
+        width: fit-content;
+        margin: auto;
+        width: 277px;
+    }
+    .completeRegistration .form form input,
+    .completeRegistration textarea, 
+    .completeRegistration textarea, 
+    .completeRegistration  select{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width:992px) {
+    .completeRegistration {
+        margin: 0;
+        padding: 5px 0; 
+        height: fit-content;
+        width: 80%;
+        margin: auto;
+        width: 90%;
+    }
+    .completeRegistration .image{
+        height: 82%;
+        display: inline;
+        position: static;
+    }
+    .completeRegistration .form {
+        align-items: center;
+        padding-top: 0px !important;
+        margin-top: 15px !important;
+    }
+    .completeRegistration .form form div{
+        width: fit-content;
+        margin: auto;
+        width: 300px;
+    }
+    
+    .completeRegistration .form form input,
+    .completeRegistration textarea, 
+    .completeRegistration textarea, 
+    .completeRegistration  select{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .completeRegistration .row {
+        flex-wrap: wrap-reverse;
+        align-items: flex-end;
+    }
+    .completeRegistration .image {
+        width: 532px;
+        margin: auto;
+        height: 45%;
+    }
+    .completeRegistration .form h2{
+        font-size: 30px;
+        padding-bottom: 10px;
+    }
+}
+
+@media screen and (max-width:692px) {
+    .completeRegistration .form form div{
+        width: fit-content;
+        margin: auto;
+        width: 250px;
+    }
+    .completeRegistration .form form input,
+    .completeRegistration textarea, 
+    .completeRegistration textarea, 
+    .completeRegistration  select{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .completeRegistration #faceImagePreview{
+        display: flex;
+        justify-content: center;
+    }
+    .completeRegistration #faceImagePreview img{
+        display: flex;
+        margin: auto;
+    }
+}
+@media screen and (max-width:570px) {
+    .completeRegistration .form form div{
+        width: fit-content;
+        margin: auto;
+        width: 100%;
+    }
+    #languagesSection div {
+        width: 100%;
+    }
+}
+/* ------------------------------------------------------------------------------------------------- */
+/* waiting */
+.waiting h2{
+    height: 100vh;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#c93900 ;
+}
