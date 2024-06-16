@@ -49,54 +49,48 @@ const numberOfChildren = document.getElementById('numberOfChildren');
 const agesOfChildren = document.getElementById('agesOfChildren');
 const livingAbroad = document.getElementById('livingAbroad')
 const languagesContainer = document.getElementById('languagesContainer');
-const faceImage =  document.getElementById('faceImageProfile');
-const fullImage =  document.getElementById('fullImage');
-const idImage =  document.getElementById('idImage');
-const manWithIdImage =  document.getElementById('manWithIdImage');
+const faceImage = document.getElementById('faceImageProfile');
+const fullImage = document.getElementById('fullImage');
+const idImage = document.getElementById('idImage');
+const manWithIdImage = document.getElementById('manWithIdImage');
 const userName = document.getElementById('name');
-//-------------------------------------------------------------------------------------------------------------------
-// Extract id using substring and split
-let queryString = window.location.search;
-if (queryString) {
-	const urlParams = new URLSearchParams(queryString.substring(1));
-	id = urlParams.get('id');
-	if (!id) 
-		console.error('Email not found in query parameter');
-} else {
-	console.warn('No query string present in the URL');
-}
+const connections = document.getElementById('connections');
+const profileStatus = document.getElementById('profileStatus');
+const profileStatusCont = document.querySelector('.profileStatus');
 
-const userApi = async () =>{
-    const response = await fetch(`http://localhost:3000/api/v1/admin/connections/${id}`,{
+//-------------------------------------------------------------------------------------------------------------------
+// fetch user data
+const userApi = async () => {
+    const response = await fetch(`http://localhost:3000/api/v1/user/profile`, {
         method: 'GET',
-        headers:{
+        headers: {
             "Content-Type": "application/json",
 
         },
         credentials: 'include'
-    } )
+    })
     if (!response.ok) {
         const errorData = await response.json(); // Parse JSON error data
         const messages = errorData?.message || ["Unknown error"]; // Handle potential missing message
         error.innerHTML = messages;
         throw new Error(`Error during signup: ${messages}`); // Handle errors gracefully
-    } 
+    }
     const message = await response.json();
-    console.log(message )
+    console.log(message)
     return message;
 }
-const completeData = async() => {
 
+//-------------------------------------------------------------------------------------------------------------------
+// read all data from api respond
+const completeData = async () => {
     const data = await userApi();
-    console.log(data.specialization)
-    console.log(specialization)
     console.log(data.firstName)
     firstName.innerHTML = data.firstName
     midName.innerHTML = data.midName;
     lastName.innerHTML = data.lastName;
     age.innerHTML = data.age;
     gender.innerHTML = data.gender;
-    DOB.innerHTML = data.DOB;
+    DOB.innerHTML = formatDate(data.DOB);
     nationality.innerHTML = data.nationality;
     governorate.innerHTML = data.governorate;
     city.innerHTML = data.city;
@@ -113,7 +107,7 @@ const completeData = async() => {
     const stringArray = data.languages[0];
     const arrayOfObjects = JSON.parse(stringArray);
     console.log(arrayOfObjects, typeof arrayOfObjects);
-    for(let i = 0; i < arrayOfObjects.length; i++) {
+    for (let i = 0; i < arrayOfObjects.length; i++) {
         console.log(i)
         const language = document.createElement('div');
         language.innerHTML = arrayOfObjects[i].language;
@@ -131,18 +125,18 @@ const completeData = async() => {
     weight.innerHTML = data.weight;
     skinColor.innerHTML = data.skinColor;
 
-    if(data.permanentDiseases == false){
+    if (data.permanentDiseases == false) {
         permanentDiseases.innerHTML = "لا";
         permanentDiseasesDetails.innerHTML = "لا يوجد";
-    }else{
+    } else {
         permanentDiseases.innerHTML = "نعم";
         permanentDiseasesDetails.innerHTML = data.permanentDiseasesDetails;
     }
 
-    if(data.disability == false){
+    if (data.disability == false) {
         disability.innerHTML = "لا";
         disabilityDetails.innerHTML = "لا يوجد";
-    }else{
+    } else {
         disability.innerHTML = "نعم";
         disabilityDetails.innerHTML = data.disabilityDetails;
     }
@@ -152,60 +146,60 @@ const completeData = async() => {
     idImage.src = data.idImage;
     manWithIdImage.src = data.manWithIdImage;
 
-    if(data.car == false){
+    if (data.car == false) {
         car.innerHTML = "لا";
         carModel.innerHTML = "لا يوجد";
         carType.innerHTML = "لا يوجد";
-    }else {
+    } else {
         car.innerHTML = "نعم";
         carModel.innerHTML = data.carModel;
         carType.innerHTML = data.carType;
     }
-    
-    if(data.apartment == false){
+
+    if (data.apartment == false) {
         apartment.innerHTML = "لا";
         space.innerHTML = "لا يوجد";
         site.innerHTML = "لا يوجد";
-    }else {
+    } else {
         apartment.innerHTML = "نعم";
         space.innerHTML = data.space;
         site.innerHTML = data.site;
     }
 
-    if(data.businessOwner == false){
+    if (data.businessOwner == false) {
         businessOwner.innerHTML = "لا";
         businessType.innerHTML = "لا يوجد";
-    }else {
+    } else {
         businessOwner.innerHTML = "نعم";
         businessType.innerHTML = data.businessType;
     }
 
-    if(data.job == false){
+    if (data.job == false) {
         job.innerHTML = "لا";
         jobTitle.innerHTML = "لا يوجد";
         jobCompany.innerHTML = "لا يوجد";
-    }else {
+    } else {
         job.innerHTML = "نعم";
         jobTitle.innerHTML = data.jobTitle;
         jobCompany.innerHTML = data.jobCompany;
     }
-    if(data.marriedBefore == false){
+    if (data.marriedBefore == false) {
         marriedBefore.innerHTML = "لا";
-    }else {
+    } else {
         marriedBefore.innerHTML = "نعم";
     }
 
-    if(data.marriedNow == false){
+    if (data.marriedNow == false) {
         marriedNow.innerHTML = "لا";
-    }else {
+    } else {
         marriedNow.innerHTML = "نعم";
     }
 
-    if(data.children == false){
+    if (data.children == false) {
         children.innerHTML = "لا";
         numberOfChildren.innerHTML = "لا يوجد";
         agesOfChildren.innerHTML = "لا يوجد";
-    }else {
+    } else {
         children.innerHTML = "نعم";
         numberOfChildren.innerHTML = data.numberOfChildren;
         agesOfChildren.innerHTML = data.agesOfChildren;
@@ -216,13 +210,111 @@ const completeData = async() => {
     hobbies.innerHTML = data.hobbies;
     habbits.innerHTML = data.habits;
     otherInfo.innerHTML = data.otherInfo;
-    
-    if(data.livingAbroad == false){
+
+    if (data.livingAbroad == false) {
         livingAbroad.innerHTML = "لا";
-    }else {
+    } else {
         livingAbroad.innerHTML = "نعم";
     }
     userName.innerHTML = `${data.firstName} ${data.lastName}`
 }
-
 completeData()
+
+//-------------------------------------------------------------------------------------------------------------------
+// handle date format
+function formatDate(dateString) {
+    const date = new Date(dateString); 
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0'); 
+    const year = date.getFullYear();
+    return `${day}-${month}-${year}`;
+}
+
+//-------------------------------------------------------------------------------------------------------------------
+// get user gender
+
+const getGender = async () => {
+    const res = await fetch('http://localhost:3000/api/v1/user/gender', {
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        credentials: 'include'
+    })
+    if (!res.ok) {
+        const errorData = await response.json();
+        const messages = errorData?.message || ["Unknown error"]; 
+        error.innerHTML = messages;
+        throw new Error(`Error during signup: ${messages}`); 
+    }
+    const profileStatus = await res.text();
+    console.log(profileStatus);
+    return profileStatus;
+} 
+
+//-------------------------------------------------------------------------------------------------------------------
+// get user status
+const getStatus = async () => {
+    const res = await fetch('http://localhost:3000/api/v1/user/getProfileStatus', {
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        credentials: 'include'
+    })
+    if (!res.ok) {
+        const errorData = await response.json();
+        const messages = errorData?.message || ["Unknown error"]; 
+        error.innerHTML = messages;
+        throw new Error(`Error during signup: ${messages}`); 
+    }
+    const profileStatus = await res.text();
+    console.log(profileStatus);
+    return profileStatus;
+} 
+
+//-------------------------------------------------------------------------------------------------------------------
+// change user status
+const changeUserStatus = async () => {
+    const res = await fetch('http://localhost:3000/api/v1/user/changeProfileStatus', {
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        credentials: 'include'
+    })
+    if (!res.ok) {
+        const errorData = await response.json();
+        const messages = errorData?.message || ["Unknown error"]; 
+        error.innerHTML = messages;
+        throw new Error(`Error during signup: ${messages}`); 
+    }
+    const profileStatus = await res.text();
+    console.log(profileStatus);
+    return profileStatus;
+} 
+
+//-------------------------------------------------------------------------------------------------------------------
+// change user status button context
+
+const updateStatusButton = async () => {
+    const userGender = await getGender();
+    console.log(profileStatusCont);
+    if(userGender == 'انثي'){
+        profileStatusCont.style.display = 'block';
+        const userStatus = await getStatus();
+        if(userStatus == 'false')
+            profileStatus.innerHTML = "اخفاء الحساب";
+        else
+            profileStatus.innerHTML = "اظهار الحساب";
+    }
+}
+updateStatusButton();
+
+//-------------------------------------------------------------------------------------------------------------------
+// change user status 
+
+profileStatus.addEventListener('click', async () => {
+    await changeUserStatus();
+    await updateStatusButton();
+})

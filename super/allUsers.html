@@ -2,10 +2,9 @@
 <html lang="en">
 
 <head>
-   <meta charset="utf-8">
-   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-   <title>Profile</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>All Users</title>
    <meta content="" name="description">
    <meta content="" name="keywords">
 
@@ -45,9 +44,27 @@
    <aside id="sidebar" class="sidebar">
       <ul class="sidebar-nav" id="sidebar-nav">
          <li class="nav-item">
-            <a class="nav-link " href="index.html">
+            <a class="nav-link collapsed" href="index.html">
                <i class="bi bi-person"></i>
                <span>Profile</span>
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="#">
+               <i class="bi bi-person"></i>
+               <span>Users</span>
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link collapsed" href="contacts.html">
+               <i class="bi bi-envelope"></i>
+               <span>Contacts</span>
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link collapsed" href="newAdmin.html">
+               <i class="bi bi-box-arrow-in-right"></i>
+               <span>New admin</span>
             </a>
          </li>
          <li class="nav-item">
@@ -70,59 +87,19 @@
          </li>
       </ul>
    </aside>
-
-   <main id="main" class="main">
-      <section class="section profile">
-         <div class="row">
-
-            <div class="col-xl-12">
-               <div class="card">
-                  <div class="card-body pt-3">
-                     <ul class="nav nav-tabs nav-tabs-bordered">
-                        <li class="nav-item">
-                           <button class="nav-link active" data-bs-toggle="tab"
-                              data-bs-target="#profile-overview">Overview</button>
-                        </li>
-                     </ul>
-                     <div class="tab-content pt-2">
-                        <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                           <h5 class="card-title">Profile Details</h5>
-
-                           <div class="row">
-                              <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                              <div class="col-lg-9 col-md-8" id="name">Kevin Anderson</div>
-                           </div>
-                           <div class="row">
-                              <div class="col-lg-3 col-md-4 label">Email</div>
-                              <div class="col-lg-9 col-md-8" id="email">k.anderson@example.com</div>
-                           </div>
-                           <div class="row">
-                              <div class="col-lg-3 col-md-4 label">Role</div>
-                              <div class="col-lg-9 col-md-8" id="role">admin</div>
-                           </div>
-                        </div>
-                     </div><!-- End Bordered Tabs -->
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-   </main><!-- End #main -->
-
-   <!-- ======= Footer ======= -->
-   <footer id="footer" class="footer">
-      <div class="copyright">
-         &copy; Copyright <strong><span>RSC</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-         Designed by <a href="https://bootstrapmade.com/">SoftCitadel</a>
-      </div>
-   </footer>
-
-   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-         class="bi bi-arrow-up-short"></i></a>
-
-   <!-- Vendor JS Files -->
+   <main id="main" class="main approveUsers">
+      <h1>Not Approved Users</h1>
+      <table id="users-container">
+         <thead>
+            <tr>
+               <th>user name</th>
+               <th>details</th>
+            </tr>
+         </thead>
+         <tbody>
+         </tbody>
+      </table>
+   </main>
    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
    <script src="assets/vendor/chart.js/chart.umd.js"></script>
@@ -134,8 +111,7 @@
 
    <!-- Template Main JS File -->
    <script src="assets/js/main.js"></script>
-   <script src="./assets/js/profile.js"></script>
-
+   <script src="assets/js/allUsers.js"></script>
 </body>
 
 </html>

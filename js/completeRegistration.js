@@ -295,8 +295,8 @@ completeRegistrationForm.addEventListener("submit", async (e) => {
    const weight = document.getElementById('weight').value;
    const nameOfTheApplicantGuardian = document.getElementById('nameOfTheApplicantGuardian').value;
    const relationWithApplicant = document.getElementById('relationWithApplicant').value;
-   const phoneOfGuardian = document.getElementById('hobbies').value;
-   const hobbies = document.getElementById('address').value;
+   const phoneOfGuardian = document.getElementById('phoneOfGuardian').value;
+   const hobbies = document.getElementById('hobbies').value;
    const habbits = document.getElementById('habbits').value;
    const otherInfo = document.getElementById('otherInfo').value;
    const permanentDiseases = document.querySelector('input[name="permanentDiseases"]:checked').value
@@ -398,49 +398,16 @@ completeRegistrationForm.addEventListener("submit", async (e) => {
    }
 })
 
- // Handle "Remove" button clicks for existing language sections (if any)
-// document.querySelectorAll('.removeLanguageButton').forEach(button => {
-//    button.addEventListener('click', () => {
-//       const languageSectionToRemove = button.parentElement;
-//       languagesSection.removeChild(languageSectionToRemove);
-//    });
-// });
-
-// const form = document.getElementById('registrationForm');
-// form.addEventListener('submit', (event) => {
-//    event.preventDefault(); // Prevent default form submission
-
-//    const languageSections = document.querySelectorAll('.language-section');
-//    let languages = [];
-
-//    languageSections.forEach(section => {
-//       const language = section.querySelector('input[name*="[language]"]').value;
-//       const level = section.querySelector('input[name*="[level]"]').value;
-
-//       languages.push({ language, level });
-//    });
-
-//    const completeRegData = {
-   
-
-// ... other form data (access form elements using their IDs or names)
-   //    languages
-   // };
-
-   // Submit data to your server (using AJAX, fetch, etc.)
-   // console.log(completeRegData); 
-   // Replace with your actual submission logic
-   // fetch('/submit-registration', {
-   //   method: 'POST',
-   //   body: JSON.stringify(completeRegData),
-   //   headers: { 'Content-Type': 'application/json' }
-   // })
-   // .then(response => response.json())
-   // .then(data => {
-   //   // Handle successful submission
-   // })
-   // .catch(error => {
-   //   // Handle submission errors
-   // });
-// });
-
+const warnings = document.getElementById('warning');
+const getWarning = async () => {
+   const response = await fetch('http://localhost:3000/api/v1/auth/warning', {
+      method: 'GET',
+      credentials: 'include', 
+   })
+   const data = await response.text();
+   if(data != ""){
+      warnings.innerHTML = data;
+      warnings.style.display = "block";
+   }
+}
+getWarning()

@@ -23,8 +23,8 @@ const height = document.getElementById('height');
 const weight = document.getElementById('weight');
 const nameOfTheApplicantGuardian = document.getElementById('nameOfTheApplicantGuardian');
 const relationWithApplicant = document.getElementById('relationWithApplicant');
-const phoneOfGuardian = document.getElementById('hobbies');
-const hobbies = document.getElementById('address');
+const phoneOfGuardian = document.getElementById('phoneOfGuardian');
+const hobbies = document.getElementById('hobbies');
 const habbits = document.getElementById('habbits');
 const otherInfo = document.getElementById('otherInfo');
 const permanentDiseases = document.getElementById('permanentDiseases')
@@ -107,7 +107,7 @@ const completeData = async() => {
     schoolType.innerHTML = data.schoolType;
     college.innerHTML = data.college;
     university.innerHTML = data.university;
-    specialization.innerHTML - data.specialization;
+    specialization.innerHTML = data.specialization;
     const stringArray = data.languages[0];
     const arrayOfObjects = JSON.parse(stringArray);
     console.log(arrayOfObjects, typeof arrayOfObjects);

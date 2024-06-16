@@ -1,11 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Home</title>
+   <link rel="stylesheet" href="./css/style.css">
+   </link>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,500;0,700;1,100;1,200;1,500;1,600;1,700&display=swap"
+      rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Marhey:wght@300..700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    timeline
+   <header>
+      <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
+         <div class="container">
+            <a class="navbar-brand" href="#"><img src="./images/logo.png" alt="logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+               <ul class="navbar-nav">
+                  <li class="nav-item">
+                     <a class="nav-link active" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="./profile.html">Profile</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="./contactUs.html">Contact us</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#">About us</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <div class="phone">
+            <ul class="navbar-nav">
+               <li class="nav-item">
+                  <a class="nav-link active" href="#">
+                     <i class="fa-solid fa-house"></i>
+                  </a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="./profile.html">
+                     <i class="fa-solid fa-user"></i>
+                  </a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="./contactUs.html">
+                     <i class="fa-solid fa-address-book"></i>
+                  </a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#">
+                     <i class="fa-solid fa-address-card"></i>
+                  </a>
+               </li>
+            </ul>
+         </div>
+      </nav>
+   </header>
+   <main class="timeline">
+      <h2>Ollya Success Stories</h2>
+      <div class="openFilter">
+         <div class="text">ابحث عن حبك الحقيقي</div>
+         <button id="openFilter">بحث</button>
+      </div>
+      <div>
+         <form class="timeline-filter-form" id="timeline-filter-form">
+            <div class="radios">
+               <div class="cont col-lg-6 col-md-12 col-sm-12">
+                  <label for="apartment" class="Title">منزل</label>
+                  <div class="apartment">
+                     <input type="radio" id="apartmentAll" name="apartment" value="" checked>
+                     <label for="apartmentAll">الكل</label>
+                     <input type="radio" id="apartmentYes" name="apartment" value="true">
+                     <label for="apartmentYes">نعم</label>
+                     <input type="radio" id="apartmentNo" name="apartment" value="false">
+                     <label for="apartmentNo">لا</label>
+                  </div>
+               </div>
+               <div class="cont col-lg-6 col-md-12 col-sm-12">
+                  <label for="car" class="Title">سيارة</label>
+                  <div class="car">
+                     <input type="radio" id="carAll" name="car" value="" checked>
+                     <label for="carAll">الكل</label>
+                     <input type="radio" id="carYes" name="car" value="true">
+                     <label for="carYes">نعم</label>
+                     <input type="radio" id="carNo" name="car" value="false">
+                     <label for="carNo">لا</label>
+                  </div>
+               </div>
+               <div class="cont col-lg-6 col-md-12 col-sm-12">
+                  <label for="job" class="Title">وظيفة</label>
+                  <div class="job">
+                     <input type="radio" id="jobAll" name="job" value="" checked>
+                     <label for="jobAll">الكل</label>
+                     <input type="radio" id="jobYes" name="job" value="true">
+                     <label for="jobYes">نعم</label>
+                     <input type="radio" id="jobNo" name="job" value="false" >
+                     <label for="jobNo">لا</label>
+                  </div>
+               </div>
+               <div class="cont col-lg-6 col-md-12 col-sm-12">
+                  <label for="businessOwner" class="Title">صاحب عمل</label>
+                  <div class="businessOwner">
+                     <input type="radio" id="businessOwnerAll" name="businessOwner" value="" checked>
+                     <label for="businessOwnerAll">الكل</label>
+                     <input type="radio" id="businessOwnerYes" name="businessOwner" value="true">
+                     <label for="businessOwnerYes">نعم</label>
+                     <input type="radio" id="businessOwnerNo" name="businessOwner" value="false" >
+                     <label for="businessOwnerNo">لا</label>
+                  </div>
+               </div>
+               <div class="cont col-lg-6 col-md-12 col-sm-12">
+                  <label for="marriedBefore" class="Title">تزوج مسبقا</label>
+                  <div class="marriedBefore">
+                     <input type="radio" id="marriedBeforeAll" name="marriedBefore" value="" checked>
+                     <label for="marriedBeforeAll">الكل</label>
+                     <input type="radio" id="marriedBeforeYes" name="marriedBefore" value="true">
+                     <label for="marriedBeforeYes">نعم</label>
+                     <input type="radio" id="marriedBeforeNo" name="marriedBefore" value="false" >
+                     <label for="marriedBeforeNo">لا</label>
+                  </div>
+               </div>
+               <div class="cont col-lg-6 col-md-12 col-sm-12 bool">
+                  <label for="children" class="Title">لديه اطفال</label>
+                  <div class="children">
+                     <input type="radio" id="childrenAll" name="children" value="" checked>
+                     <label for="childrenAll">الكل</label>
+                     <input type="radio" id="childrenYes" name="children" value="true">
+                     <label for="childrenYes">نعم</label>
+                     <input type="radio" id="childrenNo" name="children" value="false" >
+                     <label for="childrenNo">لا</label>
+                  </div>
+               </div>
+               <div class="cont col-lg-6 col-md-12 col-sm-12 bool">
+                  <label for="livingAbroad" class="Title">المقدرة علي العيش خارج الموطن ؟</label>
+                  <div class="livingAbroad">
+                     <input type="radio" id="livingAbroadAll" name="livingAbroad" value="" checked>
+                     <label for="livingAbroadAll">الكل</label>
+                     <input type="radio" id="livingAbroadYes" name="livingAbroad" value="true">
+                     <label for="livingAbroadYes">نعم</label>
+                     <input type="radio" id="livingAbroadNo" name="livingAbroad" value="false" >
+                     <label for="livingAbroadNo">لا</label>
+                  </div>
+               </div>
+            </div>
+            <div class="inputs">
+               <div class="cont col-lg-6 col-md-12 col-sm-12">
+                  <label for="minAge">اقل سن</label>
+                  <input type="number" id="minAge" name="minAge" placeholder="Min" required>
+               </div>
+               <div class="cont col-lg-6 col-md-12 col-sm-12">
+                  <label for="maxAge">اكبر سن</label>
+                  <input type="number" id="maxAge" name="maxAge" placeholder="Max" required>
+               </div>
+               <div class="cont col-lg-6 col-md-12 col-sm-12">
+                  <label for="governorate">المحافظة</label>
+                  <input type="text" id="governorate" name="governorate" placeholder="Governorate">
+               </div>
+               <div class="cont col-lg-6 col-md-12 col-sm-12">
+                  <label for="schoolType">نوع المدرسة</label>
+                  <select id="schoolType" name="schoolType">
+                     <option value="">Select School Type</option>
+                     <option value="عربي">عربي</option>
+                     <option value="ازهري">ازهري</option>
+                     <option value="خاصة">خاصة</option>
+                     <option value="لغات">لغات</option>
+                     <option value="دولية">دولية</option>
+                  </select>
+               </div>
+               <div class="cont col-lg-6 col-md-12 col-sm-12">
+                  <label for="religion">الديانة</label>
+                  <select id="religion" name="religion">
+                     <option value="">Select Region</option>
+                     <option value="مسلم سني">مسلم سني</option>
+                     <option value="مسلم شيعي">مسلم شيعي</option>
+                     <option value="مسيحي ارثوزكسي">مسيحي ارثوزكسي</option>
+                     <option value="مسيحي بروتوستانتي">مسيحي بروتوستانتي</option>
+                     <option value="مسيحي ماروني">مسيحي ماروني</option>
+                     <option value="مسيحي كاثوليك">مسيحي كاثوليك</option>
+                  </select>
+               </div>
+            </div>
+            <button type="submit">Filter</button>
+         </form>
+      </div>
+      <div class="cards row" id="cards">
+      </div>
+   </main>
+   <script src="./js/bootstrap.bundle.min.js"></script>
+   <script src="./js/timeline.js"></script>
 </body>
+
 </html>

@@ -139,6 +139,7 @@ body{
 .login .row{
     height: 100%;
     display: flex;
+    align-items: center;
 }
 .login .form{
     display: flex;
@@ -195,6 +196,11 @@ body{
 .login .image{
     height: 100%;
     display: flex;
+}
+.login #error {
+    text-align: center;
+    margin: auto;
+    font-size: 25px;
 }
 .login .image img{
     height: 100%;
@@ -327,6 +333,12 @@ body{
     height: 100vh;
     width: 95%;
     margin: auto;
+}
+.completeRegistration #warning{
+    color: red;
+    text-align: center;
+    padding: 15px 0 48px 0;
+    display: none;
 }
 .completeRegistration .row{
     height: 100%;
@@ -660,4 +672,1145 @@ body{
     justify-content: center;
     align-items: center;
     color:#c93900 ;
+}
+/* ------------------------------------------------------------------------------------------------- */
+/* time line */
+header{
+    border-bottom: 0.2px solid #707070d4;
+}
+header .navbar {
+    box-shadow: none;
+    direction: ltr;
+    background: rgb(50 21 145);
+    color: white;
+    padding: 15px 0 ;
+}
+.navbar-expand-lg .navbar-collapse {
+    justify-content: center;
+}
+header .phone{
+    display: none;
+}
+header .navbar-expand-lg .navbar-collapse {
+    width: 80%;
+}
+header .navbar-expand-lg .navbar-nav {
+    flex-direction: row;
+    width: 70%;
+    justify-content: center;
+    transition: all ease-in-out 0.2;
+}
+
+header .navbar-expand-lg .navbar-nav li{
+    padding-left: 7px;
+    font-size: 19px;
+    transition: all ease-in-out 0.2;
+    font-weight: 400;
+}
+header .navbar-expand-lg .navbar-nav li a{
+    color: #ffffffde;
+    font-weight: bold;
+}
+
+header .navbar-expand-lg .navbar-nav li a:hover{
+    color:  rgb(102, 178, 255) !important
+}
+header .active{
+    color: rgb(102, 178, 255) !important;
+}
+
+header button {
+    border: 1px solid white !important;
+}
+
+.timeline h2{
+    text-align: center;
+    padding: 24px 0;
+}
+
+.timeline p{
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    font-size: 20px;
+    color: #000000b8;
+    margin-bottom: 30px;
+}
+.timeline .cards{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 20px;
+}
+.timeline .card{
+    width: 27%;
+    padding: 0px 0px 12px 0px;
+    direction: rtl;
+    margin-bottom: 15px;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+    
+}
+.timeline .card img{
+    width: 100%;
+    height: 400px;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+}
+.timeline .card .card-body{
+    padding: 10px 10px;
+}
+.timeline .card .card-body .card-title{
+    margin: 15px 0
+}
+
+.timeline .card .card-body a{
+    width: 100%;
+    background: #1e901e;
+    padding: 10px 0;
+    transition: all ease-in-out 0.3s;
+    border: none;
+}
+.timeline .card .card-body a:hover{
+    background-color: #155b15;
+}
+.timeline .card .card-body #user{
+    background-color: #333;
+    margin-bottom: 10px;
+}
+.timeline .card .card-body #user:hover{
+    background-color: black;
+}
+.timeline .timeline-filter-form{
+    display: flex;
+    width: 80%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(-40px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    height: 0px;
+    overflow: hidden;
+    box-shadow: 0 0 20px 4px rgba(136, 136, 136, 0.2);
+    padding: 5px 9px;
+}
+.timeline .openFilter{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid #0000002e;
+    width: 785px;
+    margin: auto;
+    border-radius: 12px;
+    box-shadow: #0000005c 0 0 7px 1px;
+    margin-bottom: 15px;
+}
+
+.timeline .openFilter .text{
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+    font-size: 35px;
+    margin: 0 10px;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: #9f032ad1;
+    text-shadow: #9f032ad1 0px 0px 2px;
+}
+@media screen and (max-width:850px) {
+    .timeline .openFilter{
+        width: 90%;
+    }
+    .timeline .openFilter .text{
+        font-size: 25px;
+    }
+}
+@media screen and (max-width:570px) {
+    .timeline .openFilter .text{
+        font-size: 18px;
+    }
+}
+.timeline .openFilter button{
+    padding: 8px 54px;
+    font-size: 18px;
+    border: none;
+    background: #f24570;
+    color: white;
+    border-radius: 13px;
+    margin: 23px 0 20px 0;
+    transition: all ease-in-out 0.3s;
+}
+.timeline .openFilter button:hover{
+    background: #d10d3e;
+}
+.timeline-filter-form.show-filter {
+    opacity: 1;
+    transform: translateY(0);
+    height: fit-content;
+}
+.timeline .timeline-filter-form div{
+    width: fit-content;
+    margin: 6px;
+}
+.timeline .timeline-filter-form .cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.timeline .timeline-filter-form .radios{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.timeline .timeline-filter-form .inputs{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.timeline .timeline-filter-form button{
+    padding: 8px 54px;
+    font-size: 18px;
+    border: none;
+    background: #f24570;
+    color: white;
+    border-radius: 13px;
+    margin: 23px 0 20px 0;
+    transition: all ease-in-out 0.3s;
+}
+.timeline .timeline-filter-form button:hover{
+    background: #d10d3e;
+}
+.timeline .timeline-filter-form .inputs label{
+    padding-bottom: 5px;
+}
+.timeline .timeline-filter-form .inputs div{
+    margin: 0 10px 10px 10px;
+}.timeline .timeline-filter-form .inputs select{
+    padding: 8px 20px;
+    border: 1px solid #0000006b;
+    border-radius: 12px;
+}
+.timeline .timeline-filter-form div input[type="text"],
+.timeline .timeline-filter-form div input[type="number"] {
+    width: 150px;
+    padding: 8px 7px;
+    border-radius: 12px;
+    border: 1px solid #0000006b;
+}
+.timeline .timeline-filter-form div input[type="number"] {
+    width: 80px;
+}
+.timeline .timeline-filter-form div input{
+
+}
+@media screen and (max-width:1400px) {
+    .navbar-expand-lg .navbar-nav {
+        flex-direction: row;
+        width: 75%;
+        justify-content: center;
+        transition: all ease-in-out 0.2;
+    }
+    .sec1 .start{
+        display: flex;
+        justify-content: space-around;
+        width: 25%;
+    }
+}
+@media screen and (max-width:1200px) {
+    header .navbar-expand-lg .navbar-nav {
+        flex-direction: row;
+        width: 70%;
+        justify-content: center;
+        transition: all ease-in-out 0.2;
+    }
+
+}
+
+@media screen and (max-width:980px) {
+    header .navbar>.container {
+        display: flex;
+        flex-wrap: inherit;
+        align-items: center;
+        justify-content: space-between;
+    }
+    header .navbar-expand-lg .navbar-nav {
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        transition: all ease-in-out 0.2;
+    }
+        
+    header .navbar-expand-lg .navbar-nav li{
+        width: 100%;
+        text-align: center;
+    }
+    .timeline .card{
+        width: 45%;
+        padding: 0 0px 5px 0px;
+        direction: rtl;
+        margin-bottom: 15px;
+    }
+}
+@media screen and (max-width:575px) {
+    header .navbar {
+        border: none;
+    }
+    header .navbar>.container{
+        display: none ;
+    }
+    header .phone {
+        width: 100%;
+        display: flex;
+        display: static;
+    }
+    .phone .navbar-nav{
+        display: flex !important;
+        flex-direction: row !important;
+    }
+    .phone .navbar-nav a{
+        font-size: 23px;
+    }
+    header .navbar {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        z-index: 500;
+    }
+    .timeline .card{
+        width: 97%;
+        padding: 0px 0px 5px 0px;
+        direction: rtl;
+        margin-bottom: 15px;
+    }
+    .timeline{
+        margin-bottom: 60px;
+    }
+}
+/* ------------------------------------------------------------------------------------------------- */
+/* contact us */
+
+.contact .sec1{
+    background: rgb(50 21 145);
+    /* width: 80%; */
+    padding: 50px 0;
+}
+.contact .sec1 h2{
+    color: white;
+    text-align: end;
+    width: 90%;
+    font-size: 46px;
+}
+.contact .sec1 nav{
+    direction: ltr;
+    width: 90%;
+}
+.contact .sec1 nav ol{
+    font-size: 20px;
+    padding-top: 30px;
+}
+.contact .sec1 nav ol li{
+    color: white;
+}
+.contact .sec1 nav ol li a{
+    color: #d0d0d0;
+    text-decoration: none;
+}
+.contact .sec2{
+    margin: 50px 0;
+}
+
+.contact .sec2 .title{
+    text-align: center;
+    font-size: 30px;
+    color: #5650ce;
+    font-weight: bold;
+}
+.contact .sec2 h2{
+    text-align: center;
+    font-size: 59px;
+
+}
+.contact .sec2 p{
+    text-align: center;
+    font-size: 21px;
+    color: #000000b8;
+}
+.contact .sec2 .row{
+    padding-top: 54px;
+}
+
+.contact .sec2 .form form div{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    border-bottom: 1px solid #00000045;
+    width: 80%;
+    margin-bottom: 20px;
+}
+.contact .sec2 .form form div input, .contact textarea{
+    border: none;
+    padding: 15px 5px 15px 0;
+}
+textarea{
+    height: 300px;
+}
+.contact .sec2 .form form div i{
+    color: white;
+    background: red;
+    padding: 7px 7px;
+    border-radius: 50%;
+    background-image: linear-gradient(166deg, rgb(242, 40, 118) 0%, rgb(148, 45, 217) 100%);
+}
+.contact .sec2 .form form button{
+    border: none;
+    padding: 10px 22px;
+    border-radius: 12px;
+    background: rgb(89 55 198);
+    color: white;
+    font-size: 19px;
+    width: 80%;
+    transition: all ease-in-out 0.3s;
+}
+
+.contact .sec2 .form form button:hover{
+    background:#743991
+}
+
+@media screen and (max-width:980px) {
+    .contact .sec2 .image {
+        height: 500px;
+        margin: auto;
+        display: flex;
+    }
+    .contact .sec2 .image img {
+        width: 100%;
+        height: 100%;
+        width: 80%;
+        margin: auto;
+    }
+    .contact .sec2 .form {
+        margin-top: 53px;
+    }
+    .contact .sec2 form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .contact .sec2 .form form div {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        border-bottom: 1px solid #00000045;
+        width: 80%;
+        margin-bottom: 20px;
+        margin: 22px auto;
+    }
+    .contact .sec2 .form form button {
+        border: none;
+        padding: 10px 22px;
+        border-radius: 12px;
+        background: rgb(89 55 198);
+        color: white;
+        font-size: 19px;
+        width: 80%;
+        transition: all ease-in-out 0.3s;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width:575px) {
+    .contact .sec2 .title{
+        text-align: center;
+        font-size: 25px;
+        color: #5650ce;
+        font-weight: bold;
+    }
+    .contact .sec2{
+        margin-bottom: 100px;
+    }
+    .contact .sec2 h2{
+        text-align: center;
+        font-size: 49px;
+    
+    }
+    .contact .sec2 p{
+        text-align: center;
+        font-size: 17px;
+        color: #000000b8;
+        width: 90%;
+        margin: auto;
+    }
+    .contact .sec2 .image {
+        height: 400px;
+        margin: auto;
+        display: flex;
+    }
+}
+/* ------------------------------------------------------------------------------------------------- */
+/* user profile */
+.profile .sec1{
+    background: rgb(50 21 145);
+    /* width: 80%; */
+    padding: 50px 0;
+}
+.profile .sec1 h2{
+    color: white;
+    text-align: end;
+    width: 90%;
+    font-size: 46px;
+}
+.profile .sec1 nav{
+    direction: ltr;
+    width: 90%;
+}
+.profile .sec1 nav ol{
+    font-size: 20px;
+    padding-top: 30px;
+}
+.profile .sec1 nav ol li{
+    color: white;
+}
+.profile .sec1 nav ol li a{
+    color: #d0d0d0;
+    text-decoration: none;
+}
+.profile .sec2 .card {
+    width: fit-content;
+    margin: 12px auto;
+    padding: 0 0 20px 0;
+    border-radius: 24px;
+    text-align: center;
+    border: none;
+    box-shadow: #00000085 0px 1px 7px;
+    height: 400px;
+
+}
+.profile .sec2 .card .image{
+    display: flex;
+    width: 426px;
+    height: 157px;
+    margin: auto;
+}
+.profile .sec2 .card .image img{
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+.profile .sec2 .card .details{
+    position: relative;
+    top: -67px;
+}
+.profile .sec2 .card .details .faceImage{
+    width: 221px;
+    height: 197px;
+    margin: 0px auto;
+    border-radius: 50%;
+    position: relative;
+    top: -41px;
+}
+.profile .sec2 .card .details .profileStatus{
+    position: relative;
+    top: -48px;
+    display: none;
+}
+.profile .sec2 .card .details .profileStatus button{
+    padding: 8px 54px;
+    font-size: 18px;
+    border: none;
+    background: #f24570;
+    color: white;
+    border-radius: 13px;
+    margin: 23px 0 20px 0;
+    transition: all ease-in-out 0.3s;
+}
+.profile .sec2 .card .details .profileStatus button:hover{
+    background: #cc1644;
+}
+.profile .sec2 .card .details .faceImage img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.profile .sec2 .card .details h3{
+    position: relative;
+    top: -55px;
+}
+.profile .sec2 .card .details .age{
+    font-size: 23px;
+    color: #0000008f;
+    font-weight: bold;
+    position: relative;
+    top: -55px;
+}
+.profile .sec2 .info{
+    width: 80%;
+    margin: auto;
+}
+.profile .sec2 .info h2{
+    text-align: center;
+    margin: 30px 0 40px 0;
+}
+
+.profile .sec2 .info .row .row {
+    justify-content: center;
+    margin-bottom: 13px;
+    border-bottom: 1px solid #00000021 !important;
+    padding: 15px 0;
+}
+.profile .connected  {
+    position: relative;
+    top: -30px;
+    font-size: 20px;
+    color: green;
+    font-weight: bold;
+    direction: ltr;
+}
+.profile .connected i{
+    padding: 0px 0px 0 5px;
+}
+
+.profile .notConnected {
+    position: relative;
+    top: 28px;
+}
+
+
+.profile .notConnected button{
+    border: none;
+    background: #208d20;
+    color: white;
+    padding: 12px 60px;
+    border-radius: 12px;
+    font-size: 18px;
+    transition: all ease-in-out 0.3s;
+}
+.profile .notConnected button:hover{
+    background: #156e15;
+}
+.profile .sec2 .info .row diV .label {
+    color: rgb(0 0 0) !important;
+    font-weight: 400;
+}
+.profile .sec2 .info .row diV:nth-child(2){
+    font-weight: bold;
+
+}
+.profile #languagesContainer{
+    display: flex;
+}
+.profile .languageContainer{
+    margin-right: 5px;
+}
+.profile .sec2 .active{
+    color: #ac216c !important;
+}
+@media screen and (min-width:2000px) {
+    .profile .sec2{
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+@media screen and (max-width:575px) {
+    .profile .sec2 .card .details {
+        position: relative;
+        top: -156px;
+    }
+    .profile .connected {
+        position: relative;
+        top: 100px;
+        font-size: 20px;
+        color: green;
+        font-weight: bold;
+        direction: ltr;
+    }
+    .profile .sec2 .card .image{
+        display: flex;
+        width: 100%;
+        height: 157px;
+        margin: auto;
+    }
+    .profile .notConnected{
+        position: relative;
+        top: 95px;
+    }
+    .profile .sec2 .card .details .faceImage{
+        width: 221px;
+        height: 197px;
+        margin: 0px auto;
+        border-radius: 50%;
+        position: relative;
+        top: 80px;
+    }
+    .profile .sec2 .card {
+        width: 80%;
+        margin: 12px auto;
+        padding: 0 0 20px 0;
+        border-radius: 24px;
+        text-align: center;
+        height: 367px;
+    }
+    .profile .sec2 .info .row diV {
+        justify-content: flex-start !important;
+    }
+    .profile .sec2 .info .row diV .label{
+        width: fit-content;
+    }
+    .profile .sec2 .info .row diV:nth-child(2){
+        width: fit-content;
+    }
+    .profile .row{
+        margin-bottom: 60px;
+    }
+
+}
+
+/* ------------------------------------------------------------------------------------------------- */
+/* profile */
+
+.profile .sec2 .profile-nav {
+    margin-top: 38px;
+    margin-bottom: 50px;
+}
+
+.profile .sec2 .profile-nav ul{
+    display: flex;
+    justify-content: space-around;
+    width: 500px;
+    margin: auto;
+    border: 1;
+    box-shadow: #00000030 0px 0 14px 2px;
+    padding: 12px;
+    border-radius: 12px;
+    margin: 20px auto;
+}
+
+.profile .sec2 .profile-nav ul li{
+    list-style: none;
+}
+.profile .sec2 .profile-nav ul li a{
+    text-decoration: none;
+    color: #473b3bf0;
+    font-weight: bold;
+    transition: all ease-in-out 0.2s;
+}
+.profile .sec2 .profile-nav ul li a:hover{
+    color: #ac216c;
+}
+.profile .sec2 .profile-icons{  
+    display: none;
+}
+.profile .sec2 .row img {
+    width: 160px;
+    height: 150px;
+}
+.profile .sec2 .profileCard {
+    width: fit-content;
+    margin: 12px auto;
+    padding: 0 0 20px 0;
+    border-radius: 24px;
+    text-align: center;
+    border: none;
+    box-shadow: #00000085 0px 1px 7px;
+    height: 327px;
+}
+
+@media screen and (max-width:575px) {
+    .profile .sec2  {
+        width: fit-content;
+        margin: 12px auto;
+        padding: 0 0 20px 0;
+        border-radius: 24px;
+        text-align: center;
+        border: none;
+        height: 327px;
+    }
+    .profile .sec2 .profileCard {
+        width: 84%;
+        margin: 12px auto;
+        padding: 0 0 20px 0;
+        border-radius: 24px;
+        text-align: center;
+        border: none;
+        box-shadow: #00000085 0px 1px 7px;
+        height: 288px;
+    }
+    .profile .sec2 .profileCard .details .faceImage {
+        width: 150px;
+        height: 150px;
+        margin: 0px auto;
+        border-radius: 50%;
+        position: relative;
+        top: 80px;
+    }
+    .profile .sec2 .profileCard .details .profileStatus {
+        top: 64px
+    }
+    .profile .profileRow{
+        margin-bottom: 80px;
+    }
+    .profile .sec2 .profile-nav {
+        display: none;
+    }
+    .profile .sec2 .profile-icons{  
+        display: flex;
+    }
+    .profile .sec2 .profile-icons ul{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        list-style: none;
+        box-shadow: #00000099 0 0 7px 0px;
+        padding: 10px;
+        border-radius: 12px;
+        margin: 20px 0;
+    }
+    
+    .profile .sec2 .profile-icons ul li a{
+        font-size: 20px;
+    }
+}
+/* ------------------------------------------------------------------------------------------------- */
+/* connections */
+
+.connections{
+
+}
+.connections .row{
+    display: flex;
+    justify-content: space-around;
+}
+
+.connections .row .userCard{
+    display: flex;
+    direction: ltr;
+    align-items: center;
+    margin-bottom: 30px;
+    border: 1px solid #0000005c;
+    margin: 0 5px 30px 0;
+    width: 45%;
+    border-radius: 12px;
+    padding: 10px 5px;
+    justify-content: space-around;
+}
+.connections .row .userCard .image{
+    height: 100px;
+    width: 122px;
+}
+.connections .row .userCard .image img{
+    height: 100%;
+    width: 100%;
+}
+.connections .row .userCard .details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+}
+.connections .row .userCard .details .name{
+
+}
+.connections .row .userCard .details .age{
+
+}
+.connections .row .userCard button{
+    border: none;
+    background: none;
+}
+.connections .row .userCard button a{
+    display: block;
+    text-decoration: none;
+    color: black;
+    width: 100%;
+    height: 100%;
+    padding: 9px 24px;
+    border-radius: 20px;
+    border: 1px solid #0000003d;
+}
+.connections .row .userCard button a:hover{
+    background: linear-gradient(166deg, rgb(242, 40, 118) 0%, rgb(148, 45, 217) 100%);
+    color: #fff !important;
+    
+}
+.connections .row .userCard .image img{
+    border-radius: 12px;
+}
+@media screen and (min-width:1200px) {
+    .connections .row {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+    .connections .cards {
+        width: 66%;
+        max-width: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin: auto;
+    }
+    .connections .row .userCard .image {
+        height: 113px;
+        width: 122px;
+    }
+    .connections .row .userCard .details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 5px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .connections .row .userCard .details .age {
+        font-size: 17px;
+        color: #000000b0;
+    }
+}
+@media screen and (max-width:1200px) {
+    .connections .cards{
+        width: 90%;
+        max-width: auto;
+    }
+    .connections .row .userCard .details {
+        font-size: 20px;
+    }
+    .connections .row .userCard .details .age {
+        font-size: 17px;
+        color: #000000b0;
+    }
+}
+@media screen and (max-width:925px) {
+    .connections .cards{
+        width: 95%;
+        max-width: auto;
+    }
+    .connections .row .userCard{
+        width: 60%;
+    }
+    .connections .cards{
+        width: 90%;
+        max-width: auto;
+    }
+    .connections .row .userCard .details {
+        font-size: 18px;
+    }
+    .connections .row .userCard .details .age {
+        font-size: 14px;
+        color: #000000b0;
+    }
+    
+}
+@media screen and (max-width:575px) {
+    .connections .row .userCard {
+        width: 99%;
+    }
+    .connections .row .userCard .details {
+        font-size: 15px;
+        padding: 0px;
+        margin: 2px;
+    }
+    .connections .row .userCard button {
+        font-size: 15px;
+        padding: 8px 12px;
+    }
+    .connections .cards {
+        padding-bottom: 60px;
+    }
+    .connections .row .userCard .image {
+        height: 100px;
+        width: 102px;
+    }
+
+    .connections .sec2 .profileCard .details .faceImage {
+        width: 54%;
+        height: 59%;
+        margin: 0px auto;
+        border-radius: 50%;
+        position: relative;
+        top: 80px;
+    }
+    .connections .row .userCard button a {
+        font-size: 12px;
+    }
+}
+
+/* ------------------------------------------------------------------------------------------------- */
+/* connections */
+.userConnection .connected{
+    display: none;
+}
+
+.userConnection .notConnected{
+    display: none;
+}
+.userConnection .sec2 .card {
+    height: 350px;
+}
+@media screen and (max-width:1200px) {
+    .userConnection .sec2 .card {
+        width: fit-content;
+        margin: 12px auto;
+        padding: 0 0 20px 0;
+        border-radius: 24px;
+        text-align: center;
+        border: none;
+        box-shadow: #00000085 0px 1px 7px;
+        height: 365px;
+    }
+}
+
+
+.userConnection .action {
+    position: relative;
+    top: -12px;
+}
+
+.userConnection .action button{
+    border: none;
+    padding: 7px 15px;
+    background: none;
+    border-radius: 15px;
+    transition: all ease-in-out 0.3s;
+    font-weight: bold;
+}
+.userConnection .action .accept{
+    background: #0e730edb;
+    color: white;
+
+}
+.userConnection .action .accept:hover{
+    background: #095f09;
+}
+.userConnection .action .reject{
+    background: red;
+    color: white;
+}
+.userConnection .action .reject:hover{
+    background: rgb(147, 13, 13);
+}
+
+@media screen and (max-width:575px) {
+    .userConnection .sec2 .card {
+        height: 250px;
+    }
+    .userConnection .sec2 {
+        width: fit-content;
+        margin: 12px auto;
+        padding: 0 0 20px 0;
+        border-radius: 24px;
+        text-align: center;
+        border: none;
+        height: 327px;
+        margin: 12px;
+    }
+    .userConnection .sec2 .card .details .faceImage {
+        width: 175px;
+        height: 150px;
+        margin: 0px auto;
+        border-radius: 50%;
+        position: relative;
+        top: 81px;
+    }
+    .userConnection .action {
+        position: relative;
+        top: 115px;
+    }
+}
+
+/* ------------------------------------------------------------------------------------------------- */
+/* connections */
+
+.userRequest .sec2 .card {
+    height: 370px;
+}
+@media screen and (max-width:575px) {
+    .userRequest .sec2 .card {
+        height: 370px;
+    }
+}
+
+/* ------------------------------------------------------------------------------------------------- */
+/* loading */
+
+:root {
+	--hue: 223;
+	--bg: hsl(var(--hue),90%,95%);
+	--fg: hsl(var(--hue),90%,5%);
+	--trans-dur: 0.3s;
+}
+.loadingBody {
+    display: none;
+	background-color: var(--bg);
+	color: var(--fg);
+	font: 1em/1.5 sans-serif;
+	height: 100vh;
+	display: grid;
+	place-items: center;
+	transition: background-color var(--trans-dur);
+    display: none;
+}
+.loading {
+	padding: 1.5em 0;
+}
+.loading .ip {
+	width: 16em;
+	height: 8em;
+}
+.loading .ip__track {
+	stroke: hsl(var(--hue),90%,90%);
+	transition: stroke var(--trans-dur);
+}
+.loading .ip__worm1,
+.loading .ip__worm2 {
+	animation: worm1 2s linear infinite;
+}
+.loading .ip__worm2 {
+	animation-name: worm2;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: hsl(var(--hue),90%,5%);
+		--fg: hsl(var(--hue),90%,95%);
+	}
+	.loading .ip__track {
+		stroke: hsl(var(--hue),90%,15%);
+	}
+}
+
+/* Animation */
+@keyframes worm1 {
+	from {
+		stroke-dashoffset: 0;
+	}
+	50% {
+		animation-timing-function: steps(1);
+		stroke-dashoffset: -358;
+	}
+	50.01% {
+		animation-timing-function: linear;
+		stroke-dashoffset: 358;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+@keyframes worm2 {
+	from {
+		stroke-dashoffset: 358;
+	}
+	50% {
+		stroke-dashoffset: 0;
+	}
+	to {
+		stroke-dashoffset: -358;
+	}
 }
