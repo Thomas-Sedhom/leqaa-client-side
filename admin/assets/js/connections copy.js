@@ -38,12 +38,12 @@ function createConnectionRow(connectedUser, otherUser){
 	const row = document.createElement("tr");
 	const firstUser = document.createElement("td");
 	const userProfileLink = document.createElement("a");
-	userProfileLink.href = `file:///D:/work/seeko/seeko-front/admin/profile.html?id=${connectedUser._id}`;
+	userProfileLink.href = `file:///D:/work/seeko/seeko-front/super/profile.html?id=${connectedUser._id}`;
 	userProfileLink.textContent = `${connectedUser.firstName} ${connectedUser.lastName}`
 	firstUser.appendChild(userProfileLink)
 	const secondUser = document.createElement("td");
 	const otherUserProfileLink = document.createElement("a");
-	otherUserProfileLink.href = `file:///D:/work/seeko/seeko-front/admin/profile.html?id=${otherUser._id}`;
+	otherUserProfileLink.href = `file:///D:/work/seeko/seeko-front/super/profile.html?id=${otherUser._id}`;
 	otherUserProfileLink.textContent = `${otherUser.firstName} ${otherUser.lastName}`
 	secondUser.appendChild(otherUserProfileLink)
 		row.appendChild(firstUser);

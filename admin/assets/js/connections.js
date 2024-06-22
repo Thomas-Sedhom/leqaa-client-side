@@ -12,70 +12,64 @@ async function fetchUserConnections() {
 		}); 
 		const connections = await response.json();
 		if (!response.ok) {
-			const errorData = await response.json(); // Parse JSON error data
-			const messages = errorData?.message || ["Unknown error"]; // Handle potential missing message
+			const errorData = await response.json(); 
+			const messages = errorData?.message || ["Unknown error"]; 
 			error.innerHTML = messages;
-			throw new Error(`Error during signup: ${messages}`); // Handle errors gracefully
+			throw new Error(`Error during signup: ${messages}`); 
 		} 
 		console.log(JSON.stringify(connections));
+		connections.sort((a, b) => {
+			if (!a.connectionDate) return 1;
+			if (!b.connectionDate) return -1;
+			return new Date(b.connectionDate) - new Date(a.connectionDate);
+		});
 
 		connections.forEach((connection) => {
 			const user1 = connection.userId1;
 			const user2 = connection.userId2;
+			const connectionDate = connection.connectionDate
 
-			// Assuming user1 is always displayed as the connected user
 			const connectedUser = user1;
 			const otherUser = user2;
+			const date = formatDate(connectionDate)
 
-			createConnectionRow(connectedUser, otherUser);
+			createConnectionRow(connectedUser, otherUser, date);
 		});
 	} catch (error) {
 		console.error("Error fetching connections:", error);
 	}
 }
 
-function createConnectionRow(connectedUser, otherUser){
+function createConnectionRow(connectedUser, otherUser, date){
 	const row = document.createElement("tr");
 	const firstUser = document.createElement("td");
 	const userProfileLink = document.createElement("a");
-	userProfileLink.href = `file:///D:/work/seeko/seeko-front/admin/profile.html?id=${connectedUser._id}`;
+	userProfileLink.href = `file:///D:/work/seeko/seeko-front/super/profile.html?id=${connectedUser._id}`;
 	userProfileLink.textContent = `${connectedUser.firstName} ${connectedUser.lastName}`
 	firstUser.appendChild(userProfileLink)
 	const secondUser = document.createElement("td");
 	const otherUserProfileLink = document.createElement("a");
-	otherUserProfileLink.href = `file:///D:/work/seeko/seeko-front/admin/profile.html?id=${otherUser._id}`;
+	otherUserProfileLink.href = `file:///D:/work/seeko/seeko-front/super/profile.html?id=${otherUser._id}`;
 	otherUserProfileLink.textContent = `${otherUser.firstName} ${otherUser.lastName}`
 	secondUser.appendChild(otherUserProfileLink)
+
+	const connectionDate = document.createElement("td");
+	connectionDate.textContent = `${date}`;
 		row.appendChild(firstUser);
 		row.appendChild(secondUser);
+		row.appendChild(connectionDate);
 		connectionsContainer.appendChild(row);
 }
 
-function createConnectionCard(connectedUser, otherUser) {
-	const card = document.createElement("div");
-	card.className = "connection-card";
 
-	const connectedUserImage = document.createElement("img");
-	connectedUserImage.src = connectedUser.fullImage; // Replace with image property name
-	card.appendChild(connectedUserImage);
-
-	const connectionInfo = document.createElement("div");
-	connectionInfo.className = "connection-info";
-
-	const connectedUserName = document.createElement("h3");
-	connectedUserName.textContent = `${connectedUser.firstName} ${connectedUser.lastName}`;
-	connectionInfo.appendChild(connectedUserName);
-
-	const otherUserName = document.createElement("p");
-	otherUserName.textContent = `Connected with: ${otherUser.firstName} ${otherUser.lastName}`;
-	connectionInfo.appendChild(otherUserName);
-	const anotherUserImage = document.createElement("img");
-	anotherUserImage.src = otherUser.fullImage; // Replace with image property name
-
-
-	card.appendChild(connectionInfo);
-	card.appendChild(anotherUserImage);
-	connectionsContainer.appendChild(card);
-}
 
 fetchUserConnections();
+//-------------------------------------------------------------------------------------------------------------------
+// handle date format
+function formatDate(dateString) {
+    const date = new Date(dateString); 
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0'); 
+    const year = date.getFullYear();
+    return `${day}-${month}-${year}`;
+}

@@ -33,7 +33,7 @@ acceptButton.addEventListener('click', async () => {
 			throw new Error(`Error during signup: ${messages}`); // Handle errors gracefully
 		} 
         window.location.href =
-        "file:///D:/work/seeko/seeko-front/admin/approveUser.html";
+        "file:///D:/work/seeko/seeko-front/super/approveUser.html";
 	} catch (error) {
 		console.error("Error fetching connections:", error);
 	}
@@ -58,7 +58,7 @@ warning.addEventListener('click', async () => {
 			throw new Error(`Error during signup: ${messages}`); // Handle errors gracefully
 		} 
         window.location.href =
-        "file:///D:/work/seeko/seeko-front/admin/approveUser.html";
+        "file:///D:/work/seeko/seeko-front/super/approveUser.html";
 	} catch (error) {
 		console.error("Error fetching connections:", error);
 	}
@@ -80,7 +80,7 @@ reject.addEventListener('click', async () => {
 			throw new Error(`Error during signup: ${messages}`); // Handle errors gracefully
 		} 
         window.location.href =
-        "file:///D:/work/seeko/seeko-front/admin/approveUser.html";
+        "file:///D:/work/seeko/seeko-front/super/approveUser.html";
 	} catch (error) {
 		console.error("Error fetching connections:", error);
 	}

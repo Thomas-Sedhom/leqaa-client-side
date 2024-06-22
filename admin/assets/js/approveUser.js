@@ -17,6 +17,11 @@ async function fetchNotApprovedUsers() {
 		} 
         const connections = await response.json();
         console.log(connections);
+		connections.sort((a, b) => {
+			if (!a.registrationDate) return 1;
+			if (!b.registrationDate) return -1;
+			return new Date(b.registrationDate) - new Date(a.registrationDate);
+		});
         return connections;
 	} catch (error) {
 		console.error("Error fetching connections:", error);
@@ -35,7 +40,7 @@ async function createUserRow(){
         button.type = "button";
         button.classList.add("userButton");
         const userLink = document.createElement("a");
-        userLink.href = `file:///D:/work/seeko/seeko-front/admin/apprvedUserPage.html?id=${user._id}`;
+        userLink.href = `file:///D:/work/seeko/seeko-front/super/apprvedUserPage.html?id=${user._id}`;
         userLink.textContent = `Show Details`
         button.appendChild(userLink);
         secondCell.appendChild(button);

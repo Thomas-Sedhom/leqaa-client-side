@@ -83,6 +83,18 @@
 					<span>ApproveUsers</span>
 				</a>
 			</li>
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="./warnings.html">
+					<i class="bi bi-cone"></i>
+					<span>warnings</span>
+				</a>
+			</li>
+			<li class="nav-item logout">
+				<a class="nav-link collapsed" href="#">
+				    <i class="bi bi-box-arrow-right"></i>
+				    <span >Logout</span>
+				</a>
+			</li>
 		</ul>
 	</aside>
 	<main id="main" class="main userProfile">
@@ -106,7 +118,7 @@
 						<div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
 							<img id="faceImageProfile" src="" alt="Profile" class="rounded-circle">
-							<h2 id="name">Kevin Anderson</h2>
+							<h2 id="name"></h2>
 							<div class="buttons">
 								<button class="accept" id="acceptButton">accept</button>
 								<button class="reject" id="reject">reject</button>
@@ -130,6 +142,10 @@
 							<div class="tab-content pt-2">
 								<div class="tab-pane fade show active profile-overview" id="profile-overview">
 									<h5 class="card-title">تفاصبل الحساب</h5>
+									<div class="row">
+										<div class="col-lg-3 col-md-4 label ">تاريخ التسجيل</div>
+										<div class="col-lg-9 col-md-8" id="registrationDate"></div>
+									</div>
 									<div class="row">
 										<div class="col-lg-3 col-md-4 label ">الاسم الاول</div>
 										<div class="col-lg-9 col-md-8" id="firstName"></div>
@@ -347,12 +363,12 @@
 											<img id="idImage" src="" class="img-fluid" alt="">
 										</div>
 									</div>
-									<div class="row">
+									<!-- <div class="row">
 										<div class="col-lg-3 col-md-4 label"> صورة العميل مع البطاقة</div>
 										<div class="col-lg-9 col-md-8">
 											<img id="manWithIdImage" src="" class="img-fluid" alt="">
 										</div>
-									</div>
+									</div> -->
 								</div>
 							</div><!-- End Bordered Tabs -->
 
@@ -396,6 +412,7 @@
 	<script src="assets/js/main.js"></script>
 	<script src="assets/js/userProfile.js"></script>
 	<script src="assets/js/approveUserProfile.js"></script>
+	<script src="./assets/js/logout.js"></script>
 </body>
 
 </html>

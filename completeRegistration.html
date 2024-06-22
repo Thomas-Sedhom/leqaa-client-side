@@ -146,15 +146,18 @@
                </div>
                <div class="col-lg-6 col-md-12 col-sm-12">
                   <label for="nameOfTheApplicantGuardian">اسم ولي الامر:</label>
-                  <input type="text" id="nameOfTheApplicantGuardian" name="nameOfTheApplicantGuardian" placeholder="Applicant Guardian Name" required>
+                  <input type="text" id="nameOfTheApplicantGuardian" name="nameOfTheApplicantGuardian"
+                     placeholder="Applicant Guardian Name" required>
                </div>
                <div class="col-lg-6 col-md-12 col-sm-12">
                   <label for="relationWithApplicant">علاقته بالمتقدم:</label>
-                  <input type="text" id="relationWithApplicant" name="relationWithApplicant" placeholder="Relation With Applicant" required>
+                  <input type="text" id="relationWithApplicant" name="relationWithApplicant"
+                     placeholder="Relation With Applicant" required>
                </div>
                <div class="col-lg-6 col-md-12 col-sm-12">
                   <label for="phoneOfGuardian">هاتف ولي الامر:</label>
-                  <input type="text" id="phoneOfGuardian" name="phoneOfGuardian" placeholder="Phone Of Guardian" required>
+                  <input type="text" id="phoneOfGuardian" name="phoneOfGuardian" placeholder="Phone Of Guardian"
+                     required title="Please enter the phone number of the guardian">
                </div>
                <div class="col-lg-6 col-md-12 col-sm-12">
                   <label for="hobbies">الهوايات:</label>
@@ -162,7 +165,7 @@
                </div>
                <div class="col-lg-6 col-md-12 col-sm-12">
                   <label for="habbits">العادات "التدخين ,الالتزام الديني, ...":</label>
-                  <input type="text" id="habbits" name="habbits" placeholder="Habbits" required>
+                  <input type="text" id="habbits" name="habbits" placeholder="Habits" required>
                </div>
                <div class="col-lg-6 col-md-12 col-sm-12">
                   <label for="otherInfo">معلومات اخري:</label>
@@ -178,7 +181,8 @@
                   </div>
                   <div id="permanentDiseasesDetailsSection" style="display: none;">
                      <label for="permanentDiseasesDetails">وضح تفاصيل عن هذه الامراض:</label>
-                     <textarea id="permanentDiseasesDetails" name="permanentDiseasesDetails" placeholder="Details" rows="3"></textarea>
+                     <textarea id="permanentDiseasesDetails" name="permanentDiseasesDetails" placeholder="Details"
+                        rows="3"></textarea>
                   </div>
                </div>
                <div class="col-lg-6 col-md-12 col-sm-12 bool">
@@ -191,7 +195,8 @@
                   </div>
                   <div id="disabilityDetailsSection" style="display: none;">
                      <label for="disabilityDetails">وضح تفاصيل الاعاقة:</label>
-                     <textarea id="disabilityDetails" name="disabilityDetails" placeholder="Details" rows="3"></textarea>
+                     <textarea id="disabilityDetails" name="disabilityDetails" placeholder="Details"
+                        rows="3"></textarea>
                   </div>
                </div>
                <div class="col-lg-6 col-md-12 col-sm-12 bool">
@@ -224,11 +229,13 @@
                   <div id="apartmentDetailsSection" style="display: none;">
                      <div>
                         <label for="apartmentSpaceDetails">المساحة:</label>
-                        <textarea id="apartmentSpaceDetails" name="apartmentSpaceDetails" placeholder="Space" rows="3"></textarea>
+                        <textarea id="apartmentSpaceDetails" name="apartmentSpaceDetails" placeholder="Space"
+                           rows="3"></textarea>
                      </div>
                      <div>
                         <label for="apartmentSiteDetails">الموقع:</label>
-                        <textarea id="apartmentSiteDetails" name="apartmentSiteDetails" placeholder="Site" rows="3"></textarea>
+                        <textarea id="apartmentSiteDetails" name="apartmentSiteDetails" placeholder="Site"
+                           rows="3"></textarea>
                      </div>
                   </div>
                </div>
@@ -260,7 +267,8 @@
                      </div>
                      <div>
                         <label for="jobCompanyDetails">الشركة:</label>
-                        <textarea id="jobCompanyDetails" name="jobCompanyDetails" placeholder="Company" rows="3"></textarea>
+                        <textarea id="jobCompanyDetails" name="jobCompanyDetails" placeholder="Company"
+                           rows="3"></textarea>
                      </div>
                   </div>
                </div>
@@ -293,11 +301,13 @@
                   <div id="childrenSection" style="display: none;">
                      <div>
                         <label for="numberOfChildrenDetails">عددهم:</label>
-                        <textarea id="numberOfChildrenDetails" name="numberOfChildrenDetails" placeholder="Nmuber" rows="3"></textarea>
+                        <textarea id="numberOfChildrenDetails" name="numberOfChildrenDetails" placeholder="Nmuber"
+                           rows="3"></textarea>
                      </div>
                      <div>
                         <label for="agesOfChildrenDetails">اعمارهم:</label>
-                        <textarea id="agesOfChildrenDetails" name="agesOfChildrenDetails" placeholder="Ages" rows="3"></textarea>
+                        <textarea id="agesOfChildrenDetails" name="agesOfChildrenDetails" placeholder="Ages"
+                           rows="3"></textarea>
                      </div>
                   </div>
                </div>
@@ -314,9 +324,11 @@
                   <div id="languagesSection" class="row">
                      <div class="language-section col-lg-6 col-md-12 col-sm-12">
                         <label for="language">لغة تتحدثها:</label>
-                        <input type="text" id="language" name="languages[0].language" placeholder="language" required>
+                        <input type="text" class="language" id="language" name="languages[0].language"
+                           placeholder="language" required>
                         <label for="level">المستوي:</label>
-                        <input type="text" id="level" name="languages[0].level" placeholder="level" required>
+                        <input type="text" class="level" id="level" name="languages[0].level" placeholder="level"
+                           required>
                      </div>
                   </div>
                   <button type="button" id="addLanguageButton">اضافة لغة</button>
@@ -328,7 +340,7 @@
                   <input type="file" id="faceImage" name="faceImage" accept="image/*" required>
                   <div id="faceImagePreview" class="preview"></div>
                </div>
-               
+
                <div class="photo-upload col-lg-6 col-md-12 col-sm-12">
                   <label for="fullImage" class="custom-file-upload">
                      <i class="fas fa-cloud-upload-alt"></i> صورة كاملة
@@ -336,7 +348,7 @@
                   <input type="file" id="fullImage" name="fullImage" accept="image/*" required>
                   <div id="fullImagePreview" class="preview"></div>
                </div>
-               
+
                <div class="photo-upload col-lg-6 col-md-12 col-sm-12">
                   <label for="idImage" class="custom-file-upload">
                      <i class="fas fa-cloud-upload-alt"></i> صورة للبطاقة
@@ -344,14 +356,15 @@
                   <input type="file" id="idImage" name="idImage" accept="image/*" required>
                   <div id="idImagePreview" class="preview"></div>
                </div>
-               
-               <div class="photo-upload col-lg-6 col-md-12 col-sm-12">
+
+               <!-- <div class="photo-upload col-lg-6 col-md-12 col-sm-12">
                   <label for="manWithIdImage" class="custom-file-upload">
                      <i class="fas fa-cloud-upload-alt"></i> صورة لك مع البطاقة
                   </label>
                   <input type="file" id="manWithIdImage" name="manWithIdImage" accept="image/*" required>
                   <div id="manWithIdImagePreview" class="preview"></div>
-               </div>
+                  <span id="manWithIdImageError" class="error-message"></span>
+               </div> -->
                <div class="submit">
                   <button type="submit">Submit Registration</button>
                </div>
@@ -360,10 +373,42 @@
             <div id="error" class="err"></div>
          </div>
          <div class="image col-lg-4 col-md-12 col-sm-12">
-            <img src="./images/Untitled design.png">
+            <img src="./images/WhatsApp_Image_2024-06-20_at_04.50.17-removebg-preview.png">
          </div>
       </div>
    </main>
+   <div class="loadingBody">
+      <main class="loading">
+         <svg class="ip" viewBox="0 0 256 128" width="256px" height="128px" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+               <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#5ebd3e" />
+                  <stop offset="33%" stop-color="#ffb900" />
+                  <stop offset="67%" stop-color="#f78200" />
+                  <stop offset="100%" stop-color="#e23838" />
+               </linearGradient>
+               <linearGradient id="grad2" x1="1" y1="0" x2="0" y2="0">
+                  <stop offset="0%" stop-color="#e23838" />
+                  <stop offset="33%" stop-color="#973999" />
+                  <stop offset="67%" stop-color="#009cdf" />
+                  <stop offset="100%" stop-color="#5ebd3e" />
+               </linearGradient>
+            </defs>
+            <g fill="none" stroke-linecap="round" stroke-width="16">
+               <g class="ip__track" stroke="#ddd">
+                  <path d="M8,64s0-56,60-56,60,112,120,112,60-56,60-56" />
+                  <path d="M248,64s0-56-60-56-60,112-120,112S8,64,8,64" />
+               </g>
+               <g stroke-dasharray="180 656">
+                  <path class="ip__worm1" stroke="url(#grad1)" stroke-dashoffset="0"
+                     d="M8,64s0-56,60-56,60,112,120,112,60-56,60-56" />
+                  <path class="ip__worm2" stroke="url(#grad2)" stroke-dashoffset="358"
+                     d="M248,64s0-56-60-56-60,112-120,112S8,64,8,64" />
+               </g>
+            </g>
+         </svg>
+      </main>
+   </div>
    <script src="./js/completeRegistration.js"></script>
    <script src="./js/bootstrap.bundle.min.js"></script>
 </body>

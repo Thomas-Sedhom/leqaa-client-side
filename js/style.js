@@ -43,7 +43,6 @@ const signup = async (email, password) => {
    } else {
       error.innerHTML = "";
    }
-
    const message = await response.text();
    return message;
 };
@@ -68,5 +67,6 @@ const sendVerificationCode = async (email, password) => {
       error.innerHTML = "";
    }
    const message = await response.text();
+   console.log(  message)
    return message;
 };

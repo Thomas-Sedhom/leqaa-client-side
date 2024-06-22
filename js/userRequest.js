@@ -17,7 +17,10 @@ const otherInfo = document.getElementById("otherInfo");
 const car = document.getElementById("car");
 const apartment = document.getElementById("apartment");
 const jobTitle = document.getElementById("jobTitle");
-const faceImage = document.getElementById("faceImageProfile");
+const faceImageProfile = document.getElementById("faceImageProfile");
+const faceImage = document.getElementById("faceImage");
+const fullImage = document.getElementById("fullImage");
+
 
 //-------------------------------------------------------------------------------------------------------------------
 // fetch user data
@@ -36,7 +39,7 @@ const fetchData = async () => {
    }
    const data = await res.json();
    console.log(data);
-   faceImage.src = data.faceImage;
+   faceImageProfile.src = data.faceImage;
    age.innerHTML = data.age;
    governorate.innerHTML = data.governorate;
    address.innerHTML = data.address;
@@ -48,6 +51,11 @@ const fetchData = async () => {
    weight.innerHTML = data.weight;
    habbits.innerHTML = data.habbits;
    otherInfo.innerHTML = data.otherInfo;
+   otherInfo.innerHTML = data.otherInfo;
+   otherInfo.innerHTML = data.otherInfo;
+   faceImage.src = data.faceImage;
+   fullImage.src = data.fullImage;
+
    if (data.car == true) car.innerHTML = "يوجد";
    else car.innerHTML = "لا يوجد";
    if (data.apartment == true) apartment.innerHTML = "يوجد";
@@ -105,4 +113,44 @@ reject.addEventListener("click", async () => {
    }
    window.location.href =
       "file:///D:/work/seeko/seeko-front/receivedConnections.html";
+});
+
+
+//-----------------------------------------------------------------------------------------
+// zoom in image
+// console.log(imgCont)
+// imgCont.addEventListener("click", () =>{
+//    console.log(1)
+//    imgCont.classList.toggle("zoomIn")
+// })
+const imgCont = document.querySelector(".imgCont");
+const imgCont2 = document.querySelector(".imgCont2");
+const imageModal = document.getElementById('imageModal');
+const modalImage = document.getElementById('modalImage');
+const closeButton = document.querySelector('.close-button');
+const backGr = document.querySelector('.backGr');
+const backGr2 = document.querySelector('.backGr2');
+imgCont.addEventListener('click', () => {
+  modalImage.src = faceImage.src;
+  imageModal.style.display = 'block';
+  backGr.style.opacity = 0
+  backGr2.style.opacity = 0
+});
+imgCont2.addEventListener('click', () => {
+   modalImage.src = fullImage.src;
+   imageModal.style.display = 'block';
+   backGr.classList.add("op")
+   backGr2.classList.add("op")
+ });
+ 
+closeButton.addEventListener('click', () => {
+  imageModal.style.display = 'none';
+  backGr.classList.remove("op")
+  backGr2.classList.remove("op")
+});
+
+window.addEventListener('click', (event) => {
+  if (event.target === imageModal) {
+    imageModal.style.display = 'none';
+  }
 });

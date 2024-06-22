@@ -52,8 +52,9 @@ const languagesContainer = document.getElementById('languagesContainer');
 const faceImage =  document.getElementById('faceImageProfile');
 const fullImage =  document.getElementById('fullImage');
 const idImage =  document.getElementById('idImage');
-const manWithIdImage =  document.getElementById('manWithIdImage');
+// const manWithIdImage =  document.getElementById('manWithIdImage');
 const userName = document.getElementById('name');
+const registrationDate = document.getElementById('registrationDate');
 //-------------------------------------------------------------------------------------------------------------------
 // Extract id using substring and split
 let queryString = window.location.search;
@@ -88,13 +89,13 @@ const userApi = async () =>{
 const completeData = async() => {
 
     const data = await userApi();
-    console.log(data.firstName)
+    registrationDate.innerHTML = formatDate(data.registrationDate) 
     firstName.innerHTML = data.firstName
     midName.innerHTML = data.midName;
     lastName.innerHTML = data.lastName;
     age.innerHTML = data.age;
     gender.innerHTML = data.gender;
-    DOB.innerHTML = data.DOB;
+    DOB.innerHTML = formatDate(data.DOB);
     nationality.innerHTML = data.nationality;
     governorate.innerHTML = data.governorate;
     city.innerHTML = data.city;
@@ -148,7 +149,7 @@ const completeData = async() => {
     faceImage.src = data.faceImage;
     fullImage.src = data.fullImage;
     idImage.src = data.idImage;
-    manWithIdImage.src = data.manWithIdImage;
+    // manWithIdImage.src = data.manWithIdImage;
 
     if(data.car == false){
         car.innerHTML = "لا";
@@ -224,3 +225,14 @@ const completeData = async() => {
 }
 
 completeData()
+
+//-------------------------------------------------------------------------------------------------------------------
+// handle date format
+function formatDate(dateString) {
+    const date = new Date(dateString); 
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0'); 
+    const year = date.getFullYear();
+    return `${day}-${month}-${year}`;
+}
+

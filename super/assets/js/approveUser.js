@@ -17,6 +17,11 @@ async function fetchNotApprovedUsers() {
 		} 
         const connections = await response.json();
         console.log(connections);
+		connections.sort((a, b) => {
+			if (!a.registrationDate) return 1;
+			if (!b.registrationDate) return -1;
+			return new Date(b.registrationDate) - new Date(a.registrationDate);
+		});
         return connections;
 	} catch (error) {
 		console.error("Error fetching connections:", error);
