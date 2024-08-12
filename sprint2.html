@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>sprint 2</title>
+   <link rel="stylesheet" href="./css/style.css">
+   <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.0.1/dist/css/multi-select-tag.css">
+
+</head>
+
+<body>
+   <main class="completeRegistration">
+      <h2 id="warning"></h2>
+      <div class="row cont">
+         <div class="form col-lg-8 col-md-12 col-sm-12">
+            <h2>ادخل بياناتك</h2>
+            <form method="POST" id="completeRegistration">
+               <div class="col-lg-6 col-md-12 col-sm-12">
+                  <label for="club">النادي:</label>
+                  <input type="text" id="club" name="club" placeholder="Club">
+               </div>
+               <div class="col-lg-6 col-md-12 col-sm-12">
+                  <label for="qualification">المؤهل:</label>
+                  <select id="qualification" name="qualification" required>
+                     <option value="">Select qualification</option>
+                     <option value="دكتوراه">دكتوراه</option>
+                     <option value="ماجستير">ماجستير</option>
+                     <option value="بكالريوس">بكالريوس</option>
+                     <option value="دبلوم عال">دبلوم عال</option>
+                     <option value="دبلوم">دبلوم</option>
+                     <option value="اعدادية">اعدادية</option>
+                     <option value="ابتدائية">ابتدائية</option>
+                     <option value="محو الامية">محو الامية</option>
+                  </select>
+               </div>
+               <div class="col-lg-6 col-md-12 col-sm-12">
+                  <label for="school">المدرسة:</label>
+                  <input type="text" id="school" name="school" placeholder="School">
+               </div>
+               <div class="col-lg-6 col-md-12 col-sm-12">
+                  <label for="schoolType">نوع المدرسة:</label>
+                  <select id="schoolType" name="schoolType">
+                     <option value="">Select School Type</option>
+                     <option value="عربي">عربي</option>
+                     <option value="ازهري">ازهري</option>
+                     <option value="خاصة">خاصة</option>
+                     <option value="لغات">لغات</option>
+                     <option value="دولية">دولية</option>
+                  </select>
+               </div>
+               <div class="col-lg-6 col-md-12 col-sm-12">
+                  <label for="college">الكلية:</label>
+                  <input type="text" id="college" name="college" placeholder="College">
+               </div>
+               <div class="col-lg-6 col-md-12 col-sm-12">
+                  <label for="university">الجامعة:</label>
+                  <input type="text" id="university" name="university" placeholder="University">
+               </div>
+               <div class="col-lg-6 col-md-12 col-sm-12">
+                  <label for="specialization">التخصص:</label>
+                  <input type="text" id="specialization" name="specialization" placeholder="Specialization">
+               </div>
+               <div class="col-lg-6 col-md-12 col-sm-12">
+                  <label for="religion">الديانة:</label>
+                  <select id="religion" name="religion" required>
+                     <option value="">Select Region</option>
+                     <option value="مسلم سني">مسلم سني</option>
+                     <option value="مسلم شيعي">مسلم شيعي</option>
+                     <option value="مسيحي ارثوزكسي">مسيحي ارثوزكسي</option>
+                     <option value="مسيحي بروتوستانتي">مسيحي بروتوستانتي</option>
+                     <option value="مسيحي ماروني">مسيحي ماروني</option>
+                     <option value="مسيحي كاثوليك">مسيحي كاثوليك</option>
+                  </select>
+               </div>
+               <div class="submit col-sm-12 col-lg-12 col-md-12">
+                  <button type="submit">تسجيل و استمرار</button>
+               </div>
+
+            </form>
+            <div id="error" class="err"></div>
+         </div>
+         <div class="image col-lg-4 col-md-12 col-sm-12">
+            <img src="./images/WhatsApp_Image_2024-06-20_at_04.50.17-removebg-preview.png">
+         </div>
+      </div>
+   </main>
+   <div class="loadingBody">
+      <main class="loading">
+         <svg class="ip" viewBox="0 0 256 128" width="256px" height="128px" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+               <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#5ebd3e" />
+                  <stop offset="33%" stop-color="#ffb900" />
+                  <stop offset="67%" stop-color="#f78200" />
+                  <stop offset="100%" stop-color="#e23838" />
+               </linearGradient>
+               <linearGradient id="grad2" x1="1" y1="0" x2="0" y2="0">
+                  <stop offset="0%" stop-color="#e23838" />
+                  <stop offset="33%" stop-color="#973999" />
+                  <stop offset="67%" stop-color="#009cdf" />
+                  <stop offset="100%" stop-color="#5ebd3e" />
+               </linearGradient>
+            </defs>
+            <g fill="none" stroke-linecap="round" stroke-width="16">
+               <g class="ip__track" stroke="#ddd">
+                  <path d="M8,64s0-56,60-56,60,112,120,112,60-56,60-56" />
+                  <path d="M248,64s0-56-60-56-60,112-120,112S8,64,8,64" />
+               </g>
+               <g stroke-dasharray="180 656">
+                  <path class="ip__worm1" stroke="url(#grad1)" stroke-dashoffset="0"
+                     d="M8,64s0-56,60-56,60,112,120,112,60-56,60-56" />
+                  <path class="ip__worm2" stroke="url(#grad2)" stroke-dashoffset="358"
+                     d="M248,64s0-56-60-56-60,112-120,112S8,64,8,64" />
+               </g>
+            </g>
+         </svg>
+      </main>
+   </div>
+   <script src="./js/sprint2.js"></script>
+   <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

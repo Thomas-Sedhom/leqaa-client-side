@@ -10,13 +10,12 @@ async function fetchNotApprovedUsers() {
 			credentials: 'include'
 		}); 
 		if (!response.ok) {
-			const errorData = await response.json(); // Parse JSON error data
-			const messages = errorData?.message || ["Unknown error"]; // Handle potential missing message
+			const errorData = await response.json();
+			const messages = errorData?.message || ["Unknown error"];
 			error.innerHTML = messages;
-			throw new Error(`Error during signup: ${messages}`); // Handle errors gracefully
+			throw new Error(`Error during signup: ${messages}`);
 		} 
         const connections = await response.json();
-        console.log(connections);
 		connections.sort((a, b) => {
 			if (!a.registrationDate) return 1;
 			if (!b.registrationDate) return -1;
@@ -31,7 +30,6 @@ async function fetchNotApprovedUsers() {
 async function createUserRow(){
     const connections = await fetchNotApprovedUsers()
     connections.forEach((user) => {
-        console.log(user)
         const row = document.createElement("tr");
         const firstCell = document.createElement("td");
         firstCell.textContent = `${user.firstName} ${user.lastName}`
@@ -40,7 +38,7 @@ async function createUserRow(){
         button.type = "button";
         button.classList.add("userButton");
         const userLink = document.createElement("a");
-        userLink.href = `file:///D:/work/seeko/seeko-front/super/apprvedUserPage.html?id=${user._id}`;
+        userLink.href = `apprvedUserPage.html?id=${user._id}`;
         userLink.textContent = `Show Details`
         button.appendChild(userLink);
         secondCell.appendChild(button);
@@ -50,3 +48,64 @@ async function createUserRow(){
     })
 }
 createUserRow();
+//-------------------------------------------------------------------------------------------------------------------
+// export to csv file
+
+function tableToCSV() {
+
+	// Variable to store the final csv data
+	let csv_data = [];
+
+	// Get each row data
+	let rows = document.getElementsByTagName('tr');
+	for (let i = 0; i < rows.length; i++) {
+
+		// Get each column data
+		let cols = rows[i].querySelectorAll('td,th');
+		// Stores each csv row data
+		let csvrow = [];
+		for (let j = 0; j < cols.length - 1; j++) {
+			if(cols[j].firstElementChild)
+				csvrow.push(cols[j].firstElementChild.textContent)
+			else{
+				csvrow.push(cols[j].innerHTML)
+			}
+		}
+
+		// Combine each column value with comma
+		csv_data.push(csvrow.join(","));
+	}
+
+	// Combine each row data with new line character
+	csv_data = csv_data.join('\n');
+
+	// Call this function to download csv file  
+	downloadCSVFile(csv_data);
+}
+
+function downloadCSVFile(csv_data) {
+
+	// Create CSV file object and feed
+	// our csv_data into it
+	CSVFile = new Blob([csv_data], {
+		type: "text/csv"
+	});
+
+	// Create to temporary link to initiate
+	// download process
+	let temp_link = document.createElement('a');
+
+	// Download csv file
+	temp_link.download = "GfG.csv";
+	let url = window.URL.createObjectURL(CSVFile);
+	temp_link.href = url;
+
+	// This link should not be displayed
+	temp_link.style.display = "none";
+	document.body.appendChild(temp_link);
+
+	// Automatically click the link to
+	// trigger download
+	temp_link.click();
+	document.body.removeChild(temp_link);
+}

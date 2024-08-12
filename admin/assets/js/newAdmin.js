@@ -10,7 +10,6 @@ const signupForm = document.getElementById("signup-form");
 //signup
 signupForm.addEventListener("submit", async (e) => {
    e.preventDefault();
-   console.log("signup")
    const emailValue = email.value;
    const passwordValue = password.value;
    const userRoleValue = userRoleSelect.value;
@@ -19,7 +18,6 @@ signupForm.addEventListener("submit", async (e) => {
    try {
       const response = await signup(emailValue, passwordValue, userRoleValue, userNameValue);
       success.innerHTML = response
-      console.log(response);
       email.value = "";
       password.value = "";
       userName.value = "";
@@ -41,20 +39,17 @@ const signup = async (email, password, role, name) => {
       password,
       role
       }),
+      credentials: "include"
    });
    if (!response.ok) {
-      const errorData = await response.json(); // Parse JSON error data
-      const messages = errorData?.message || ["Unknown error"]; // Handle potential missing message
+      const errorData = await response.json();
+      const messages = errorData?.message || ["Unknown error"];
       error.innerHTML = messages;
       success.innerHTML = ""
-      throw new Error(`Error during signup: ${messages}`); // Handle errors gracefully
+      throw new Error(`Error during signup: ${messages}`);
    } else {
    error.innerHTML = "";
    }
-
    const message = await response.text();
-   
    return message;
 };
-
-console.log(4)

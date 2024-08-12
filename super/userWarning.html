@@ -48,15 +48,33 @@
 				</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link collapsed" href="./allUsers.html">
-					<i class="bi bi-person"></i>
-					<span>Users</span>
+				<a class="nav-link collapsed" href="./users.html">
+				    <i class="bi bi-people"></i>
+				    <span>Users</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="allAdmins.html">
+					<i class="bi bi-people-fill"></i>
+					<span>Admins</span>
 				</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link collapsed" href="contacts.html">
 					<i class="bi bi-envelope"></i>
 					<span>Contacts</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="./readContacts.html">
+				    <i class="bi bi-envelope-open-fill"></i>
+				    <span>read contacts</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="./newUser.html">
+				    <i class="bi bi-box-arrow-in-right"></i>
+				    <span>New user</span>
 				</a>
 			</li>
 			<li class="nav-item">
@@ -72,9 +90,21 @@
 				</a>
 			</li>
 			<li class="nav-item">
+				<a class="nav-link collapsed" href="confirmedConnections.html">
+				    <i class="bi bi-card-list"></i>
+				    <span>Confirmed Connections</span>
+				</a>
+			</li>
+			<li class="nav-item">
 				<a class="nav-link collapsed" href="pendingConnections.html">
 					<i class="bi bi-question-circle"></i>
 					<span>Pending Connections</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="./rejectedConnrectios.html">
+				    <i class="bi bi-ban"></i>
+				    <span>Rejected Connections</span>
 				</a>
 			</li>
 			<li class="nav-item">
@@ -126,6 +156,7 @@
 									<input type="text" id="warningInput" placeholder="Warning message">
 									<button class="warningButton" id="warning">send warning</button>
 								</div>
+								<button class="update" id="update"></button>
 							</div>
 						</div>
 					</div>
@@ -351,12 +382,11 @@
 										<div class="col-lg-3 col-md-4 label"> العيش في الخارج</div>
 										<div class="col-lg-9 col-md-8" id="livingAbroad"></div>
 									</div>
-									<div class="row">
-										<div class="col-lg-3 col-md-4 label"> صورة كاملة</div>
-										<div class="col-lg-9 col-md-8">
-											<img id="fullImage" src="" class="img-fluid" alt="">
-										</div>
-									</div>
+									<div class="row" id="fullImage1"></div>
+									<div class="row" id="fullImage2"></div>
+									<div class="row" id="fullImage3"></div>
+									<div class="row" id="fullImage4"></div>
+									<div class="row" id="fullImage5"></div>
 									<div class="row">
 										<div class="col-lg-3 col-md-4 label"> صورة البطاقة</div>
 										<div class="col-lg-9 col-md-8">
@@ -370,8 +400,35 @@
 										</div>
 									</div> -->
 								</div>
+								<div id="fullImageModal1" class="modal">
+									<span class="close-button"><i class="bi bi-x-octagon"></i></span>
+									<img class="modal-content modalFaceContent" id="modalFullImage1">
+								</div>
+								<div id="fullImageModal2" class="modal">
+									<span class="close-button"><i class="bi bi-x-octagon"></i></span>
+									<img class="modal-content modalFaceContent" id="modalFullImage2">
+								</div>
+								<div id="fullImageModal3" class="modal">
+									<span class="close-button"><i class="bi bi-x-octagon"></i></span>
+									<img class="modal-content modalFaceContent" id="modalFullImage3">
+								</div>
+								<div id="fullImageModal4" class="modal">
+									<span class="close-button"><i class="bi bi-x-octagon"></i></span>
+									<img class="modal-content modalFaceContent" id="modalFullImage4">
+								</div>
+								<div id="fullImageModal5" class="modal">
+									<span class="close-button"><i class="bi bi-x-octagon"></i></span>
+									<img class="modal-content modalFaceContent" id="modalFullImage5">
+								</div>
+								<div id="imageFirstModal" class="modal">
+									<span class="close-button"><i class="bi bi-x-octagon"></i></span>
+									<img class="modal-content modalFirstContent" id="modalFirstImage">
+								</div>
+								<div id="imageModal" class="modal">
+									<span class="close-button"><i class="bi bi-x-octagon"></i></span>
+									<img class="modal-content" id="modalImage">
+								</div>
 							</div><!-- End Bordered Tabs -->
-
 						</div>
 					</div>
 

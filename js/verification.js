@@ -4,7 +4,6 @@ const resend = document.getElementById("resend");
 const verificationMessage = document.getElementById("verificationMessage");
 const verifyForm = document.getElementById("verify-form");
 let email;
-console.log(verifyForm)
 let verificationCode = [];
 const queryString = window.location.search;
 
@@ -13,12 +12,6 @@ const queryString = window.location.search;
 if (queryString) {
 	const urlParams = new URLSearchParams(queryString.substring(1));
 	email = urlParams.get('email');
-	if (email) {
-		const userEmailSpan = document.getElementById('userEmail');
-		userEmailSpan.innerHTML = email;
-	} else {
-		console.error('Email not found in query parameter');
-	}
 } else {
 	console.warn('No query string present in the URL');
 }
@@ -43,7 +36,7 @@ inputElements.forEach((input) => {
 			prevElement.value = "";
 			prevElement.focus();
 			verifyButton.setAttribute("disabled", true);
-			verificationMessage.textContent = ""; // Reset message
+			verificationMessage.textContent = ""; 
 		} else {
 			const reg = /^[0-9]+$/;
 			if (!reg.test(currentValue)) {
@@ -56,40 +49,38 @@ inputElements.forEach((input) => {
 						verifyButton.removeAttribute("disabled");
 					}
 					verificationMessage.textContent =
-						'Code entered. Click "Verify" to submit.'; // Feedback message
+						'Code entered. Click "Verify" to submit.'; 
 				}
 			}
 		}
 	};
 });
 
-
-
 //-------------------------------------------------------------------------------------------------------------------
 const verifyCode = async (email, verificationCode) => {
+	console.log("email",email)
 	verificationMessage.innerHTML = "";
 	const response = await fetch("http://localhost:3000/api/v1/auth/verify", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
-			credentials: 'include', // This is the key change
+			credentials: 'include', 
 		},
 		body: JSON.stringify({
 			email,
 			verification: verificationCode,
 		}),
-		credentials: 'include', // This is the key change
+		credentials: 'include', 
 	})
 
 	if (!response.ok) {
 		const errorData = await response.json();
 		const messages = errorData?.message || ["Unknown error"]
 		verificationMessage.innerHTML = messages;
-		throw new Error(`Error during verify: ${messages}`); // Handle errors gracefully
+		throw new Error(`Error during verify: ${messages}`);
 	} else {
 		verificationMessage.innerHTML = "";
 	}
-	console.log(response);
 	const message = await response.text();
 	return message;
 }
@@ -97,14 +88,11 @@ const verifyCode = async (email, verificationCode) => {
 //-------------------------------------------------------------------------------------------------------------------
 verifyForm.addEventListener("submit", async (e) => {
 	e.preventDefault();
-	console.log(email)
 	const enteredCode = verificationCode.join("");
-	console.log(enteredCode);
 	try {
 		const response = await verifyCode(email, enteredCode);
-		console.log(response);
 		window.location.href =
-			"file:///D:/work/seeko/seeko-front/completeRegistration.html";
+			"completeRegistration.html";
 	} catch (error) {
 		console.error("Error during signup:", error);
 	}
@@ -120,12 +108,11 @@ const resendCode = async(email) => {
 		},
 		body: JSON.stringify({email})
 	})
-	console.log(response)
 	if(!response.ok){
 		const errorData = await response.json();
 		const messages = errorData?.message || ["unknown error"];
 		verificationMessage.innerHTML = messages;
-		throw new Error(`Error during signup: ${messages}`); // Handle errors gracefully
+		throw new Error(`Error during signup: ${messages}`);
 	}else{
 		verificationMessage.innerHTML = "";
 	}
@@ -134,10 +121,9 @@ const resendCode = async(email) => {
 }
 
 resend.onclick = async () => {
-	console.log(email)
 	const message = await resendCode(email);
-   verificationMessage.innerHTML = message;
-   setTimeout(() => {
-      verificationMessage.innerHTML = "";
-   }, 3000);
+    verificationMessage.innerHTML = message;
+    setTimeout(() => {
+    verificationMessage.innerHTML = "";
+}, 3000);
 }

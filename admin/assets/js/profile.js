@@ -10,11 +10,10 @@ const fetchAdminData = async () => {
         },
         credentials: 'include'
     })
-    console.log(response)
     if (!response.ok) {
-        const errorData = await response.json(); // Parse JSON error data
-        const messages = errorData?.message || ["Unknown error"]; // Handle potential missing message
-        throw new Error(`Error during signup: ${messages}`); // Handle errors gracefully
+        const errorData = await response.json();
+        const messages = errorData?.message || ["Unknown error"]; 
+        throw new Error(`Error during signup: ${messages}`);
     }
     const data = await response.json();
     adminName.innerHTML = data.name;

@@ -50,13 +50,18 @@ const agesOfChildren = document.getElementById('agesOfChildren');
 const livingAbroad = document.getElementById('livingAbroad')
 const languagesContainer = document.getElementById('languagesContainer');
 const faceImage = document.getElementById('faceImageProfile');
-const fullImage = document.getElementById('fullImage');
 const idImage = document.getElementById('idImage');
 const manWithIdImage = document.getElementById('manWithIdImage');
 const userName = document.getElementById('name');
 const connections = document.getElementById('connections');
 const profileStatus = document.getElementById('profileStatus');
 const profileStatusCont = document.querySelector('.profileStatus');
+const registrationDate = document.getElementById('registrationDate')
+const fullImage1 =  document.getElementById('fullImage1');
+const fullImage2 =  document.getElementById('fullImage2');
+const fullImage3 =  document.getElementById('fullImage3');
+const fullImage4 =  document.getElementById('fullImage4');
+const fullImage5 =  document.getElementById('fullImage5');
 
 //-------------------------------------------------------------------------------------------------------------------
 // fetch user data
@@ -70,13 +75,12 @@ const userApi = async () => {
         credentials: 'include'
     })
     if (!response.ok) {
-        const errorData = await response.json(); // Parse JSON error data
-        const messages = errorData?.message || ["Unknown error"]; // Handle potential missing message
+        const errorData = await response.json();
+        const messages = errorData?.message || ["Unknown error"]; 
         error.innerHTML = messages;
-        throw new Error(`Error during signup: ${messages}`); // Handle errors gracefully
+        throw new Error(`Error during signup: ${messages}`);
     }
     const message = await response.json();
-    console.log(message)
     return message;
 }
 
@@ -84,7 +88,51 @@ const userApi = async () => {
 // read all data from api respond
 const completeData = async () => {
     const data = await userApi();
-    console.log(data.firstName)
+    data.fullImage1 ?
+        fullImage1.innerHTML = 
+        `
+        <div class="col-lg-3 col-md-4 label"> صورة كاملة</div>
+        <div class="col-lg-9 col-md-8">
+            <img  src="${data.fullImage1}" id="img1" class="img-fluid" alt="">
+        </div>
+        `
+    : fullImage1.style.display = 'none'
+    data.fullImage2 ?
+        fullImage2.innerHTML = 
+        `
+        <div class="col-lg-3 col-md-4 label"> صورة كاملة</div>
+        <div class="col-lg-9 col-md-8">
+            <img  src="${data.fullImage2}" id="img2" class="img-fluid" alt="">
+        </div>
+        `
+    : fullImage2.style.display = 'none'
+    data.fullImage3 ?
+        fullImage3.innerHTML = 
+        `
+        <div class="col-lg-3 col-md-4 label"> صورة كاملة</div>
+        <div class="col-lg-9 col-md-8">
+            <img  src="${data.fullImage3}" id="img3" class="img-fluid" alt="">
+        </div>
+        `
+    : fullImage3.style.display = 'none'
+    data.fullImage4 ?
+        fullImage4.innerHTML = 
+        `
+        <div class="col-lg-3 col-md-4 label"> صورة كاملة</div>
+        <div class="col-lg-9 col-md-8">
+            <img  src="${data.fullImage4}" id="img4" class="img-fluid" alt="">
+        </div>
+        `
+    : fullImage4.style.display = 'none'
+    data.fullImage5 ?
+        fullImage5.innerHTML = 
+        `
+        <div class="col-lg-3 col-md-4 label"> صورة كاملة</div>
+        <div class="col-lg-9 col-md-8">
+            <img  src="${data.fullImage5}" id="img5" class="img-fluid" alt="">
+        </div>
+        `
+    : fullImage5.style.display = 'none'
     firstName.innerHTML = data.firstName
     midName.innerHTML = data.midName;
     lastName.innerHTML = data.lastName;
@@ -104,11 +152,11 @@ const completeData = async () => {
     college.innerHTML = data.college;
     university.innerHTML = data.university;
     specialization.innerHTML = data.specialization;
+    registrationDate.innerHTML = data.registrationDate;
     const stringArray = data.languages[0];
     const arrayOfObjects = JSON.parse(stringArray);
-    console.log(arrayOfObjects, typeof arrayOfObjects);
+
     for (let i = 0; i < arrayOfObjects.length; i++) {
-        console.log(i)
         const language = document.createElement('div');
         language.innerHTML = arrayOfObjects[i].language;
         const level = document.createElement('div');
@@ -118,7 +166,6 @@ const completeData = async () => {
         cont.appendChild(language);
         cont.appendChild(level);
         languagesContainer.appendChild(cont);
-
     }
     religion.innerHTML = data.religion;
     height.innerHTML = data.height;
@@ -142,9 +189,7 @@ const completeData = async () => {
     }
 
     faceImage.src = data.faceImage;
-    fullImage.src = data.fullImage;
     idImage.src = data.idImage;
-    manWithIdImage.src = data.manWithIdImage;
 
     if (data.car == false) {
         car.innerHTML = "لا";
@@ -216,7 +261,6 @@ const completeData = async () => {
     } else {
         livingAbroad.innerHTML = "نعم";
     }
-    userName.innerHTML = `${data.firstName} ${data.lastName}`
 }
 completeData()
 
@@ -248,7 +292,6 @@ const getGender = async () => {
         throw new Error(`Error during signup: ${messages}`); 
     }
     const profileStatus = await res.text();
-    console.log(profileStatus);
     return profileStatus;
 } 
 
@@ -269,7 +312,6 @@ const getStatus = async () => {
         throw new Error(`Error during signup: ${messages}`); 
     }
     const profileStatus = await res.text();
-    console.log(profileStatus);
     return profileStatus;
 } 
 
@@ -290,7 +332,6 @@ const changeUserStatus = async () => {
         throw new Error(`Error during signup: ${messages}`); 
     }
     const profileStatus = await res.text();
-    console.log(profileStatus);
     return profileStatus;
 } 
 
@@ -299,7 +340,6 @@ const changeUserStatus = async () => {
 
 const updateStatusButton = async () => {
     const userGender = await getGender();
-    console.log(profileStatusCont);
     if(userGender == 'انثي'){
         profileStatusCont.style.display = 'block';
         const userStatus = await getStatus();

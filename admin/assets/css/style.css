@@ -9,6 +9,9 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+img{
+  cursor: pointer;
+}
 :root {
   scroll-behavior: smooth;
 }
@@ -37,7 +40,14 @@ h5,
 h6 {
   font-family: "Nunito", sans-serif;
 }
-
+.excel{
+  padding: 5px 12px;
+  border: none;
+  background: #0b6734d1;
+  border-radius: 9px;
+  color: white;
+  margin: 7px 0px;
+}
 /*--------------------------------------------------------------
 # Main
 --------------------------------------------------------------*/
@@ -1408,6 +1418,7 @@ h6 {
   color: black;
   transition: all ease-in-out 0.3s;
   font-weight: bold;
+  font-size: 19px;
 }
 .connections td a:hover{
   color: rgb(38, 186, 82);
@@ -1454,11 +1465,23 @@ h6 {
     display: none;
   }
   .connections #user-messages th:nth-child(1) {
-    font-size: 16px;
+    font-size: 15px;
     }
   .connections #user-messages th:nth-child(2),
   .connections #user-messages td:nth-child(2) {
   display: none;
+  }
+  .connections th{
+    font-size: 17px;
+  }
+  .connections td{
+    font-size: 16px;
+  }
+  .connections td a{
+    color: black;
+    transition: all ease-in-out 0.3s;
+    font-weight: bold;
+    font-size: 16px;
   }
   
 }
@@ -1537,7 +1560,28 @@ h6 {
 .userProfile .profile-overview .row{
   font-size: 20px;
 }
+.userProfile .block, .userProfile .unBlock{
+  border: none;
+  color: white;
+  border-radius: 10px;
+  padding: 3px 15px;
+  font-weight: bold;
+  transition: all ease-in-out 0.3s;
+}
+.userProfile .block{background: red}
+.userProfile .unBlock{background: #086108bd}
+.userProfile .block:hover{background-color: rgb(174, 0, 0)}
+.userProfile .unBlock:hover{background-color: #004f00}
 
+.userProfile .buttons{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+.userProfile .buttons button{
+  margin: 5px;
+  font-weight: bold;
+}
 /* -------------------------------------------------------------------------------------------------- */
 /* approveUsers page*/
 .approveUsers{
@@ -1631,6 +1675,45 @@ h6 {
 
 /* -------------------------------------------------------------------------------------------------- */
 /* approveUserPage page*/
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+  display: block;
+  margin: auto;
+  width: 80% !important;
+  height: 90vh !important;
+  top: 10%;
+  border-radius: 15px;
+  z-index: 502;
+}
+.modal-content img{
+  border-radius: 15px;
+}
+
+#faceImageProfile, #fullImage, #idImage{
+  cursor: pointer;
+}
+
+.close-button {
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  position: absolute;
+  top: 10%;
+  right: 30px;
+  cursor: pointer;
+  z-index: 8000;
+}
 
 .approveUserProfile .buttons{
   display: flex;
@@ -1706,4 +1789,703 @@ h6 {
   text-align: center;
   font-size: 13px;
   color: #012970;
+}
+
+/* # warnings */
+/* --------------------------------------------------------------*/ 
+/* warnings page */
+.warnings{
+  min-height: 78vh;
+}
+.warnings table {
+  border-collapse: collapse;
+  width: 100%;
+
+}
+
+.warnings th, .warnings td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.warnings #user-messages {
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+.warnings #user-messages th:nth-child(2) {
+  width: 45%;
+}
+
+.warnings a{
+  text-decoration: none;
+  color: black;
+  transition: all ease-in-out 0.3s;
+}
+
+.warnings a:hover{
+  color: rgb(11, 119, 11);
+}
+
+.warnings #user-messages th:nth-child(3) {
+  width: 25%;
+}
+.warnings .btn-delete {
+  background-color: #ff0000;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.warnings .btn-delete:hover {
+  background-color: #e00000;
+}
+
+@media only screen and (max-width: 768px) {
+  /* Stack username and email cells on small screens */
+  .warnings #user-messages th{
+    font-size: 14px;
+  }
+  .warnings #user-messages th:nth-child(1),
+  .warnings #user-messages td:nth-child(1) {
+    width: 25%
+  }
+  .warnings #user-messages th:nth-child(2),
+  .warnings #user-messages td:nth-child(2) {
+    margin-top: 5px;
+    width: 50%;
+  }
+
+  .warnings #user-messages th:nth-child(3),
+  .warnings #user-messages td:nth-child(3) {
+    margin-top: 5px;
+    width: 25%;
+  }
+  
+  
+  .warnings #user-messages td button{
+    font-size: 13px;
+  }
+}
+
+/*****************************************************************************************************************/
+/* user signup page */
+.completeRegistration {
+  margin: 0;
+  padding: 50px 0;
+  height: 100vh;
+  width: 95%;
+  margin: auto;
+  margin-top: 20px;
+  direction: rtl;
+}
+
+.completeRegistration #warning {
+  color: red;
+  text-align: center;
+  padding: 15px 0 48px 0;
+  display: none;
+}
+
+.completeRegistration .row {
+  display: flex;
+}
+
+.completeRegistration .form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.completeRegistration .form h2 {
+  font-size: 30px;
+  padding-bottom: 30px;
+}
+
+.completeRegistration .form form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+
+.completeRegistration .form form div {
+  flex-direction: column;
+  width: 270px;
+}
+
+.completeRegistration .form form label {
+  padding-right: 16px;
+  display: block;
+}
+
+.completeRegistration .form form input,
+.completeRegistration textarea,
+.completeRegistration select {
+  border: 1px solid black;
+  margin: 5px;
+  width: 250px;
+  height: 58px;
+  padding: 0 20px 0 20px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  transition: box-shadow ease-in-out 0.2s;
+  direction: rtl;
+  border: 1px solid blueviolet;
+}
+.select2 {
+  width: 100%;
+}
+
+.select2-container--default .select2-selection--multiple {
+  border-color: #ced4da;
+  border-radius: 0.25rem;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: #fff;
+}
+.completeRegistration .form form .bool input {
+  border: 1px solid black;
+  margin: 13px 5px 0px 0px;
+  width: 70px;
+  height: 36px;
+}
+
+.completeRegistration .form form .bool {
+  display: flex;
+  padding: 5px 0 20px 0;
+}
+
+.completeRegistration .form form .bool .permanent-diseases,
+.completeRegistration .form form .bool .disability-diseases,
+.completeRegistration .form form .bool .car,
+.completeRegistration .form form .bool .apartment,
+.completeRegistration .form form .bool .job,
+.completeRegistration .form form .bool .businessOwner,
+.completeRegistration .form form .bool .marriedBefore,
+.completeRegistration .form form .bool .marriedNow,
+.completeRegistration .form form .bool .children,
+.completeRegistration .form form .bool .livingAbroad {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 5px;
+}
+
+.completeRegistration .form form .bool label {
+  display: contents;
+  padding: 0;
+}
+
+.completeRegistration .form form .bool .Title {
+  display: flex;
+  margin-right: 19px;
+  justify-content: end;
+  text-align: center;
+  width: fit-content;
+}
+
+.completeRegistration .form form .bool textarea {
+  margin: 5px 0 0 0;
+}
+
+.completeRegistration .form form .bool #permanentDiseasesDetailsSection,
+.completeRegistration .form form .bool #disabilityDetailsSection {
+  padding-top: 10px;
+  align-items: center;
+}
+
+.completeRegistration .form form .bool #carDetailsSection,
+.completeRegistration .form form .bool #apartmentDetailsSection,
+.completeRegistration .form form .bool #jobSection,
+.completeRegistration .form form .bool #childrenSection {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 11px;
+  flex-direction: row;
+}
+
+.completeRegistration .form form .bool #carDetailsSection div,
+.completeRegistration .form form .bool #apartmentDetailsSection div,
+.completeRegistration .form form .bool #jobSection div,
+.completeRegistration .form form .bool #childrenSection div {
+  width: 49%;
+}
+
+.completeRegistration .form form .bool #carDetailsSection div textarea,
+.completeRegistration .form form .bool #apartmentDetailsSection div textarea,
+.completeRegistration .form form .bool #jobSection div textarea,
+.completeRegistration .form form .bool #childrenSection div textarea {
+  width: 100%;
+}
+
+.completeRegistration .form form .bool input:focus {
+  box-shadow: 1px 2px 3px 0px rgba(137, 43, 226, 0);
+  outline: none;
+}
+
+.completeRegistration textarea {
+  padding-top: 15px;
+}
+
+.completeRegistration textarea:focus {
+  box-shadow: 1px 2px 3px 0px blueviolet;
+  outline: none;
+}
+
+.completeRegistration .form form input:focus {
+  box-shadow: 1px 2px 3px 0px blueviolet;
+  outline: none;
+}
+
+.completeRegistration .form form button {
+  width: fit-content;
+  margin: auto;
+  border: none;
+  background: blueviolet;
+  color: white;
+  padding: 11px 25px;
+  border-radius: 15px;
+  font-size: 19px;
+  transition: all ease-in-out 0.3s;
+}
+
+.completeRegistration .form form .languages {
+  width: 100%;
+  height: fit-content;
+  padding-bottom: 44px;
+  min-width: fit-content;
+  display: flex;
+}
+
+.completeRegistration .form form .languages #addLanguageButton {
+  width: fit-content;
+  margin-right: 24px;
+}
+.completeRegistration .fullContainer{
+  width: 100% !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.completeRegistration .image-section{
+  padding: 0;
+}
+@media screen and (max-width:992px) {
+  .completeRegistration .image-section{
+      padding: 0;
+      margin: 0px 20px !important;
+  }
+  #fullImageSection {
+      justify-content: space-around !important;
+  }
+}
+button[disabled] {
+  opacity: 0.5;
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+input[disabled] {
+  opacity: 0.5;
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+#addFullImage{
+  margin:10px 0 0 0 ;
+}
+.completeRegistration .form form .languages .removeLanguageButton {
+  margin-bottom: 15px;
+}
+
+.language-section {
+  margin: 0 !important;
+}
+
+#languagesSection {
+  width: 99%;
+  flex-direction: row;
+  margin: auto;
+  justify-content: start;
+}
+#fullImageSection {
+  width: 100%;
+  flex-direction: row;
+  margin: auto;
+  justify-content: start;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+.image-section div{
+  margin: 0px;
+}
+@media screen and (max-width:570px) {
+  #fullImageSection {
+      width: 100%;
+      flex-direction: column;
+      margin: auto;
+      justify-content: start;
+  }
+  .completeRegistration .fullContainer{
+      margin: 0px;
+      width: 100% !important;
+  }
+}
+
+.completeRegistration .form form button:hover {
+  background-color: #743991;
+}
+
+.completeRegistration .form form .check {
+  margin: auto;
+  padding-top: 20px;
+}
+
+.completeRegistration .image {
+  height: 82%;
+  display: inline;
+  position: fixed;
+  /* top: 0; */
+  left: 10px;
+  /* top: 0; */
+}
+
+.completeRegistration .image img {
+  height: 100%;
+  width: 100%;
+  margin: auto
+}
+
+.completeRegistration .preview {
+  display: flex;
+  justify-content: start;
+}
+
+.completeRegistration .preview img {
+  width: 85%;
+  height: 204px;
+  border-radius: 7px;
+  margin-bottom: 10px;
+}
+
+.completeRegistration input[type="file"] {
+  display: none;
+}
+
+.completeRegistration .custom-file-upload {
+  cursor: pointer;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: inline-block;
+  background-color: #eee;
+  color: #333;
+  margin: 7px 0px 7px 15px;
+  padding: 15px;
+  border-radius: 7px;
+  transition: all ease-in-out 0.3s;
+}
+
+.completeRegistration .custom-file-upload:hover {
+  background-color: #743991;
+  color: white;
+}
+
+.completeRegistration .submit {
+  display: block;
+  margin: auto;
+  width: 100% !important;
+  display: flex;
+  margin-top: 18px !important;
+}
+
+.completeRegistration .err {
+  font-size: 16px;
+  color: red;
+  padding-top: 20px;
+}
+
+.completeRegistration .check a {
+  text-decoration: none;
+}
+
+@media screen and (max-width:1170px) {
+  .completeRegistration .form form div {
+      width: fit-content;
+      margin: auto;
+      width: 277px;
+  }
+
+  .completeRegistration .form form input,
+  .completeRegistration textarea,
+  .completeRegistration textarea,
+  .completeRegistration select {
+      width: 100%;
+      margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width:992px) {
+  .completeRegistration {
+      margin: 0;
+      padding: 5px 0;
+      height: fit-content;
+      width: 80%;
+      margin: auto;
+      width: 90%;
+  }
+
+  .completeRegistration .image {
+      height: 82%;
+      display: inline;
+      position: static;
+  }
+
+  .completeRegistration .form {
+      align-items: center;
+      padding-top: 0px !important;
+      margin-top: 15px !important;
+  }
+
+  .completeRegistration .form form div {
+      width: fit-content;
+      margin: auto;
+      width: 300px;
+  }
+
+  .completeRegistration .form form input,
+  .completeRegistration textarea,
+  .completeRegistration textarea,
+  .completeRegistration select {
+      width: 100%;
+      margin-bottom: 20px;
+  }
+
+  .completeRegistration .row {
+      flex-wrap: wrap-reverse;
+      align-items: flex-end;
+  }
+
+  .completeRegistration .image {
+      width: 532px;
+      margin: auto;
+      height: 45%;
+  }
+
+  .completeRegistration .form h2 {
+      font-size: 30px;
+      padding-bottom: 10px;
+  }
+}
+
+@media screen and (max-width:692px) {
+  .completeRegistration .form form div {
+      width: fit-content;
+      margin: auto;
+      width: 250px;
+  }
+
+  .completeRegistration .form form input,
+  .completeRegistration textarea,
+  .completeRegistration textarea,
+  .completeRegistration select {
+      width: 100%;
+      margin-bottom: 20px;
+  }
+
+  .completeRegistration #faceImagePreview {
+      display: flex;
+      justify-content: center;
+  }
+
+  .completeRegistration #faceImagePreview img {
+      display: flex;
+      margin: auto;
+  }
+}
+
+@media screen and (max-width:570px) {
+  .completeRegistration .form form div {
+      width: fit-content;
+      margin: auto;
+      width: 100%;
+  }
+
+  #languagesSection div {
+      width: 100%;
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------- */
+/* loading */
+
+:root {
+  --hue: 223;
+  --bg: hsl(var(--hue), 90%, 95%);
+  --fg: hsl(var(--hue), 90%, 5%);
+  --trans-dur: 0.3s;
+}
+
+.loadingBody {
+  display: none;
+  background-color: var(--bg);
+  color: var(--fg);
+  font: 1em/1.5 sans-serif;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  transition: background-color var(--trans-dur);
+  display: none;
+}
+
+.loading {
+  padding: 1.5em 0;
+}
+
+.loading .ip {
+  width: 16em;
+  height: 8em;
+}
+
+.loading .ip__track {
+  stroke: hsl(var(--hue), 90%, 90%);
+  transition: stroke var(--trans-dur);
+}
+
+.loading .ip__worm1,
+.loading .ip__worm2 {
+  animation: worm1 2s linear infinite;
+}
+
+.loading .ip__worm2 {
+  animation-name: worm2;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+      --bg: hsl(var(--hue), 90%, 5%);
+      --fg: hsl(var(--hue), 90%, 95%);
+  }
+
+  .loading .ip__track {
+      stroke: hsl(var(--hue), 90%, 15%);
+  }
+}
+
+/* Animation */
+@keyframes worm1 {
+  from {
+      stroke-dashoffset: 0;
+  }
+
+  50% {
+      animation-timing-function: steps(1);
+      stroke-dashoffset: -358;
+  }
+
+  50.01% {
+      animation-timing-function: linear;
+      stroke-dashoffset: 358;
+  }
+
+  to {
+      stroke-dashoffset: 0;
+  }
+}
+
+@keyframes worm2 {
+  from {
+      stroke-dashoffset: 358;
+  }
+
+  50% {
+      stroke-dashoffset: 0;
+  }
+
+  to {
+      stroke-dashoffset: -358;
+  }
+}
+
+
+/* ------------------------------------------------------------------------------------------------- */
+/* search filter */
+.filter-container {
+  margin-bottom: 20px;
+}
+
+.filter-input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 300px;
+}
+/* ------------------------------------------------------------------------------------------------- */
+/* users */
+.users{
+  height: 90vh;
+}
+.users .cards {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.users .cards .card{
+  margin: 0 10px;
+  border-radius: 5px;
+}
+.users .cards .card .image{
+  width: 100%;
+}
+
+.users .cards .card .image img{
+  width: 100%;
+  height: 450px;
+  border-radius: 7px;
+}
+.users .cards .card button{
+  border: none;
+  background: #3e8edebf;
+  padding: 8px;
+  margin-top: 10px;
+  border-radius: 12px;
+  transition: all ease-in-out 0.3s;
+  width: 100%;
+
+  color: white;
+}
+.users .cards .card a{
+  text-decoration: none;
+  color: white;
+  width: 95%;
+  margin: auto;
+}
+.users .cards .card button:hover{
+  background: #3e8ede;
+}
+@media screen and (max-width:570px) {
+  .users .cards{
+    flex-wrap: wrap;
+  }
+  .users .cards .card{
+    width: 90%;
+    margin-bottom: 15px;
+  }
+  .users .cards .card button a{width: 90%}
 }

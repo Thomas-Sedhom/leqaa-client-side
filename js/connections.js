@@ -37,24 +37,22 @@ const getUserConnections = async () => {
 //-------------------------------------------------------------------------------------------------------------------
 
 async function createUserCards() {
-   const userCardContainer = document.getElementById("cards"); // Assuming a container exists
+   const userCardContainer = document.getElementById("cards");
    const users = await getUserConnections()
+   console.log(users)
 
-   // Loop through users and create cards
    for (const user of users) {
       const card = document.createElement("div");
       card.classList.add("col-lg-6", "col-md-12", "col-sm-12", "userCard");
 
-      // Create image element (consider error handling for missing image)
       const image = document.createElement("img");
-      image.src = user.faceImage || "./images/default-user.png"; // Set default image if missing
-      image.alt = `${user.firstName}'s profile picture`; // Add alt text for accessibility
+      image.src = user.faceImage || "./images/default-user.png";
+      image.alt = `${user.firstName}'s profile picture`;
 
       const imageContainer = document.createElement("div");
       imageContainer.classList.add("image");
       imageContainer.appendChild(image);
 
-      // Create details container
       const details = document.createElement("div");
       details.classList.add("details");
 
@@ -69,18 +67,17 @@ async function createUserCards() {
       details.appendChild(name);
       details.appendChild(age);
 
-      // Create button (optional, adjust based on your needs)
       const button = document.createElement("button");
       button.classList.add("userDetails");
-      button.id = "userDetails"; // Set a unique ID or adjust as needed
+      button.id = "userDetails";
 
       const link = document.createElement("a");
-      link.href = `file:///D:/work/seeko/seeko-front/userConnectionProfile.html?id=${user._id}`
+      link.href = `userConnectionProfile.html?id=${user._id}`
       link.textContent = "تفاصيل اكثر"
       button.appendChild(link);
       card.appendChild(imageContainer);
       card.appendChild(details);
-      card.appendChild(button); // Add button if needed
+      card.appendChild(button);
 
       userCardContainer.appendChild(card);
    }

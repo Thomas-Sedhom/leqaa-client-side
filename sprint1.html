@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>sprint 1</title>
+   <link rel="stylesheet" href="./css/style.css">
+   <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.0.1/dist/css/multi-select-tag.css">
+
+</head>
+
+<body>
+   <main class="completeRegistration">
+      <h2 id="warning"></h2>
+      <div class="row cont">
+         <div class="form col-lg-8 col-md-12 col-sm-12">
+            <h2>ادخل بياناتك</h2>
+            <form method="POST" id="completeRegistration">
+               <div class="col-lg-6 col-md-12 col-sm-12">
+                  <label for="firstName">الاسم الاول:</label>
+                  <input type="text" id="firstName" name="firstName" placeholder="firstName" required>
+               </div>
+               <div class="col-lg-6 col-md-12 col-sm-12">
+                  <label for="midName">الاسم الثاني:</label>
+                  <input type="text" id="midName" name="midName" placeholder="midName" required>
+               </div>
+               <div class="col-lg-6 col-md-12 col-sm-12">
+                  <label for="lastName">الاسم الاخير:</label>
+                  <input type="text" id="lastName" name="lastName" placeholder="lastName" required>
+               </div>
+               <div class="col-lg-6 col-md-12 col-sm-12">
+                  <label for="age">السن:</label>
+                  <input type="number" id="age" name="age" placeholder="Age" required>
+               </div>
+               <div class="col-lg-6 col-md-12 col-sm-12">
+                  <label for="gender">النوع:</label>
+                  <select id="gender" name="gender" placeholder="Select Gender" required>
+                     <option value="">Select Gender</option>
+                     <option value="ذكر">ذكر</option>
+                     <option value="انثي">انثي</option>
+                  </select>
+               </div>
+               <div class="col-lg-6 col-md-12 col-sm-12">
+                  <label for="DOB">تاريخ الميلاد:</label>
+                  <input type="date" id="DOB" name="DOB" placeholder="date of birth" required>
+               </div>
+               <div class="col-lg-6 col-md-12 col-sm-12">
+                  <label for="nationality">Country:</label>
+                  <select id="nationality" name="nationality">
+                     <option value="مصر" selected>مصر</option>
+                  </select>
+               </div>
+               <div class="col-lg-6 col-md-12 col-sm-12">
+                  <label for="governorate">المحافظة:</label>
+                  <select id="governorate" name="governorate">
+                     <option value="">اختر محافظة</option>
+                  </select>
+               </div>
+               <div class="col-lg-6 col-md-12 col-sm-12">
+                  <label for="city">المدينة:</label>
+                  <select id="city" name="city">
+                     <option value="">اختر مدينة</option>
+                  </select>
+               </div>
+               <div class="col-lg-6 col-md-12 col-sm-12">
+                  <label for="region">المنطقة:</label>
+                  <input type="text" id="region" name="region" placeholder="Region" required>
+               </div>
+               <div class="col-lg-6 col-md-12 col-sm-12">
+                  <label for="address">العنوان:</label>
+                  <textarea id="address" name="address" placeholder="Address" required></textarea>
+               </div>
+               <div class="col-lg-6 col-md-12 col-sm-12">
+                  <label for="phone">رقم الهاتف:</label>
+                  <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+               </div>
+               <div class="submit col-sm-12 col-lg-12 col-md-12">
+                  <button type="submit">تسجيل و استمرار</button>
+               </div>
+
+            </form>
+            <div id="error" class="err"></div>
+         </div>
+         <div class="image col-lg-4 col-md-12 col-sm-12">
+            <img src="./images/WhatsApp_Image_2024-06-20_at_04.50.17-removebg-preview.png">
+         </div>
+      </div>
+   </main>
+   <div class="loadingBody">
+      <main class="loading">
+         <svg class="ip" viewBox="0 0 256 128" width="256px" height="128px" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+               <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#5ebd3e" />
+                  <stop offset="33%" stop-color="#ffb900" />
+                  <stop offset="67%" stop-color="#f78200" />
+                  <stop offset="100%" stop-color="#e23838" />
+               </linearGradient>
+               <linearGradient id="grad2" x1="1" y1="0" x2="0" y2="0">
+                  <stop offset="0%" stop-color="#e23838" />
+                  <stop offset="33%" stop-color="#973999" />
+                  <stop offset="67%" stop-color="#009cdf" />
+                  <stop offset="100%" stop-color="#5ebd3e" />
+               </linearGradient>
+            </defs>
+            <g fill="none" stroke-linecap="round" stroke-width="16">
+               <g class="ip__track" stroke="#ddd">
+                  <path d="M8,64s0-56,60-56,60,112,120,112,60-56,60-56" />
+                  <path d="M248,64s0-56-60-56-60,112-120,112S8,64,8,64" />
+               </g>
+               <g stroke-dasharray="180 656">
+                  <path class="ip__worm1" stroke="url(#grad1)" stroke-dashoffset="0"
+                     d="M8,64s0-56,60-56,60,112,120,112,60-56,60-56" />
+                  <path class="ip__worm2" stroke="url(#grad2)" stroke-dashoffset="358"
+                     d="M248,64s0-56-60-56-60,112-120,112S8,64,8,64" />
+               </g>
+            </g>
+         </svg>
+      </main>
+   </div>
+   <script src="./js/sprint1.js"></script>
+   <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -49,10 +49,34 @@
                <span>Profile</span>
             </a>
          </li>
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="./allUsers.html">
+					<i class="bi bi-person"></i>
+					<span>Online Users</span>
+				</a>
+			</li>
+         <li class="nav-item">
+            <a class="nav-link collapsed" href="./users.html">
+               <i class="bi bi-people"></i>
+               <span>Users</span>
+            </a>
+         </li>
          <li class="nav-item">
             <a class="nav-link collapsed" href="contacts.html">
                <i class="bi bi-envelope"></i>
                <span>Contacts</span>
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link collapsed" href="./readContacts.html">
+               <i class="bi bi-envelope-open-fill"></i>
+               <span>read contacts</span>
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link collapsed" href="./newUser.html">
+               <i class="bi bi-box-arrow-in-right"></i>
+               <span>New user</span>
             </a>
          </li>
          <li class="nav-item">
@@ -68,9 +92,21 @@
             </a>
          </li>
          <li class="nav-item">
+            <a class="nav-link collapsed" href="confirmedConnections.html">
+               <i class="bi bi-card-list"></i>
+               <span>Confirmed Connections</span>
+            </a>
+         </li>
+         <li class="nav-item">
             <a class="nav-link collapsed" href="pendingConnections.html">
                <i class="bi bi-question-circle"></i>
                <span>Pending Connections</span>
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link collapsed" href="./rejectedConnrectios.html">
+               <i class="bi bi-ban"></i>
+               <span>Rejected Connections</span>
             </a>
          </li>
          <li class="nav-item">
@@ -95,6 +131,9 @@
    </aside>
    <main id="main" class="main approveUsers">
       <h1>Not Approved Users</h1>
+      <button type="button" onclick="tableToCSV()" class="excel">
+         download CSV
+      </button>
       <table id="users-container">
          <thead>
             <tr>

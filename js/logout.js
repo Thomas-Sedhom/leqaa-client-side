@@ -10,11 +10,11 @@ logout.addEventListener('click', async (e) => {
         credentials: 'include',
     })
     if (!res.ok) {
-        const errorData = await response.json(); // Parse JSON error data
-        const messages = errorData?.message || ["Unknown error"]; // Handle potential missing message
-        throw new Error(`Error during signup: ${messages}`); // Handle errors gracefully
+        const errorData = await response.json(); 
+        const messages = errorData?.message || ["Unknown error"];
+        throw new Error(`Error during signup: ${messages}`); 
     }
-    window.location.href = `file:///D:/work/seeko/seeko-front/index.html`; // Removed setTimeout
+    window.location.href = `index.html`;
 })
 
 logoutIcon.addEventListener('click', async (e) => {
@@ -26,9 +26,9 @@ logoutIcon.addEventListener('click', async (e) => {
         credentials: 'include',
     })
     if (!res.ok) {
-        const errorData = await response.json(); // Parse JSON error data
-        const messages = errorData?.message || ["Unknown error"]; // Handle potential missing message
-        throw new Error(`Error during signup: ${messages}`); // Handle errors gracefully
+        const errorData = await response.json();
+        const messages = errorData?.message || ["Unknown error"];
+        throw new Error(`Error during signup: ${messages}`);
     }
-    window.location.href = `file:///D:/work/seeko/seeko-front/index.html`; // Removed setTimeout
+    window.location.href = `index.html`;
 })

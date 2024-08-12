@@ -50,15 +50,33 @@
 				</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link collapsed" href="./allUsers.html">
+				<a class="nav-link collapsed" href="./users.html">
+				    <i class="bi bi-people"></i>
+				    <span>Users</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="allAdmins.html">
 					<i class="bi bi-people-fill"></i>
-					<span>Users</span>
+					<span>Admins</span>
 				</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link collapsed" href="contacts.html">
 					<i class="bi bi-envelope"></i>
 					<span>Contacts</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="./readContacts.html">
+				    <i class="bi bi-envelope-open-fill"></i>
+				    <span>read contacts</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="./newUser.html">
+				    <i class="bi bi-box-arrow-in-right"></i>
+				    <span>New user</span>
 				</a>
 			</li>
 			<li class="nav-item">
@@ -74,9 +92,21 @@
 				</a>
 			</li>
 			<li class="nav-item">
+				<a class="nav-link collapsed" href="confirmedConnections.html">
+				    <i class="bi bi-card-list"></i>
+				    <span>Confirmed Connections</span>
+				</a>
+			</li>
+			<li class="nav-item">
 				<a class="nav-link collapsed" href="pendingConnections.html">
 					<i class="bi bi-question-circle"></i>
 					<span>Pending Connections</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="./rejectedConnrectios.html">
+				    <i class="bi bi-ban"></i>
+				    <span>Rejected Connections</span>
 				</a>
 			</li>
 			<li class="nav-item">
@@ -101,11 +131,15 @@
 	</aside>
 	<main class="warnings main" id="main">
 		<h1>User Warnings</h1>
+		<button type="button" onclick="tableToCSV()" class="excel">
+			download CSV
+		</button>
 		<table id="user-messages">
 			<thead>
 				<tr>
 					<th>User Name</th>
 					<th>warning message</th>
+					<th>phone</th>
 					<th>warning date</th>
 				</tr>
 			</thead>

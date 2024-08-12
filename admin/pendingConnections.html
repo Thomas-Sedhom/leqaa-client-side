@@ -49,6 +49,18 @@
                <span>Profile</span>
             </a>
          </li>
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="./users.html">
+				   <i class="bi bi-people"></i>
+				   <span>Users</span>
+				</a>
+			</li>
+         <li class="nav-item">
+            <a class="nav-link collapsed" href="./newUser.html">
+               <i class="bi bi-box-arrow-in-right"></i>
+               <span>New user</span>
+            </a>
+         </li>
          <li class="nav-item">
             <a class="nav-link collapsed" href="connections.html">
                <i class="bi bi-card-list"></i>
@@ -61,12 +73,24 @@
                <span>Pending Connections</span>
             </a>
          </li>
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="./rejectedConnections.html">
+				   <i class="bi bi-ban"></i>
+				   <span>Rejected Connections</span>
+				</a>
+			</li>
          <li class="nav-item">
             <a class="nav-link collapsed" href="approveUser.html">
                <i class="bi bi-dash-circle"></i>
                <span>ApproveUsers</span>
             </a>
          </li>
+         <li class="nav-item">
+				<a class="nav-link collapsed" href="./warnings.html">
+					<i class="bi bi-dash-circle"></i>
+					<span>WarningUsers</span>
+				</a>
+			</li>
          <li class="nav-item logout">
             <a class="nav-link collapsed" href="#">
                <i class="bi bi-box-arrow-right"></i>
@@ -77,6 +101,9 @@
    </aside>
    <main id="main" class="main connections">
       <h1>Pending Users Connections</h1>
+      <button type="button" onclick="tableToCSV()" class="excel">
+         download CSV
+      </button>
       <table id="pendingConnections-container">
          <thead>
             <tr>

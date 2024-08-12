@@ -1,4 +1,445 @@
-const languagesSection = document.getElementById('languagesSection');
+const egyptApi = {
+   "القاهرة": {
+      "Hadayek Al Zaiton	": "	حدائق الزيتون",
+      "El Shorouk	": "	الشروق",
+      "El Marg	": "	المرج",
+      "Maadi Degla	": "	المعادي دجلة",
+      "Abaseya	": "	العباسية",
+      "New Nozha	": "	النزهة الجديدة",
+      "Dar Al Salam	": "	دار السلام",
+      "Al Kalaa	": "	القلعة",
+      "Basateen	": "	البساتين",
+      "Abdo Basha	": "	عبده باشا",
+      "Nasr City	": "	مدينة ناصر",
+      "15th Of May City	": "	مدينة 15 مايو",
+      "5th Settlement	": "	التجمع الخامس",
+      "Heliopolis	": "	مصر الجديدة",
+      "3rd Settlement	": "	التجمع الثالث",
+      "Ezbet El Nakhl	": "	عزبة النخل",
+      "Katamiah	": "	قطامية",
+      "El Herafieen	": "	الحرفيين",
+      "15th of May City	": "	مدينة 15 مايو",
+      "Down Town	": "	وسط البلد",
+      "EL Marg	": "	المرج",
+      "New Maadi	": "	المعادى الجديدة",
+      "Zamalek	": "	الزمالك",
+      "1st Settlement	": "	التجمع الاول",
+      "Helwan	": "	حلوان",
+      "Al Zeitoun	": "	الزيتون",
+      "Masaken Sheraton	": "	مساكن شيراتون",
+      "Hadayek Helwan	": "	حدائق حلوان",
+      "Ghamrah	": "	غمره",
+      "Rod El Farag	": "	روض الفرج",
+      "Al Matareya	": "	المطرية",
+      "Al Kasr Al Einy	": "	القصر العيني",
+      "Cairo	": "	القاهرة",
+      "New Cairo	": "	القاهرة الجديدة",
+      "Ain Shams	": "	عين شمس",
+      "Garden City	": "	جاردن سيتي",
+      "Mirage City	": "	ميراج سيتى",
+      "Amiria	": "	العامرية",
+      "Al Azhar	": "	الأزهر",
+      "Sayeda Zeinab	": "	السيدة زينب",
+      "Almaza	": "	الماظة",
+      "Fustat	": "	الفسطاط",
+      "Hadayek Maadi	": "	حدائق المعادي",
+      "Al Rehab	": "	الرحاب",
+      "Al Moski	": "	الموسكي",
+      "Manial Al Rodah	": "	منيل الروضة",
+      "Maadi	": "	المعادى",
+      "El Tahrir	": "	التحرير",
+      "New El Marg	": "	نيو المرج",
+      "Gesr Al Suez	": "	جسر السويس",
+      "Abdeen	": "	عابدين",
+      "Mokattam	": "	المقطم",
+      "Al Salam City	": "	مدينة السلام",
+      "Misr El Kadima	": "	مصر القديمة",
+      "Helmiet Elzaitoun	": "	حلمية الزيتون",
+      "Al Daher	": "	الضاهر",
+      "Hadayek Al Qobah	": "	حدائق القبة",
+      "Shubra	": "	شبرا",
+      "Cornish Al Nile	": "	كورنيش النيل",
+      "Badr City	": "	مدينة بدر",
+      "Ramsis	": "	رمسيس",
+      "Madinty	": "	مدينتي",
+      "Helmeya	": "	الحلمية"
+   },
+   "الجيزة": {
+      "6th of October	": "	السادس من اكتوبر",
+      "Mansoureya	": "	المنصورية",
+      "Hawamdya	": "	الحوامدية",
+      "Tirsa	": "	تيرسا",
+      "Abou Rawash	": "	ابو رواش",
+      "Omraneya	": "	العمرانية",
+      "Smart Village	": "	القرية الذكية",
+      "Kerdasa	": "	كرداسة",
+      "Saft El Laban	": "	صفط اللبن",
+      "Dokki	": "	الدقي",
+      "Al Saf	": "	الصف",
+      "Sheikh Zayed	": "	الشيخ زايد",
+      "Sakiat Mekki	": "	ساقية مكي",
+      "Mohandessin	": "	المهندسين",
+      "Al Kom Al Ahmer	": "	الكوم الأحمر",
+      "Imbaba	": "	إمبابة",
+      "Bolak Al Dakrour	": "	بولاق الدكرور",
+      "Al Monib	": "	المنيب",
+      "Berak Alkiaam	": "	برك الكيام",
+      "Al Moatamadia	": "	المعتمدية",
+      "Shabramant	": "	شبرامانت",
+      "Warraq	": "	الوراق",
+      "Giza	": "	الجيزة",
+      "Manial	": "	المنيل",
+      "Haram	": "	الهرم",
+      "Agouza	": "	العجوزة",
+      "Qism el Giza	": "	قسم الجيزة",
+      "Faisal	": "	فيصل",
+      "Al Wahat	": "	الواحات",
+      "Hadayeq El Ahram	": "	حدائق الاهرام",
+      "6th Of October	": "	السادس من اكتوبر",
+      "Aossim	": "	أوسيم",
+      "Al Nobariah	": "	النوبارية",
+      "Badrashin	": "	بدراشين",
+      "Kit Kat	": "	كت كات",
+      "Al Barageel	": "	البراجيل",
+      "Al Manashi	": "	المناشي"
+   },
+   "الاسكندرية": {
+      "Miami	": "	ميامي",
+      "Smouha	": "	سموحة",
+      "Abees	": "	أبيس",
+      "Alexandria	": "	الإسكندرية",
+      "Sedi Gaber	": "	سيدي جابر",
+      "El Borg El Kadem	": "	البرج القديم",
+      "Sedi Bisher	": "	سيدي بشر",
+      "Al Bitash	": "	البيطاش",
+      "Stanly	": "	ستانلي",
+      "El-Agamy	": "	العجمي",
+      "San Stefano	": "	سان ستيفانو",
+      "Mahtet El-Raml	": "	محطة الرمل",
+      "Al A'mriah	": "	العامرية",
+      "Bangar EL Sokar	": "	بنجر السكر",
+      "Manshia	": "	المنشية",
+      "Sedi Kreir	": "	سيدي كرير",
+      "Kafer Abdou	": "	كفر عبده",
+      "Borg El Arab	": "	برج العرب",
+      "Roshdy	": "	رشدي",
+      "Abu Keer	": "	ابو قير",
+      "Glem	": "	جليم",
+      "Al Nahda Al Amria	": "	النهضة العامرية",
+      "Awaied-Ras Souda	": "	عويد راس سودا",
+      "Mandara	": "	المندرة",
+      "City Center	": "	وسط المدينة",
+      "Azarita	": "	أزاريتا",
+      "Maamora	": "	المعمورة",
+      "Al Soyof	": "	السيوف",
+      "Sporting	": "	سبورتنج",
+      "Khorshid	": "	خورشيد",
+      "Luran	": "	لوران",
+      "Asafra	": "	العصافرة",
+      "Zezenya	": "	زيزينيا",
+      "Muntazah	": "	المنتزه"
+   },
+   "البحيرة": {
+      "Hosh Issa	": "	حوش عيسى",
+      "Rashid	": "	رشيد",
+      "Shubrakhit	": "	شبراخيت",
+      "Edko	": "	إدكو",
+      "Damanhour	": "	دمنهور",
+      "Etay Al Barud	": "	ايتاي البارود",
+      "Al Beheira	": "	البحيرة",
+      "Abu Hummus	": "	ابو حمص",
+      "Kom Hamadah	": "	كوم حمادة",
+      "Abou Al Matamer	": "	ابو المطامير",
+      "Al Delengat	": "	الدلنجات",
+      "El Nubariyah	": "	النوبارية",
+      "Kafr El Dawwar	": "	كفر الدوار",
+      "Edfina	": "	إدفينا",
+      "Wadi Al Natroun	": "	وادي النطرون",
+      "Al Mahmoudiyah	": "	المحمودية",
+      "Al Rahmaniyah	": "	الرحمانية"
+   },
+   "الدقهلية": {
+      "Meet Ghamr	": "	ميت غمر",
+      "Belqas	": "	بلقاس",
+      "Nabroo	": "	نابرو",
+      "Manzala	": "	المنزلة",
+      "Shrbeen	": "	شربين",
+      "Al Daqahliya	": "	الدقهلية",
+      "El Sinblaween	": "	السنبلاوين",
+      "Menit El Nasr	": "	منية النصر",
+      "Dekernes	": "	دكرنس",
+      "Aga	": "	آغا",
+      "Talkha	": "	طلخا",
+      "Al Mansoura	": "	المنصورة",
+   },
+   "الفيوم": {
+      "Sonores	": "	سنورس",
+      "Ebshoy	": "	إبشواي",
+      "Kofooer Elniel	": "	كفور النيل",
+      "New Fayoum	": "	الفيوم الجديدة",
+      "Atsa	": "	اطسا",
+      "Sanhoor	": "	سنهور",
+      "Tameaa	": "	طامية",
+      "Al Fayoum	": "	الفيوم",
+      "Sersenaa	": "	سيرسينا",
+      "El Aagamen	": "	العجمين",
+      "Manshaa Abdalla	": "	منشاء عبد الله",
+      "Youssef Sadek	": "	يوسف صادق",
+      "Manshaa Elgamal	": "	منشأة الجمال"
+   },
+   "الغربية": {
+      "Alsanta	": "	السنطة",
+      "Al Mahala Al Kobra	": "	المحلة الكبرى",
+      "Al Gharbia	": "	الغربية",
+      "Samanood	": "	سمنود",
+      "Tanta	": "	طنطا",
+      "Qotoor	": "	قطور",
+      "Zefta	": "	زفتى",
+      "Basyoon	": "	بسيون",
+      "Kafr Alziat	": "	كفر الزيات"
+   },
+   "المنيا": {
+      "Minya	": "	المنيا",
+      "Samaloot	": "	سمالوط",
+      "Eladwa	": "	العدوة",
+      "Mghagha	": "	مغاغة",
+      "Matai	": "	مطاى",
+      "Malawi	": "	ملاوي",
+      "Bani Mazar	": "	بني مزار",
+      "Dermwas	": "	ديرماس",
+      "Abo Korkas	": "	ابو قرقاص"
+   },
+   "المنوفية": {
+      "Shohada	": "	الشهداء",
+      "Menoof	": "	منوف",
+      "Tala	": "	تلا",
+      "Shebin El Koom	": "	شبين الكوم",
+      "Sadat City	": "	مدينة السادات",
+      "Al Monufia	": "	المنوفية",
+      "Quesna	": "	قويسنا",
+      "Berket Al Sabei	": "	بركة السبع",
+      "Ashmoon	": "	أشمون"
+   },
+   "الشرقية": {
+      "Al Salhiya Al Gedida	": "	الصالحية الجديدة",
+      "Abu Hammad	": "	ابو حماد",
+      "Abu Kbeer	": "	ابو كبير",
+      "Hehya	": "	ههيا",
+      "Awlad Saqr	": "	اولاد صقر",
+      "Al Hasiniya	": "	الحسينية",
+      "Faqous	": "	فاقوس",
+      "Darb Negm	": "	درب نجم",
+      "Al Ibrahimiya	": "	الابراهيمية",
+      "Zakazik	": "	الزقازيق",
+      "Kafr Saqr	": "	كفر صقر",
+      "Mashtool Al Sooq	": "	مشتول السوق",
+      "Belbes	": "	بيلبيس",
+      "Meniya Alqamh	": "	منيا القمه",
+      "Al Sharqia	": "	الشرقية",
+      "10th of Ramdan City	": "	العاشر من رمضان"
+   },
+   "اسوان": {
+      "Aswan	": "	أسوان",
+      "Draw	": "	دراو",
+      "El Klabsha	": "	كلابشة",
+      "Al Sad Al Aali	": "	السد العالي",
+      "Abu Simbel	": "	أبو سمبل",
+      "Nasr Elnoba	": "	نصر النوبة",
+      "Edfo	": "	إدفو",
+      "Markaz Naser	": "	مركز ناصر",
+      "Kom Ombo	": "	كوم امبو"
+   },
+   "اسيوط": {
+      "Dayrout	": "	ديروط",
+      "Asyut	": "	أسيوط",
+      "El Qusya	": "	القوصية",
+      "Assuit Elgdeda	": "	اسيوط الجديدة",
+      "Elfath	": "	الفتح",
+      "El Ghnayem	": "	الغنايم",
+      "Sahel Selim	": "	ساحل سليم",
+      "Abnoub	": "	أبنوب",
+      "El Badari	": "	البدارى",
+      "Abou Teag	": "	ابو تيج",
+      "Serfa	": "	سيرفا",
+      "Manflout	": "	منفلوط"
+   },
+   "بني سويف": {
+      "Bani Souaif	": "	بني سويف",
+      "El Wastaa	": "	الواسطى",
+      "El Korimat	": "	الكريمات",
+      "El Fashn	": "	الفشن",
+      "Naser	": "	ناصر",
+      "Ahnaseaa	": "	إهناسيا",
+      "New Bani Souaif	": "	بني سويف الجديدة",
+      "Bebaa	": "	ببا",
+      "Smostaa	": "	سمسطا"
+   },
+   "دمياط": {
+      "Kafr Saad	": "	كفر سعد",
+      "Ras El Bar	": "	رأس البر",
+      "Fareskor	": "	فارسكور",
+      "Al Zarkah	": "	الزرقا",
+      "Damietta	": "	دمياط",
+      "New Damietta	": "	دمياط الجديدة"
+   },
+   "اسماعيلية": {
+      "Elsalhia Elgdida	": "	الصالحية الجديدة",
+      "Al Kasaseen	": "	القصاصين",
+      "Abo Sultan	": "	ابو سلطان",
+      "El Tal El Kebir	": "	التل الكبير",
+      "Abu Swer	": "	ابو صوير",
+      "Qantara Gharb	": "	قنطرة غرب",
+      "Qantara Sharq	": "	القنطرة شرق",
+      "Nfeesha	": "	نفيشة",
+      "Ismailia	": "	الإسماعيلية",
+      "Srabioom	": "	سرابيوم",
+      "Fayed	": "	فايد"
+   },
+   "كفر الشيخ": {
+      "Hamool	": "	الحامول",
+      "Kafr El Sheikh	": "	كفر الشيخ",
+      "Al Riadh	": "	الرياض",
+      "Qeleen	": "	قلين",
+      "Desouq	": "	دسوق",
+      "Seedy Salem	": "	سيدى سالم",
+      "Bela	": "	بيلا",
+      "Fooh	": "	فوه",
+      "Metobas	": "	مطوبس",
+      "Borollos	": "	برج البرلس",
+      "Balteem	": "	بلطيم"
+   },
+   "الاقصر": {
+      "El Karnak	": "	الكرنك",
+      "El Korna	": "	القرنة",
+      "Armant Sharq	": "	ارمنت شرق",
+      "Esnaa	": "	اسنا",
+      "Luxor	": "	الأقصر",
+      "Armant Gharb	": "	ارمنت غرب"
+   },
+   "مطروح": {
+      "Matrooh	": "	مطروح",
+      "El Alamein	": "	العلمين",
+      "Sidi Abdel Rahman	": "	سيدي عبد الرحمن",
+      "El Dabaa	": "	الضبعة",
+      "Marsa Matrooh	": "	مرسى مطروح"
+   },
+   "الوادي الجديد": {
+      "El Kharga	": "	الخارجة",
+      "New Valley	": "	الوادي الجديد"
+   },
+   "بور سعيد": {
+      "Port Fouad	": "	بور فؤاد",
+      "Port Said	": "	بورسعيد",
+      "Zohoor District	": "	حي الزهور",
+   },
+   "القليوبية": {
+      "Abu Zaabal	": "	ابو زعبل",
+      "Qaha	": "	قها",
+      "Tookh	": "	طوخ",
+      "El Oboor	": "	العبور",
+      "Meet Nama	": "	ميت نما",
+      "Al Shareaa Al Gadid	": "	الشريعة الجديد",
+      "Banha	": "	بنها",
+      "El Kanater EL Khayrya	": "	القناطر الخيرية",
+      "Sheben Alkanater	": "	شبين القناطر",
+      "El Qalag	": "	القلج",
+      "Bahteem	": "	بهتيم",
+      "Qalyubia	": "	القليوبية",
+      "Orabi	": "	عرابي",
+      "Qalyoob	": "	قليوب",
+      "Al Khanka	": "	الخانكة",
+      "El Khsos	": "	الخصوص",
+      "Kafr Shokr	": "	كفر شكر",
+      "Om Bayoumi	": "	أم بيومي",
+      "Shoubra Alkhema	": "	شبرا الخيمة",
+      "Mostorod	": "	مسطرد"
+   },
+   "قنا": {
+      "Deshna	": "	دشنا",
+      "Abu Tesht	": "	ابوتشت",
+      "Farshoot	": "	فرشوط",
+      "Qena	": "	قنا",
+      "Qoos	": "	قوص",
+      "Naqada	": "	نقادة",
+      "Naga Hamadi	": "	نجع حمادي"
+   },
+   "البحر الاحمر": {
+      "Red Sea	": "	البحر الاحمر",
+      "Safaga	": "	سفاجا",
+      "Hurghada	": "	الغردقة",
+      "Qouseir	": "	القصير",
+      "Marsa Alam	": "	مرسى علم",
+      "Gouna	": "	الجونة",
+      "Ras Ghareb	": "	رأس غارب"
+   },
+   "سوهاج": {
+      "Sohag	": "	سوهاج",
+      "Tema	": "	طما",
+      "Saqatlah	": "	ساقلته",
+      "Dar Elsalam	": "	دار السلام",
+      "Gerga	": "	جرجا",
+      "Elbalyna	": "	البالينا",
+      "Maragha	": "	مراغة",
+      "El Monshah	": "	المنشاه",
+      "Ghena	": "	جهينة",
+      "Akhmem	": "	أخميم",
+      "Tahta	": "	طهطا"
+   },
+   "السويس": {
+      "Ataka District	": "	حي عتاقة",
+      "Suez	": "	السويس",
+      "Elganaien District	": "	حي الجناين",
+      "Al Suez	": "	السويس",
+      "Al Adabya	": "	الأدبية",
+      "Ain Al Sukhna	": "	العين السخنة",
+      "El Arbeen District	": "	حى الاربعين"
+   },
+   "شمال سيناء": {
+      "North Sinai	": "	شمال سيناء",
+      "Al Arish	": "	العريش"
+   },
+   "جنوب سيناء": {
+      "Neweibaa	": "	نويبع",
+      "Dahab	": "	دهب",
+      "Saint Catherine	": "	سانت كاترين",
+      "Sharm Al Sheikh	": "	شرم الشيخ",
+      "Toor Sinai	": "	طور سيناء",
+      "Taba	": "	طابا"
+   },
+}
+let fullImages = [], updatedImages = [];
+
+
+const governorateSelect = document.getElementById('governorate');
+for (gover in egyptApi) {
+   const option = document.createElement('option');
+   option.value = gover;
+   option.textContent = gover;
+   governorateSelect.appendChild(option);
+}
+governorateSelect.addEventListener('change', populateCitiesOptions);
+
+function populateCitiesOptions() {
+   const selectedGovernorate = governorateSelect.value;
+   console.log(governorateSelect.value)
+   const citySelect = document.getElementById('city');
+
+
+   // Clear any existing options
+   citySelect.innerHTML = '<option value="">اختر مدينة</option>';
+
+   // Add options for the selected governorate
+   if (selectedGovernorate) {
+      const cities = egyptApi[selectedGovernorate];
+      for (city in cities) {
+         const option = document.createElement('option');
+         option.value = cities[city];
+         option.textContent = cities[city];
+         citySelect.appendChild(option);
+      }
+   }
+}
+
 const addLanguageButton = document.getElementById('addLanguageButton');
 const completeRegistration = document.querySelector('.completeRegistration');
 const loadingBody = document.querySelector('.loadingBody');
@@ -8,11 +449,10 @@ const initialLanguageSection = languagesSection.querySelector('.language-section
 addLanguageButton.addEventListener('click', () => {
    const newLanguageSection = initialLanguageSection.cloneNode(true);
 
-   const newLanguageInputs = newLanguageSection.querySelectorAll('input');
+   const newLanguageInputs = newLanguageSection.querySelectorAll('select');
    newLanguageInputs.forEach((input, index) => {
       const newInputName = input.name.replace(/\[[0-9]+\]/, `[${languagesSection.children.length}]`);
       input.name = newInputName;
-      input.value = "";
    });
 
    const removeButton = document.createElement('button');
@@ -120,9 +560,9 @@ childrenNo.addEventListener('change', () => {
    childrenSection.style.display = 'none';
 });
 
+
 //----------------------------------------------------------------------------------------------------------
 const faceImageInput = document.getElementById('faceImage');
-const fullImageInput = document.getElementById('fullImage');
 const idImageInput = document.getElementById('idImage');
 // const manWithIdImageInput = document.getElementById('manWithIdImage');
 const faceImagePreview = document.getElementById('faceImagePreview');
@@ -144,7 +584,7 @@ function displayImagePreview(input, previewElement) {
    return previewElement
 
 }
-
+console.log(document.getElementById('faceImage').files[0])
 faceImageInput.addEventListener('change', () => {
    const previewElement = document.createElement('img');
    const updatedPreviewElement = displayImagePreview(faceImageInput, previewElement);
@@ -152,15 +592,65 @@ faceImageInput.addEventListener('change', () => {
       faceImagePreview.removeChild(faceImagePreview.firstChild);
    }
    faceImagePreview.appendChild(updatedPreviewElement);
+
+
 });
 
-fullImageInput.addEventListener('change', () => {
-   const previewElement = document.createElement('img');
-   const updatedPreviewElement = displayImagePreview(fullImageInput, previewElement);
-   while (fullImagePreview.firstChild) {
-      fullImagePreview.removeChild(fullImagePreview.firstChild);
-   }
-   fullImagePreview.appendChild(updatedPreviewElement);
+counter = 1;
+const fullImageSection = document.getElementById('fullImageSection')
+const addFullImage = document.getElementById('addFullImage');
+const initialFullImageSection = fullImageSection.querySelector('.image-section');
+console.log(addFullImage)
+addFullImage.addEventListener('click', () => {
+   const newFullImageSection = initialFullImageSection.cloneNode(true);
+   newFullImageSection.querySelector('.preview').id = `fullImagePreview${counter++}`
+   if(newFullImageSection.querySelector('.preview').children.length > 0)
+      newFullImageSection.querySelector('.preview').removeChild(newFullImageSection.querySelector('.preview').firstChild);
+   newFullImageSection.querySelector('label').setAttribute('for',`fullImage${counter}`)
+   console.log(newFullImageSection.querySelector('label'))
+   const newFullImageInput = newFullImageSection.querySelector('input');
+   newFullImageInput.id = `fullImage${counter}`
+   newFullImageInput.value = null;
+
+   const removeButton = document.createElement('button');
+   removeButton.type = 'button';
+   removeButton.classList.add('removeFullImageButton');
+   removeButton.textContent = 'Remove';
+   removeButton.style.display = 'block'
+   removeButton.addEventListener('click', () => {
+      fullImageSection.removeChild(newFullImageSection);
+      if(fullImageSection.children.length < 5)
+         addFullImage.disabled = false
+
+   });
+   newFullImageSection.appendChild(removeButton);
+   fullImageSection.appendChild(newFullImageSection)
+
+   const fullImageInputs = Array.from(document.querySelectorAll("input[type='file'].fullImage"));
+   fullImageInputs.forEach((input, index) => {
+      input.addEventListener("change", (event) => {
+         const previewElement = document.createElement('img');
+         const previewDiv = input.closest('.image-section').querySelector('.preview');
+         const updatedPreviewElement = displayImagePreview(input, previewElement);
+         while (previewDiv.firstChild) {
+            previewDiv.removeChild(previewDiv.firstChild);
+         }
+         previewDiv.appendChild(updatedPreviewElement);
+      });
+   });
+   if(fullImageSection.children.length == 5)
+      addFullImage.disabled = true
+})
+const fullImageInputs = Array.from(document.querySelectorAll("input[type='file'].fullImage"));
+fullImageInputs.forEach((input, index) => {
+   input.addEventListener("change", (event) => {
+      const previewElement = document.createElement('img');
+      const previewDiv = input.closest('.image-section').querySelector('.preview');
+      const updatedPreviewElement = displayImagePreview(input, previewElement);
+      while (previewDiv.firstChild) 
+         previewDiv.removeChild(previewDiv.firstChild);
+      previewDiv.appendChild(updatedPreviewElement);
+   });
 });
 
 idImageInput.addEventListener('change', () => {
@@ -168,6 +658,7 @@ idImageInput.addEventListener('change', () => {
    const updatedPreviewElement = displayImagePreview(idImageInput, previewElement);
    while (idImagePreview.firstChild) {
       idImagePreview.removeChild(idImagePreview.firstChild);
+      console.log(document.getElementById('idImage').files[0])
    }
    idImagePreview.appendChild(updatedPreviewElement);
 });
@@ -185,12 +676,11 @@ idImageInput.addEventListener('change', () => {
 
 const errorCon = document.createElement('error');
 const completeRedData = async (formData) => {
-
    const languageSections = document.querySelectorAll('.language-section');
    let languages = [];
    languageSections.forEach((section, i) => {
-      const language = section.querySelector(`input[name="languages[${i}].language"]`).value;
-      const level = section.querySelector(`input[name="languages[${i}].level"]`).value;
+      const language = section.querySelector(`select[name="languages[${i}].language"]`).value;
+      const level = section.querySelector(`select[name="languages[${i}].level"]`).value;
       languages.push({ language, level });
    });
    const response = await fetch('http://localhost:3000/api/v1/auth/completeRegistration', {
@@ -198,30 +688,28 @@ const completeRedData = async (formData) => {
       body: formData,
       credentials: 'include',
    })
+   const message = await response.json()
+   if (!response.ok || message.status == 400 ) {
+      const messages = message?.message || ["Unknown error"];
 
-   if (!response.ok) {
-      const errorData = await response.json();
-      const messages = errorData?.message || ["Unknown error"];
       error.innerHTML = messages;
+      error.style.paddingTop = "20px";
+      error.style.paddingBottom = "20px";
+      error.style.fontSize = "25px";
       completeRegistration.style.display = 'block';
       loadingBody.style.display = 'none';
       throw new Error(`Error during signup: ${messages}`);
-
    } else {
       error.innerHTML = "";
+      window.location.href =
+      `wating.html`;
    }
-
-   const message = await response.text();
-   console.log(message);
    return message;
-}
-
+}  
 const completeRegistrationForm = document.getElementById("completeRegistration");
-console.log(completeRegistrationForm)
 completeRegistrationForm.addEventListener("submit", async (e) => {
 
    e.preventDefault();
-   console.log("form")
    const firstName = document.getElementById('firstName').value;
    const midName = document.getElementById('midName').value;
    const lastName = document.getElementById('lastName').value;
@@ -275,17 +763,31 @@ completeRegistrationForm.addEventListener("submit", async (e) => {
    const languageSections = document.querySelectorAll('.language-section');
    let languages = [];
    languageSections.forEach((section, i) => {
-      const language = section.querySelector(`input[name="languages[${i}].language"]`).value;
-      const level = section.querySelector(`input[name="languages[${i}].level"]`).value;
+      const language = section.querySelector(`select[name="languages[${i}].language"]`).value;
+      const level = section.querySelector(`select[name="languages[${i}].level"]`).value;
 
       languages.push({ language, level });
    });
    const faceImage = document.getElementById('faceImage').files[0];
-   const fullImage = document.getElementById('fullImage').files[0];
    const idImage = document.getElementById('idImage').files[0];
-   // const manWithIdImage = document.getElementById('manWithIdImage').files[0];
-
-   
+   const fullImageInputs = Array.from(document.querySelectorAll("input[type='file'].fullImage"));
+   let full = [null, null, null, null, null];
+   fullImageInputs.forEach((input, index) => {
+      const previewImg = input.closest('.image-section').querySelector('.preview img');
+      if(previewImg)
+         if(fullImages.includes(previewImg.src)){
+            const i = fullImages.indexOf(previewImg.src)
+            full[i] = undefined;
+         }
+   });
+   fullImageInputs.forEach((input, index) => {
+      const previewImg = input.closest('.image-section').querySelector('.preview img');
+      if(previewImg)
+         if(!fullImages.includes(previewImg.src))
+            for(let i = 0; i < 5; i++){
+               if(full[i] === null) {full[i] = input.files[0]; break;}; 
+            }
+   });
    const formData = new FormData();
    formData.append('firstName', firstName);
    formData.append('midName', midName);
@@ -338,19 +840,20 @@ completeRegistrationForm.addEventListener("submit", async (e) => {
    formData.append('habbits', habbits);
    formData.append('otherInfo', otherInfo);
    formData.append('livingAbroad', livingAbroad);
-   formData.append('faceImage', faceImage);
-   formData.append('fullImage', fullImage);
-   formData.append('idImage', idImage);
-   // formData.append('manWithIdImage', manWithIdImage);
-   try {
+   formData.append('fullImage1', full[0]);
+   formData.append('fullImage2', full[1]);
+   formData.append('fullImage3', full[2]);
+   formData.append('fullImage4', full[3]);
+   formData.append('fullImage5', full[4]);
+
+   if (faceImage != undefined)
+      formData.append('faceImage', faceImage);
+   if (idImage !== undefined) 
+      formData.append('idImage', idImage);
+      // console.log(formData)
       completeRegistration.style.display = 'none';
       loadingBody.style.display = 'grid';
-      const res = await completeRedData(formData);
-      window.location.href =
-         `file:///D:/work/seeko/seeko-front/wating.html`;
-   } catch (err) {
-      console.log(err)
-   }
+      await completeRedData(formData);
 })
 
 const warnings = document.getElementById('warning');
@@ -361,17 +864,69 @@ const getWarning = async () => {
    })
    const data = await response.text();
    if (data != "") {
-      warnings.innerHTML = data;
+      warnings.innerHTML = `
+      <span style = "color: black">برجاء استيفاء تلك الملاحظات:</span>
+      <br>
+      ${data}
+      `;
       warnings.style.display = "block";
       const user = await userApi();
+      console.log(user)
+      if(user.fullImage1 != null){
+         fullImages.push(user.fullImage1);
+         updatedImages.push(user.fullImage1);
+      }
+      if(user.fullImage2 != null){
+         fullImages.push(user.fullImage2);
+         updatedImages.push(user.fullImage2);
+      }
+      if(user.fullImage3 != null){
+         fullImages.push(user.fullImage3);
+         updatedImages.push(user.fullImage3);
+      }
+      if(user.fullImage4 != null){
+         fullImages.push(user.fullImage4);
+         updatedImages.push(user.fullImage4);
+      }
+      if(user.fullImage5 != null){
+         fullImages.push(user.fullImage5);
+         updatedImages.push(user.fullImage5);
+      }
+      console.log(fullImages)
+      for(let i = 0; i < fullImages.length - 1; i++ )
+         addFullImage.dispatchEvent(new Event('click'))
+      const fullImageInputs = Array.from(document.querySelectorAll("input[type='file'].fullImage"));
+      fullImageInputs.forEach((input, index) => {
+         const previewElement = document.createElement('img');
+         const previewDiv = input.closest('.image-section').querySelector('.preview');
+         input.required = false;
+         previewElement.src = fullImages[index];
+         while (previewDiv.firstChild) 
+            previewDiv.removeChild(previewDiv.firstChild);
+         previewDiv.appendChild(previewElement);
+      });
+
+      const previewElement1 = document.createElement('img');
+      const previewElement2 = document.createElement('img');
+
+      previewElement1.src = user.faceImage
+      faceImagePreview.appendChild(previewElement1)
+      document.getElementById('faceImage').required = false;
+
+      previewElement2.src = user.idImage
+      idImagePreview.appendChild(previewElement2)
+      document.getElementById('idImage').required = false;
+
       document.getElementById('firstName').value = user.firstName;
       document.getElementById('midName').value = user.midName;
       document.getElementById('lastName').value = user.lastName;
       document.getElementById('age').value = user.age;
       document.getElementById('gender').value = user.gender;
-      document.getElementById('DOB').value =new Date(user.DOB).toISOString().slice(0, 10);
+      updateGuardianFields()
+      document.getElementById('DOB').value = new Date(user.DOB).toISOString().slice(0, 10);
       document.getElementById('nationality').value = user.nationality;
       document.getElementById('governorate').value = user.governorate;
+      governorateSelect.dispatchEvent(new Event('change'))
       document.getElementById('city').value = user.city;
       document.getElementById('region').value = user.region;
       document.getElementById('address').value = user.address;
@@ -395,21 +950,21 @@ const getWarning = async () => {
       document.getElementById('habbits').value = user.habits;
       document.getElementById('otherInfo').value = user.otherInfo;
       const permanentDiseases = document.querySelector('input[name="permanentDiseases"]');
-      if(user.permanentDiseases == true){
+      if (user.permanentDiseases == true) {
          document.getElementById('permanentDiseasesYes').checked = true;
          document.getElementById('permanentDiseasesDetails').value = user.permanentDiseasesDetails;
          permanentDiseases.dispatchEvent(new Event('change'))
       }
 
       const disability = document.querySelector('input[name="disability"]')
-      if(user.disability == true){
+      if (user.disability == true) {
          document.getElementById('disabilityYes').checked = true;
          disability.dispatchEvent(new Event('change'))
          document.getElementById('disabilityDetails').value = user.disabilityDetails;
       }
 
       const car = document.querySelector('input[name="car"]')
-      if(user.car == true){
+      if (user.car == true) {
          document.getElementById('carYes').checked = true;
          car.dispatchEvent(new Event('change'))
          document.getElementById('carTypeDetails').value = user.carType;
@@ -417,7 +972,7 @@ const getWarning = async () => {
       }
 
       const apartment = document.querySelector('input[name="apartment"]')
-      if(user.apartment == true){
+      if (user.apartment == true) {
          document.getElementById('apartmentYes').checked = true;
          apartment.dispatchEvent(new Event('change'))
          document.getElementById('apartmentSpaceDetails').value = user.space;
@@ -425,48 +980,48 @@ const getWarning = async () => {
       }
 
       const businessOwner = document.querySelector('input[name="businessOwner"]')
-      if(user.businessOwner == true){
+      if (user.businessOwner == true) {
          document.getElementById('businessOwnerYes').checked = true;
          businessOwner.dispatchEvent(new Event('change'))
          document.getElementById('businessType').value = user.businessType;
       }
 
       const job = document.querySelector('input[name="job"]')
-      if(user.job == true){
+      if (user.job == true) {
          document.getElementById('jobYes').checked = true;
          job.dispatchEvent(new Event('change'));
          document.getElementById('jobTitleDetails').value = user.jobTitle;
          document.getElementById('jobCompanyDetails').value = user.jobCompany;
       }
 
-      if(user.marriedNow == true)
+      if (user.marriedNow == true)
          document.getElementById('marriedNowYes').checked = true;
 
-      if(user.marriedBefore == true)
+      if (user.marriedBefore == true)
          document.getElementById('marriedBeforeYes').checked = true;
-      
+
       const children = document.querySelector('input[name="children"]')
-      if(user.children == true){
+      if (user.children == true) {
          document.getElementById('childrenYes').checked = true;
          children.dispatchEvent(new Event('change'));
          document.getElementById('numberOfChildrenDetails').value = user.numberOfChildren;
          document.getElementById('agesOfChildrenDetails').value = user.agesOfChildren;
       }
 
-      if(user.livingAbroad == true)
+      if (user.livingAbroad == true)
          document.getElementById('livingAbroadYes').checked = true;
 
       const stringArray = user.languages[0];
       const arrayOfObjects = JSON.parse(stringArray);
 
-      for(let i = 1; i < arrayOfObjects.length; i++) 
+      for (let i = 1; i < arrayOfObjects.length; i++)
          addLanguageButton.dispatchEvent(new Event('click'))
-      
+
       const langs = document.querySelectorAll('.language');
       const langsArray = [...langs]
       const levels = document.querySelectorAll('.level');
       const levelsArray = [...levels]
-      for(let i = 0; i < langsArray.length; i++) {
+      for (let i = 0; i < langsArray.length; i++) {
          langsArray[i].value = arrayOfObjects[i].language;
          levelsArray[i].value = arrayOfObjects[i].level;
       }
@@ -481,32 +1036,53 @@ const userApi = async () => {
       method: 'GET',
       headers: {
          "Content-Type": "application/json",
-
       },
       credentials: 'include'
    })
+
    if (!response.ok) {
-      const errorData = await response.json(); // Parse JSON error data
-      const messages = errorData?.message || ["Unknown error"]; // Handle potential missing message
+      const errorData = await response.json();
+      const messages = errorData?.message || ["Unknown error"];
       error.innerHTML = messages;
-      throw new Error(`Error during signup: ${messages}`); // Handle errors gracefully
+      throw new Error(`Error during signup: ${messages}`);
    }
    const message = await response.json();
-   console.log(message)
+   console.log(message.faceImage)
    return message;
 }
 
 //-------------------------------------------------------------------------------------------------------------------
 // fetch user data
 function convertDate(dateString) {
-   // Split the date string into components (month, day, year)
    const [year, month, day] = dateString.split("/");
-
-   // Create a Date object with the extracted components (month is 0-indexed)
    const dateObject = new Date(year, month - 1, day);
-
-   // Format the date object according to the desired format
-   // const formattedDate = dateObject.toISOString().slice(0, 23); // Include milliseconds and set timezone to +00:00
-console.log(dateObject)
    return dateObject;
 }
+
+//-------------------------------------------------------------------------------------------------------------------
+// update guardian fields
+const gender = document.getElementById("gender");
+const guardianNameInput = document.getElementById('nameOfTheApplicantGuardian');
+const relationInput = document.getElementById('relationWithApplicant');
+const phoneInput = document.getElementById('phoneOfGuardian');
+function updateGuardianFields() {
+   if(gender.value === "ذكر") {
+      guardianNameInput.disabled = true;
+      relationInput.disabled = true;
+      phoneInput.disabled = true;
+      guardianNameInput.required = false;
+      relationInput.required = false;
+      phoneInput.required = false;
+   }else{
+      guardianNameInput.disabled = false;
+      relationInput.disabled = false;
+      phoneInput.disabled = false;
+      guardianNameInput.required = true;
+      relationInput.required = true;
+      phoneInput.required = true;
+   }
+}
+gender.addEventListener('change', updateGuardianFields);
+
+
+

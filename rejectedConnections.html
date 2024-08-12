@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>rejected Requests</title>
+   <link rel="stylesheet" href="./css/style.css">
+   </link>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,500;0,700;1,100;1,200;1,500;1,600;1,700&display=swap"
+      rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+   <header>
+      <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
+         <div class="container">
+            <a class="navbar-brand" href="#"><img src="./images/imageUpdata.png" alt="logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+               <ul class="navbar-nav">
+                  <li class="nav-item">
+                     <a class="nav-link" href="./contactUs.html">اتصل بنا</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="./about.html">اعرف عنا</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link active" href="./profile.html">حسابك</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="./timeLine.html">الصفحة الرئيسية</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link logout" id="logout" href="#">تسجيل خروج <i
+                           class="fa-solid fa-right-from-bracket"></i></a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <div class="phone">
+            <ul class="navbar-nav">
+               <li class="nav-item">
+                  <a class="nav-link" href="./timeLine.html">
+                     <i class="fa-solid fa-house"></i>
+                  </a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link active" href="./profile.html">
+                     <i class="fa-solid fa-user"></i>
+                  </a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="./contactUs.html">
+                     <i class="fa-solid fa-address-book"></i>
+                  </a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="./about.html">
+                     <i class="fa-solid fa-address-card"></i>
+                  </a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link logoutIcon" href="#">
+                     <i class="fa-solid fa-right-from-bracket"></i>
+                  </a>
+               </li>
+            </ul>
+         </div>
+      </nav>
+   </header>
+   <main class="profile connections">
+      <div class="sec1">
+         <h2>الملف الشخصي</h2>
+         <nav>
+            <ol class="breadcrumb">
+               <li class="breadcrumb-item active">الطلبات المرفوضة</li>
+               <li class="breadcrumb-item"><a href="./profile.html">حسابك</a></li>
+               <li class="breadcrumb-item"><a href="./timeLine.html">الصفحة الرئيسية</a></li>
+            </ol>
+         </nav>
+      </div>
+      <div class="sec2 row">
+         <div class="card profileCard col-lg-12 col-md-12 col-sm-12">
+            <div class="details">
+               <div class="faceImage">
+                  <img id="faceImageProfile" src="">
+               </div>
+            </div>
+         </div>
+         <div class="info col-lg-12 col-md-12 col-sm-12">
+            <div class="profile-nav">
+               <ul>
+                  <li>
+                     <a class="" href="./profile.html">الحساب</a>
+                  </li>
+                  <li>
+                     <a class="" href="./connections.html">الطلبات المقبولة</a>
+                  </li>
+                  <li>
+                     <a class="" href="./receivedConnections.html">الطلبات المستلمه</a>
+                  </li>
+                  <li>
+                     <a class="" href="./sentConnections.html">الطلبات المرسلة</a>
+                  </li>
+                  <li>
+                     <a class="active" href="#">الطلبات المرفوضة</a>
+                  </li>
+               </ul>
+            </div>
+            <div class="profile-icons">
+               <ul>
+                  <li>
+                     <a class="" href="./profile.html">
+                        <i class="fa-solid fa-user"></i>
+                     </a>
+                  </li>
+                  <li>
+                     <a class="" href="./sentConnections.html">
+                        <i class="fa-solid fa-user-group"></i>
+                     </a>
+                  </li>
+                  <li>
+                     <a href="./receivedConnections.html">
+                        <i class="fa-solid fa-paper-plane"></i>
+                     </a>
+                  </li>
+                  <li>
+                     <a class="" href="./sentConnections.html">
+                        <i class="fa-solid fa-phone"></i>
+                     </a>
+                  </li>
+                  <li>
+                     <a class="active" href="#">
+                        <i class="fa-solid fa-ban"></i>
+                     </a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <div class="row cards" id="cards">
+         </div>
+      </div>
+   </main>
+   <footer class="end">
+      <div class="footer row">
+         <div class="touch cont col-lg-3 col-md-6 col-sm-12">
+            <img src="./images/imageUpdata.png">
+         </div>
+         <div class="about cont col-lg-3 col-md-6 col-sm-12">
+            <h2>معلومات عنا</h2>
+            <hr>
+            <p>
+               نحن في "لقاء" نؤمن بأن الزواج هو رحلة مشتركة تبدأ بخطوة واحدة. دعنا نكون شريكك في هذه الرحلة، ونسعى معًا
+               لبناء مستقبل مليء بالسعادة والتفاهم. </p>
+            <div class="logos cont col-lg-3 col-md-6 col-sm-12">
+               <i class="fa-brands fa-facebook"></i>
+               <i class="fa-brands fa-instagram"></i>
+               <i class="fa-brands fa-twitter"></i>
+               <i class="fa-brands fa-linkedin"></i>
+            </div>
+         </div>
+         <div class="links cont col-lg-3 col-md-6 col-sm-12">
+            <h2>روابط سريعة</h2>
+            <hr>
+            <div><a href="./timeLine.html">اكتشف</a></div>
+            <div><a href="./profile.html">الملف الشخصي</a></div>
+            <div><a href="./about.html">معلومات عنا</a></div>
+            <div><a href="./contactUs.html">تواصل معنا</a></div>
+         </div>
+         <div class="services cont col-lg-3 col-md-6 col-sm-12">
+            <h2>الخدمات</h2>
+            <hr>
+            <div>البحث عن الشريك المثالي</div>
+            <div>البحث المخصص</div>
+            <div>خدمة متميزة</div>
+         </div>
+         <hr class="line col-lg-12 col-md-12 col-sm-12">
+         <div class="rights col-lg-12 col-md-12 col-sm-12">
+
+            <div class="right">
+               حقوق الطبع والنشر © 2024 جميع الحقوق محفوظة
+            </div>
+         </div>
+      </div>
+   </footer>
+
+   <script src="./js/logout.js"></script>
+   <script src="./js/rejectedConnections.js"></script>
+   <script src="./js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

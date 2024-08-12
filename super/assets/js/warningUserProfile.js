@@ -2,10 +2,9 @@ const acceptButton = document.getElementById('acceptButton');
 const reject = document.getElementById('reject');
 const warning = document.getElementById('warning');
 
-
 //-------------------------------------------------------------------------------------------------------------------
 // Extract id using substring and split
- queryString = window.location.search;
+queryString = window.location.search;
 if (queryString) {
 	const urlParams = new URLSearchParams(queryString.substring(1));
 	id = urlParams.get('id');
@@ -19,7 +18,6 @@ if (queryString) {
 // accept event
 acceptButton.addEventListener('click', async () => {
 	try {
-        console.log(5)
 		const response = await fetch(`http://localhost:3000/api/v1/admin/notApprovedUsers/${id}/accept`,{
 			method: "GET",
 			headers:{
@@ -28,18 +26,17 @@ acceptButton.addEventListener('click', async () => {
 			credentials: 'include'
 		}); 
 		if (!response.ok) {
-			const errorData = await response.json(); // Parse JSON error data
-			const messages = errorData?.message || ["Unknown error"]; // Handle potential missing message
-			throw new Error(`Error during signup: ${messages}`); // Handle errors gracefully
+			const errorData = await response.json(); 
+			const messages = errorData?.message || ["Unknown error"]; 
+			throw new Error(`Error during signup: ${messages}`);
 		} 
-        window.location.href =
-        "file:///D:/work/seeko/seeko-front/super/warnings.html";
+        window.location.href = "warnings.html";
 	} catch (error) {
 		console.error("Error fetching connections:", error);
 	}
 });
 //-------------------------------------------------------------------------------------------------------------------
-// accept event
+// warning event
 warning.addEventListener('click', async () => {
 	try {
         const warningInput = document.getElementById('warningInput').value;
@@ -53,20 +50,51 @@ warning.addEventListener('click', async () => {
 			credentials: 'include'
 		}); 
 		if (!response.ok) {
-			const errorData = await response.json(); // Parse JSON error data
-			const messages = errorData?.message || ["Unknown error"]; // Handle potential missing message
-			throw new Error(`Error during signup: ${messages}`); // Handle errors gracefully
+			const errorData = await response.json(); 
+			const messages = errorData?.message || ["Unknown error"]; 
+			throw new Error(`Error during signup: ${messages}`);
 		} 
-        window.location.href =
-        "file:///D:/work/seeko/seeko-front/super/warnings.html";
+		const userName = firstName + '' + lastName;
+		console.log(userName, email)
+		await warningEmail(email, userName)
+        // window.location.href = "warnings.html";
 	} catch (error) {
 		console.error("Error fetching connections:", error);
 	}
-});//-------------------------------------------------------------------------------------------------------------------
-// accept event
+});
+//----------------------------------------------------------------------------------------------
+// warning email
+
+const warningEmail = async (email) => {
+	const firstName = document.getElementById('firstName');
+	const lastName = document.getElementById('lastName');
+	const username = firstName.textContent + ' ' + lastName.textContent
+	const warningInput = document.getElementById('warningInput').value;
+	const res = await fetch("http://localhost:3000/api/v1/admin/warningEmail", {
+		method: "POST",
+		headers: {
+            "Content-Type": "application/json",
+        },
+		body: JSON.stringify({
+			username,
+			message: warningInput,
+			email,
+		}),
+        credentials: 'include'
+	})
+	const message = res.text();
+	console.log(message)
+	if (!res.ok) {
+		const errorData = await response.json();
+		const messages = errorData?.message || ["Unknown error"];
+		throw new Error(`Error during signup: ${messages}`);
+	}
+}
+
+//-------------------------------------------------------------------------------------------------------------------
+// reject event
 reject.addEventListener('click', async () => {
 	try {
-        console.log(5)
 		const response = await fetch(`http://localhost:3000/api/v1/admin/notApprovedUsers/${id}/reject`,{
 			method: "GET",
 			headers:{
@@ -75,12 +103,11 @@ reject.addEventListener('click', async () => {
 			credentials: 'include'
 		}); 
 		if (!response.ok) {
-			const errorData = await response.json(); // Parse JSON error data
-			const messages = errorData?.message || ["Unknown error"]; // Handle potential missing message
-			throw new Error(`Error during signup: ${messages}`); // Handle errors gracefully
+			const errorData = await response.json(); 
+			const messages = errorData?.message || ["Unknown error"]; 
+			throw new Error(`Error during signup: ${messages}`); 
 		} 
-        window.location.href =
-        "file:///D:/work/seeko/seeko-front/super/warnings.html";
+        window.location.href = "warnings.html";
 	} catch (error) {
 		console.error("Error fetching connections:", error);
 	}

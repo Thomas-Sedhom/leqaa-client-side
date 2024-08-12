@@ -6,7 +6,8 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>completeRegistration</title>
    <link rel="stylesheet" href="./css/style.css">
-   </link>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.0.1/dist/css/multi-select-tag.css">
+
 </head>
 
 <body>
@@ -45,16 +46,22 @@
                   <input type="date" id="DOB" name="DOB" placeholder="date of birth" required>
                </div>
                <div class="col-lg-6 col-md-12 col-sm-12">
-                  <label for="nationality">الدولة:</label>
-                  <input type="text" id="nationality" name="nationality" placeholder="nationality" required>
+                  <label for="nationality">Country:</label>
+                  <select id="nationality" name="nationality">
+                     <option value="مصر" selected>مصر</option>
+                  </select>
                </div>
                <div class="col-lg-6 col-md-12 col-sm-12">
                   <label for="governorate">المحافظة:</label>
-                  <input type="text" id="governorate" name="governorate" placeholder="Governorate" required>
+                  <select id="governorate" name="governorate">
+                     <option value="">اختر محافظة</option>
+                  </select>
                </div>
                <div class="col-lg-6 col-md-12 col-sm-12">
                   <label for="city">المدينة:</label>
-                  <input type="text" id="city" name="city" placeholder="City" required>
+                  <select id="city" name="city">
+                     <option value="">اختر مدينة</option>
+                  </select>
                </div>
                <div class="col-lg-6 col-md-12 col-sm-12">
                   <label for="region">المنطقة:</label>
@@ -157,7 +164,7 @@
                <div class="col-lg-6 col-md-12 col-sm-12">
                   <label for="phoneOfGuardian">هاتف ولي الامر:</label>
                   <input type="text" id="phoneOfGuardian" name="phoneOfGuardian" placeholder="Phone Of Guardian"
-                     required title="Please enter the phone number of the guardian">
+                     title="Please enter the phone number of the guardian" required>
                </div>
                <div class="col-lg-6 col-md-12 col-sm-12">
                   <label for="hobbies">الهوايات:</label>
@@ -324,11 +331,23 @@
                   <div id="languagesSection" class="row">
                      <div class="language-section col-lg-6 col-md-12 col-sm-12">
                         <label for="language">لغة تتحدثها:</label>
-                        <input type="text" class="language" id="language" name="languages[0].language"
-                           placeholder="language" required>
+                        <select class="language" id="language" name="languages[0].language" placeholder="Select language" required>
+                           <option value="عربي">عربي</option>
+                           <option value="انجليزي">انجليزي</option>
+                           <option value="فرنسي">فرنسي</option>
+                           <option value="اسباني">اسباني</option>
+                           <option value="الماني">الماني</option>
+                        </select>
                         <label for="level">المستوي:</label>
-                        <input type="text" class="level" id="level" name="languages[0].level" placeholder="level"
-                           required>
+                        <select class="level" id="level" name="languages[0].level" placeholder="Select level" required>
+                           <option value="اللغة الام">اللغة الام</option>
+                           <option value="طلق">طلق</option>
+                           <option value="جيد جدا">جيد جدا</option>
+                           <option value="جيد">جيد</option>
+                           <option value="متوسط">متوسط</option>
+                           <option value="ضعيف">ضعيف</option>
+                           <option value="لا اتحدثها">لا اتحدثها</option>
+                        </select>
                      </div>
                   </div>
                   <button type="button" id="addLanguageButton">اضافة لغة</button>
@@ -340,21 +359,24 @@
                   <input type="file" id="faceImage" name="faceImage" accept="image/*" required>
                   <div id="faceImagePreview" class="preview"></div>
                </div>
-
-               <div class="photo-upload col-lg-6 col-md-12 col-sm-12">
-                  <label for="fullImage" class="custom-file-upload">
-                     <i class="fas fa-cloud-upload-alt"></i> صورة كاملة
-                  </label>
-                  <input type="file" id="fullImage" name="fullImage" accept="image/*" required>
-                  <div id="fullImagePreview" class="preview"></div>
-               </div>
-
                <div class="photo-upload col-lg-6 col-md-12 col-sm-12">
                   <label for="idImage" class="custom-file-upload">
                      <i class="fas fa-cloud-upload-alt"></i> صورة للبطاقة
                   </label>
                   <input type="file" id="idImage" name="idImage" accept="image/*" required>
                   <div id="idImagePreview" class="preview"></div>
+               </div>
+               <div class="photo-upload fullContainer col-lg-6 col-md-12 col-sm-12">
+                  <div id="fullImageSection" class="row">
+                     <div class="image-section col-lg-6 col-md-12 col-sm-12">
+                        <label for="fullImage1" class="custom-file-upload">
+                           <i class="fas fa-cloud-upload-alt"></i>صورة كاملة
+                        </label>
+                        <input type="file" id="fullImage1" name="fullImage" class="fullImage" accept="image/*" required>
+                        <div class="preview"></div>
+                     </div>
+                  </div>
+                  <button type="button" id="addFullImage">اضافة صورة كاملة</button>
                </div>
 
                <!-- <div class="photo-upload col-lg-6 col-md-12 col-sm-12">
@@ -365,7 +387,7 @@
                   <div id="manWithIdImagePreview" class="preview"></div>
                   <span id="manWithIdImageError" class="error-message"></span>
                </div> -->
-               <div class="submit">
+               <div class="submit col-sm-12 col-lg-12 col-md-12" >
                   <button type="submit">Submit Registration</button>
                </div>
 
@@ -414,3 +436,4 @@
 </body>
 
 </html>
+

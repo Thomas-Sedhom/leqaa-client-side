@@ -1,5 +1,4 @@
 const logout = document.querySelector('.logout');
-console.log(logout);
 
 logout.addEventListener('click', async (e) => {
     e.preventDefault()
@@ -11,9 +10,9 @@ logout.addEventListener('click', async (e) => {
         credentials: 'include',
     })
     if (!res.ok) {
-        const errorData = await response.json(); // Parse JSON error data
-        const messages = errorData?.message || ["Unknown error"]; // Handle potential missing message
-        throw new Error(`Error during signup: ${messages}`); // Handle errors gracefully
+        const errorData = await response.json();
+        const messages = errorData?.message || ["Unknown error"];
+        throw new Error(`Error during signup: ${messages}`);
     }
-    window.location.href = `file:///D:/work/seeko/seeko-front/login.html`; // Removed setTimeout
+    window.location.href = `../login.html`;
 })
